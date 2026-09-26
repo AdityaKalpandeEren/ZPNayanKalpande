@@ -12,5 +12,5 @@ window.NK_CONFIG = {
     appId: "1:520797547278:web:1b63c260b45afd613b455f"
   },
   /* Contact shown in the privacy policy (email or mobile). Replace the text between the quotes. */
-  contact: "PASTE: your email or mobile number"
+  contact: "adityakalpande11@gmail.com"
 };
