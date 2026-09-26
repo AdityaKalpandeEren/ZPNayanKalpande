@@ -1,3 +1,4 @@
+/* © 2026 Nayan Kalpande. All rights reserved. See LICENSE. */
 /* Offline support: pages load from the internet when available (so updates appear at once)
    and from the saved copy when there is no internet. */
 const CACHE = 'nk-cache-v1';

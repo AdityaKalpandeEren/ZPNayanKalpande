@@ -1,3 +1,4 @@
+/* © 2026 Nayan Kalpande. All rights reserved. See LICENSE. */
 /* =========================================================
    Nayan Kalpande – shared login layer (used by both apps)
    Login: 10-digit mobile number + 6-digit PIN (free, no SMS)

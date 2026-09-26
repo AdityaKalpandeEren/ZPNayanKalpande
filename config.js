@@ -1,3 +1,4 @@
+/* © 2026 Nayan Kalpande. All rights reserved. See LICENSE. */
 /* ===== Nayan Kalpande – settings =====
    Firebase web settings for project "nayan-kalpande".
    These values are safe to be public; data is protected by the Firestore security rules. */
