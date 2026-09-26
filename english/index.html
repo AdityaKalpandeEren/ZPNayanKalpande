@@ -6,6 +6,7 @@
 <meta name="copyright" content="© 2026 Nayan Kalpande. All rights reserved.">
 <!-- © 2026 Nayan Kalpande. All rights reserved. Copying, modifying or re-publishing this code or content without written permission is prohibited. See LICENSE. -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f2d6b">
 <title>Nayan Kalpande English</title>
 <script>window.NK_APP="english";</script>
 <script src="../config.js"></script>
@@ -15,212 +16,230 @@
 <link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Baloo+2:wght@600;700;800&family=Mukta:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#fbfbf6; --ink:#1f2d6b; --muted:#5a6280; --card:#ffffff; --line:#dde2ec; --soft:#eef2fa;
-  --blue:#86aee0; --red:#e4726a; --leaf:#2d8656; --sun:#f0b429; --ok:#1d8a4b; --bad:#c3342a;
+  --paper:#fbfbf6; --grid:rgba(134,174,224,.18); --ink:#1f2d6b; --muted:#5a6280;
+  --card:#ffffff; --line:#dde2ec; --slate:#1f2d6b; --chalk:#fbfbf6;
+  --marigold:#f0b429; --margin:#e4726a; --leaf:#2d8656; --ok:#1d8a4b; --bad:#c3342a; --soft:#eef3fb; --sel:#fff4dc;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#121826; --ink:#e7ebf7; --muted:#9ea7c0; --card:#1a2233; --line:#2e3a52; --soft:#212c41;
-  --blue:#4f76a8; --red:#c25a52; --leaf:#4cc27d; --sun:#f3c04f; --ok:#4cc27d; --bad:#ff7a6e;}}
+  --paper:#121826; --grid:rgba(79,118,168,.12); --ink:#e7ebf7; --muted:#9ea7c0;
+  --card:#1a2233; --line:#2e3a52; --slate:#2b3a78; --chalk:#f1f3fa; --leaf:#4cc27d;
+  --marigold:#f3b23c; --margin:#ff7b6b; --ok:#4cc27d; --bad:#ff7a6e; --soft:#1f2c3b; --sel:#2d2616;}}
 :root[data-theme="dark"]{
-  --paper:#121826; --ink:#e7ebf7; --muted:#9ea7c0; --card:#1a2233; --line:#2e3a52; --soft:#212c41;
-  --blue:#4f76a8; --red:#c25a52; --leaf:#4cc27d; --sun:#f3c04f; --ok:#4cc27d; --bad:#ff7a6e;}
+  --paper:#121826; --grid:rgba(79,118,168,.12); --ink:#e7ebf7; --muted:#9ea7c0;
+  --card:#1a2233; --line:#2e3a52; --slate:#2b3a78; --chalk:#f1f3fa; --leaf:#4cc27d;
+  --marigold:#f3b23c; --margin:#ff7b6b; --ok:#4cc27d; --bad:#ff7a6e; --soft:#1f2c3b; --sel:#2d2616;}
 *{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:"Andika","Mukta","Noto Sans Devanagari",sans-serif;font-size:17px;line-height:1.6}
-.mr{font-family:"Mukta","Noto Sans Devanagari","Mangal",sans-serif}
-h1,h2,h3,.bar-title{font-family:"Baloo 2","Andika",sans-serif}
-.wrap{max-width:720px;margin:0 auto;padding:16px}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:"Andika","Mukta","Noto Sans Devanagari",sans-serif;font-size:17px;line-height:1.6;
+  background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px);background-size:100% 30px;
+  -webkit-tap-highlight-color:transparent}
+h1,h2,h3,.bar-title,.num{font-family:"Baloo 2","Mukta","Noto Sans Devanagari",sans-serif}
+button{font-family:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 28px}
 .hidden{display:none!important}
-button{font-family:inherit}
-button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
-/* four-line ruling */
-.ruled{background-image:linear-gradient(transparent calc(20% - 1px),var(--blue) calc(20% - 1px),var(--blue) 20%,transparent 20%,
-  transparent calc(45% - 1px),var(--red) calc(45% - 1px),var(--red) 45%,transparent 45%,
-  transparent calc(70% - 1px),var(--red) calc(70% - 1px),var(--red) 70%,transparent 70%,
-  transparent calc(95% - 1px),var(--blue) calc(95% - 1px),var(--blue) 95%,transparent 95%)}
-.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:3px double var(--red)}
-.bar .wrap{display:flex;align-items:center;gap:10px;padding:10px 14px}
-.bar-title{flex:1;font-weight:800;font-size:19px;line-height:1.2}
-.bar-title small{display:block;font-family:"Mukta",sans-serif;font-weight:500;font-size:13px;color:var(--muted)}
-.iconbtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;min-width:44px;height:44px;font-size:18px;cursor:pointer}
-.hero{padding:26px 0 6px}
-.hero .ruled{padding:6px 4px 2px}
-.hero h1{font-family:"Andika",sans-serif;font-size:42px;line-height:1.12;margin:0;font-weight:700;letter-spacing:.2px}
-.hero p{margin:12px 0 0;color:var(--muted)}
-.std-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 10px}
-.std-tile{border:2px solid var(--line);background:var(--card);border-radius:18px;padding:12px 10px 14px;cursor:pointer;color:var(--ink);text-align:center}
-.std-tile .ruled{height:96px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
-.std-tile .n{font-family:"Andika",sans-serif;font-size:74px;font-weight:700;line-height:1;transform:translateY(-4px)}
-.std-tile .n sup{font-size:26px}
-.std-tile b{font-size:17px}.std-tile .mr{display:block;font-size:15px;color:var(--muted)}
-.std-tile.chosen{border-color:var(--leaf);box-shadow:0 0 0 3px color-mix(in srgb,var(--leaf) 30%,transparent)}
-.note{font-size:14px;color:var(--muted);border-left:3px solid var(--red);padding:4px 10px;margin:18px 0}
-.menu{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
-.tile{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 12px;text-align:left;cursor:pointer;color:var(--ink);min-height:96px}
-.tile .ic{font-size:28px;line-height:1}
-.tile b{display:block;font-family:"Baloo 2",sans-serif;font-size:18px;margin-top:6px;line-height:1.2}
-.tile span{display:block;font-size:13.5px;color:var(--muted);line-height:1.3}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0}
-.card h2{margin:0 0 6px;font-size:23px}.card h3{margin:14px 0 4px;font-size:19px;color:var(--red)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--marigold);outline-offset:2px}
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:2px solid var(--margin)}
+.bar .wrap{display:flex;align-items:center;gap:8px;padding:8px 12px}
+.bar-title{font-weight:800;font-size:18px;flex:1;line-height:1.15;min-width:0}
+.bar-title small{display:block;font-family:"Mukta",sans-serif;font-weight:500;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-title span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconbtn{border:1px solid var(--line);background:var(--card);border-radius:12px;min-width:44px;height:44px;font-size:17px;cursor:pointer;padding:0 10px;flex:0 0 auto}
+.iconbtn:active{transform:scale(.96)}
+/* page enter */
+.page{animation:enter .22s ease-out}
+@keyframes enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page{animation:none}*{transition:none!important;scroll-behavior:auto!important}}
+/* home */
+.hero{padding:22px 2px 6px}
+.hero h1{font-size:38px;line-height:1.05;margin:0;letter-spacing:-.4px}
+.hero h1 span{display:block;font-size:21px;color:var(--margin);margin-top:6px;font-weight:700}
+.hero p{color:var(--muted);margin:10px 0 0}
+.hello{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin-top:14px}
+.hello span{flex:1}
+.std-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 6px}
+.std-tile{background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:18px;padding:12px 10px 14px;cursor:pointer;text-align:center;transition:transform .12s}
+.std-tile .num{background-image:linear-gradient(transparent 19%,#86aee0 19%,#86aee0 20.5%,transparent 20.5%,transparent 44%,#e4726a 44%,#e4726a 45.5%,transparent 45.5%,transparent 69%,#e4726a 69%,#e4726a 70.5%,transparent 70.5%,transparent 94%,#86aee0 94%,#86aee0 95.5%,transparent 95.5%);font-family:"Andika",sans-serif}
+.std-tile:active{transform:translateY(3px)}
+.std-tile .num{font-size:78px;line-height:1;font-weight:800;display:block}
+.std-tile b{font-size:18px;display:block}
+.std-tile small{display:block;opacity:.85;font-size:13.5px;margin-top:2px}
+.std-tile.chosen{outline:4px solid var(--leaf);outline-offset:3px}
+.pbar{height:8px;border-radius:8px;background:var(--line);overflow:hidden;margin:8px 10px 0}
+.pbar i{display:block;height:100%;background:var(--leaf);border-radius:8px}
+.cont{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:var(--sel);border:1.5px solid var(--marigold);border-radius:16px;padding:12px 14px;margin:14px 0 0;cursor:pointer}
+.cont b{display:block;font-family:"Baloo 2",sans-serif;font-size:17px}
+.cont span{color:var(--muted);font-size:14px}
+.note{font-size:14px;color:var(--muted);border-left:3px solid var(--margin);padding:4px 10px;margin:18px 0 6px}
+/* list */
+.head2{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:6px 0 2px}
+.head2 h2{margin:0;font-size:23px}
+.prog{font-size:14px;color:var(--muted)}
+.lpbar{height:10px;border-radius:10px;background:var(--line);overflow:hidden;margin:6px 0 10px}
+.lpbar i{display:block;height:100%;background:linear-gradient(90deg,var(--ok),var(--marigold));border-radius:10px;transition:width .4s}
+.search{position:relative;margin:8px 0 6px}
+.search input{padding-left:40px}
+.search::before{content:"🔍";position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:15px;opacity:.7}
+.chap{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;margin:9px 0;cursor:pointer;transition:border-color .15s,transform .1s}
+.chap:active{transform:scale(.99)}
+.chap .no{flex:0 0 50px;height:50px;border-radius:14px;background:var(--slate);color:var(--chalk);display:grid;place-items:center;font-size:22px;font-weight:800;font-family:"Baloo 2",sans-serif;position:relative}
+.chap.done .no{background:var(--ok)}
+.chap.done .no::after{content:"✓";position:absolute;right:-6px;bottom:-6px;width:20px;height:20px;border-radius:50%;background:var(--marigold);color:#1b1b1b;font-size:12px;display:grid;place-items:center;font-family:sans-serif}
+.chap .tx{flex:1;min-width:0}
+.chap b{display:block;font-family:"Baloo 2",sans-serif;font-size:18px;line-height:1.25}
+.chap .tx span{font-size:13.5px;color:var(--muted);display:block;line-height:1.35}
+.stars{font-size:14px;letter-spacing:1px;color:var(--marigold);white-space:nowrap}
+.extra{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.xbtn{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;cursor:pointer;text-align:left}
+.xbtn b{display:block;font-family:"Baloo 2",sans-serif;font-size:16.5px}
+.xbtn span{font-size:13px;color:var(--muted)}
+.xbtn.wide{grid-column:1/-1;background:var(--slate);color:var(--chalk);border:0}
+.xbtn.wide span{color:var(--chalk);opacity:.85}
+/* chapter */
+.chhead{display:flex;gap:12px;align-items:center;margin:4px 0 10px}
+.chhead .no{flex:0 0 56px;height:56px;border-radius:16px;background:var(--slate);color:var(--chalk);display:grid;place-items:center;font-size:26px;font-weight:800;font-family:"Baloo 2",sans-serif}
+.chhead h2{margin:0;font-size:24px;line-height:1.15}
+.chhead small{color:var(--muted);font-size:13.5px}
+.tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 62px);z-index:10;display:flex;gap:6px;overflow-x:auto;padding:6px 0 8px;background:linear-gradient(var(--paper) 80%,transparent);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:15.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 18px;margin:12px 0}
+.card h2{margin:0 0 6px;font-size:22px}
+.card h3{margin:16px 0 4px;font-size:18.5px;color:var(--margin)}
 .card p{margin:6px 0}
-.qa{background:var(--soft);border-left:4px solid var(--blue);padding:8px 12px;border-radius:8px;margin:8px 0}
-.rule{border:2px dashed var(--sun);border-radius:12px;padding:10px 12px;margin:10px 0}
-.eg{background:var(--soft);border-radius:10px;padding:8px 12px;margin:6px 0}
+.key{background:var(--sel);border:1.5px solid var(--marigold);border-radius:16px;padding:12px 14px 12px 16px;margin:12px 0}
+.key h3{margin:0 0 4px;color:var(--ink);font-size:18px}
+.key ul{margin:4px 0 0;padding-left:20px}
+.def{background:var(--soft);border-radius:12px;padding:10px 12px;margin:10px 0}
+.rule{border:2px dashed var(--marigold);border-radius:12px;padding:10px 12px;margin:10px 0;font-weight:500}
+.eg{background:var(--soft);border-left:4px solid var(--ink);padding:8px 12px;border-radius:8px;margin:8px 0}
+.sol{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:var(--paper)}
+.sol .qq{font-weight:700;margin-bottom:6px}
+.sol .step{padding-left:12px;border-left:3px solid var(--line);margin:3px 0}
+.sol .fin{font-weight:700;color:var(--ok);margin-top:6px}
+.hist{border-left:4px solid var(--margin);background:color-mix(in srgb,var(--margin) 8%,transparent);border-radius:8px;padding:8px 12px;margin:10px 0;font-size:15.5px}
 ul,ol{padding-left:22px;margin:6px 0}li{margin:4px 0}
-.btn{background:var(--leaf);color:#fff;border:0;border-radius:12px;padding:11px 16px;font-size:17px;font-weight:700;cursor:pointer}
-.btn.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
-.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.listen{background:var(--soft);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 12px;cursor:pointer;font-size:15px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
-.chip{border:1.5px solid var(--line);background:var(--paper);border-radius:12px;padding:6px 12px;cursor:pointer;color:var(--ink);text-align:left;font-size:17px}
-.chip small{display:block;font-family:"Mukta",sans-serif;font-size:13.5px;color:var(--muted);line-height:1.25}
-.chip:active{background:var(--soft)}
 .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;min-width:100%;margin:8px 0}th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;white-space:nowrap}th{background:var(--soft)}
-input,textarea,select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:18px;background:var(--paper);color:var(--ink);font-family:"Andika","Mukta",sans-serif}
-textarea{min-height:90px;resize:vertical}
-.out:empty{display:none}.out{margin-top:10px}
-.ok{color:var(--ok);font-weight:700}.err{color:var(--bad);font-weight:700}
-/* jumble */
-.slot{min-height:56px;border:2px dashed var(--blue);border-radius:12px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.word{border:0;background:var(--ink);color:var(--paper);border-radius:10px;padding:8px 12px;font-size:18px;cursor:pointer}
-.slot .word{background:var(--leaf);color:#fff}
-/* flash */
-.flash{border:2px solid var(--line);border-radius:18px;min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:var(--card);padding:16px;text-align:center}
-.flash .en{font-size:38px;font-weight:700}.flash .m{font-size:24px;color:var(--leaf)}
+table{border-collapse:collapse;margin:8px 0;min-width:100%}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:center;white-space:nowrap}
+th{background:var(--soft);font-weight:700}
+td.dv{background:var(--slate);color:var(--chalk);font-weight:700}
+td.wrap{white-space:normal;text-align:left}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1 1 120px}
+label{font-size:14px;color:var(--muted);display:block}
+input,select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:18px;background:var(--paper);color:var(--ink);font-family:inherit}
+input:focus,select:focus{border-color:var(--marigold)}
+.go{background:var(--margin);color:#fff;border:0;border-radius:12px;padding:12px 18px;font-size:18px;font-weight:700;cursor:pointer;margin-top:10px;width:100%}
+.go.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.go:active{transform:scale(.99)}
+.out{margin-top:12px}.out:empty{display:none}
+.ans{font-size:22px;font-weight:700;color:var(--ok)}
+.err{color:var(--bad);font-weight:600}
+.shapes{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:10px;margin:8px 0}
+.shape{border:1px solid var(--line);border-radius:12px;padding:8px;text-align:center;background:var(--paper)}
+.shape svg{width:100%;height:auto;max-width:150px}
+.shape b{display:block;font-family:"Baloo 2",sans-serif;font-size:16.5px}
+.shape span{font-size:13.5px;color:var(--muted);line-height:1.35;display:block}
+svg .s{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+svg .a{fill:none;stroke:var(--margin);stroke-width:2.5}
+svg .f{fill:var(--soft);stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round}
+svg text{fill:var(--ink);font-family:"Mukta",sans-serif;font-size:14px}
+input[type=range]{padding:0;accent-color:var(--margin);height:32px}
+.tag{display:inline-block;background:var(--marigold);color:#1b1b1b;border-radius:8px;padding:2px 10px;font-weight:700}
+.navrow{display:flex;gap:8px;margin:18px 0 4px}
+.navrow button{flex:1;border:1.5px solid var(--line);background:var(--card);border-radius:12px;padding:12px 8px;font-size:15.5px;font-weight:700;cursor:pointer}
+.navrow .donebtn{background:var(--ok);color:#fff;border-color:var(--ok)}
+.navrow .donebtn.is{background:var(--card);color:var(--ok)}
+.navrow button:disabled{opacity:.4}
 /* quiz */
-.q{border:1px solid var(--line);border-radius:14px;padding:12px;margin:12px 0;background:var(--card)}
-.q p{margin:0 0 8px;font-weight:700}
-.opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:10px 12px;margin:6px 0;font-size:16.5px;cursor:pointer}
+.qz{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}
+.qdots{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.qdots i{width:22px;height:6px;border-radius:4px;background:var(--line)}
+.qdots i.r{background:var(--ok)}.qdots i.w{background:var(--bad)}.qdots i.c{background:var(--marigold)}
+.qtext{font-size:18.5px;font-weight:700;margin:4px 0 10px}
+.opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--paper);border-radius:12px;padding:12px 14px;margin:8px 0;font-size:17px;cursor:pointer;transition:border-color .12s,background .12s}
+.opt:active{transform:scale(.99)}
 .opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
 .opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,transparent)}
-.why{font-size:15px;margin-top:6px;color:var(--muted)}
-.scorebar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);background:var(--ink);color:var(--paper);border-radius:12px;padding:8px 14px;font-weight:700;display:flex;justify-content:space-between;align-items:center;z-index:3}
-.scorebar button{background:var(--paper);color:var(--ink);border:0;border-radius:8px;padding:6px 12px;font-weight:700;cursor:pointer}
+.why{font-size:15.5px;margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--soft)}
+.result{text-align:center;padding:10px 0}
+.result .big{font-size:48px;line-height:1.1}
+.result b{font-family:"Baloo 2",sans-serif;font-size:26px;display:block}
+/* games */
+.hanoi{display:flex;gap:8px;justify-content:space-between;margin:10px 0;user-select:none}
+.peg{flex:1;min-height:170px;border:1.5px solid var(--line);border-radius:12px;display:flex;flex-direction:column-reverse;align-items:center;padding:8px 4px;cursor:pointer;background:var(--paper);position:relative}
+.peg::before{content:"";position:absolute;bottom:8px;top:14px;width:6px;border-radius:3px;background:var(--line);left:calc(50% - 3px)}
+.peg.sel{border-color:var(--marigold);background:var(--sel)}
+.disk{height:18px;border-radius:9px;margin-top:3px;position:relative;z-index:1;border:1px solid rgba(0,0,0,.15)}
+.cards5{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.mcard{border:1.5px solid var(--line);border-radius:12px;padding:8px;background:var(--paper);font-size:14.5px}
+.mcard .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;text-align:center;margin:6px 0}
+.mcard .yn{display:flex;gap:6px}
+.mcard .yn button{flex:1;border:1.5px solid var(--line);background:var(--card);border-radius:8px;padding:6px;cursor:pointer;font-weight:700}
+.mcard .yn button.on{background:var(--ink);color:var(--paper)}
+.mr{font-family:"Mukta","Noto Sans Devanagari",sans-serif}
+.en{font-family:"Andika",sans-serif}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{border:1.5px solid var(--line);background:var(--paper);border-radius:12px;padding:6px 12px;cursor:pointer;text-align:left;font-size:17px;font-family:"Andika",sans-serif}
+.chip small{display:block;font-family:"Mukta",sans-serif;font-size:13.5px;color:var(--muted);line-height:1.25}
+.chip:active{background:var(--soft)}
+.listen{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:6px 12px;cursor:pointer;font-size:15px}
+.wl{display:flex;gap:10px;align-items:flex-start;border-bottom:1px solid var(--line);padding:10px 2px}
+.wl .spk{flex:0 0 40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:17px}
+.wl b{font-family:"Andika",sans-serif;font-size:19px}
+.wl .m{color:var(--leaf);font-family:"Mukta",sans-serif;font-weight:700}
+.slot{min-height:56px;border:2px dashed #86aee0;border-radius:12px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.word{border:0;background:var(--ink);color:var(--paper);border-radius:10px;padding:8px 12px;font-size:18px;cursor:pointer;font-family:"Andika",sans-serif}
+.slot .word{background:var(--leaf);color:#fff}
+.flash{border:2px solid var(--line);border-radius:18px;min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:var(--card);padding:16px;text-align:center}
+.flash .fe{font-size:38px;font-weight:700;font-family:"Andika",sans-serif}.flash .fm{font-size:18px;color:var(--muted)}.flash .fmr{font-size:24px;color:var(--leaf);font-family:"Mukta",sans-serif}
 .timer{font-size:44px;font-weight:700;text-align:center;font-family:"Andika",sans-serif}
-.dict td{white-space:normal}
-.acct{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin-top:14px}.acct span{flex:1}
-footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 30px}
+textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:18px;background:var(--paper);color:var(--ink);font-family:"Andika","Mukta",sans-serif;min-height:90px;resize:vertical}
+.unit{font-family:"Baloo 2",sans-serif;font-size:15px;color:var(--margin);margin:16px 0 0;font-weight:700;letter-spacing:.3px}
+.type{display:inline-block;background:var(--soft);border-radius:8px;padding:1px 8px;font-size:13px;color:var(--muted);margin-left:4px}
+.go{background:var(--leaf)!important}.go.alt{background:var(--card)!important}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:18px 16px 30px}
+footer a{color:inherit}
 </style>
 </head>
 <body>
-<div class="bar hidden" id="bar"><div class="wrap">
-  <button class="iconbtn" id="backBtn" aria-label="Back">←</button>
-  <div class="bar-title" id="barTitle">Nayan Kalpande English</div>
-</div></div>
+<div class="bar hidden" id="bar">
+  <div class="wrap">
+    <button class="iconbtn" id="backBtn" aria-label="Back">←</button>
+    <div class="bar-title" id="barTitle">Nayan Kalpande English</div>
+    <button class="iconbtn" id="spdBtn" aria-label="Reading speed">🐢</button>
+  </div>
+</div>
 <main class="wrap" id="app"></main>
-<footer><a href="../privacy.html" style="color:inherit">Privacy policy</a> · Nayan Kalpande English · Std 6 &amp; 7 · Learn · Practise · Speak · Test<br><a href="https://github.com/AdityaKalpandeEren/ZPNayanKalpande/blob/main/LICENSE" style="color:inherit">© 2026 Nayan Kalpande · सर्व हक्क राखीव · All rights reserved</a></footer>
-
+<footer><a href="../privacy.html">Privacy policy</a> · Nayan Kalpande English · Practice based on Maharashtra State Board (Balbharati) My English Book, Std 6 (2026) &amp; Std 7<br><a href="https://github.com/AdityaKalpandeEren/ZPNayanKalpande/blob/main/LICENSE">© 2026 Nayan Kalpande · सर्व हक्क राखीव · All rights reserved</a></footer>
 <script>
-/* =================== DATA =================== */
-const LESSONS6 = {
-"1.1 Monsoon":`<h2>1.1 Monsoon</h2><p><b>Learning focus:</b> Understand the rainy season, describe weather and use suitable vocabulary.</p><h3>Key vocabulary</h3><p>rain, cloud, storm, puddle, umbrella, wet, season</p><h3>Think &amp; Answer</h3><div class="qa">What do you like about the monsoon?</div><div class="qa">How does rain help plants and animals?</div><h3>Speaking</h3><p>Describe a rainy day in 5 sentences.</p>`,
-"1.2 The Crow and the Snake":`<h2>1.2 The Crow and the Snake</h2><p><b>Learning focus:</b> Read a story, identify characters, sequence events and discuss problem-solving.</p><h3>Think &amp; Answer</h3><div class="qa">Who are the main characters?</div><div class="qa">What problem do they face?</div><div class="qa">How is the problem solved?</div><h3>Speaking</h3><p>Retell the story in your own words.</p>`,
-"1.3 Secret Plan of the Vegetables":`<h2>1.3 Secret Plan of the Vegetables</h2><p><b>Learning focus:</b> Talk about vegetables, healthy food and teamwork.</p><h3>Vocabulary</h3><p>vegetable, healthy, farmer, garden, plan, grow, fresh</p><h3>Think &amp; Answer</h3><div class="qa">Which vegetables do you eat?</div><div class="qa">Why are vegetables important?</div><h3>Activity</h3><p>Make a list of five vegetables and one health benefit for each.</p>`,
-"1.4 The People Who Protect Nature":`<h2>1.4 The People Who Protect Nature</h2><p><b>Learning focus:</b> Understand how people protect forests, water and biodiversity.</p><h3>Key ideas</h3><ul><li>Forests provide air, water, food and shelter.</li><li>People can protect nature through planting and conservation.</li><li>Saving local resources helps communities.</li></ul><h3>Think &amp; Answer</h3><div class="qa">How can students help protect nature?</div><div class="qa">Why should we save water?</div>`,
-"1.5 One Thing that I Wonder":`<h2>1.5 One Thing that I Wonder</h2><p><b>Learning focus:</b> The poem develops curiosity, observation and questioning about nature and everyday life.</p><h3>Simple understanding</h3><p>The speaker wonders about natural mysteries such as the shape of the world, trees, animals, the sky and other wonders.</p><h3>Think &amp; Answer</h3><div class="qa">What things in nature make you curious?</div><div class="qa">Why is asking questions useful for learning?</div><div class="qa">Write two things you wonder about.</div><h3>Language – Alliteration</h3><p>Alliteration is the repetition of the same beginning consonant sound in nearby words.</p><div class="qa"><b>Example:</b> Busy bees buzz.</div><h3>Minimal Pairs</h3><p>Two words that differ in only <b>one sound</b> and have different meanings.</p><div class="qa">ship – sheep &nbsp;•&nbsp; pen – pan &nbsp;•&nbsp; cat – cut &nbsp;•&nbsp; fan – van</div><h3>Homophones</h3><p>Words that sound <b>the same</b> but have different spellings and meanings.</p><div class="qa">eye – I &nbsp;•&nbsp; bee – be &nbsp;•&nbsp; see – sea &nbsp;•&nbsp; two – too</div><h3>Speaking</h3><p>Say: “One thing that I wonder about is …” and give one reason.</p>`
-};
+/* ================= helpers ================= */
+let std=null;
+try{const s=localStorage.getItem('nke-std'); if(s==='6'||s==='7') std=+s;}catch(e){}
+const app=document.getElementById('app'),$=id=>document.getElementById(id);
+function out(el,html){ if(el) el.innerHTML=html; }
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a}
+const stdName=()=>std===6?'Standard 6 · इयत्ता सहावी':'Standard 7 · इयत्ता सातवी';
+const LESSONS=s=>(s||std)===6?L6:L7;
 
-const VOCAB={
-6:[["wonder","आश्चर्य वाटणे; कुतूहल"],["nature","निसर्ग"],["curious","जिज्ञासू"],["forest","जंगल"],["protect","संरक्षण करणे"],["rainbow","इंद्रधनुष्य"],["spider","कोळी"],["bunny","ससा (लहान ससा)"],["burrow","बीळ"],["monsoon","पावसाळा"],["cloud","ढग"],["storm","वादळ"],["puddle","डबके"],["umbrella","छत्री"],["season","ऋतू"],["wet","ओला"],["vegetable","भाजी"],["healthy","निरोगी; आरोग्यदायी"],["farmer","शेतकरी"],["garden","बाग"],["fresh","ताजा"],["grow","वाढणे; पिकवणे"],["plan","योजना"],["crow","कावळा"],["snake","साप"],["question","प्रश्न"],["discover","शोध लावणे"],["colourful","रंगीबेरंगी"]],
-7:[["adventure","साहस"],["ancient","प्राचीन"],["brave","शूर"],["courage","धैर्य"],["culture","संस्कृती"],["festival","सण"],["journey","प्रवास"],["knowledge","ज्ञान"],["machine","यंत्र"],["environment","पर्यावरण"],["pollution","प्रदूषण"],["harvest","पिकाची कापणी; सुगी"],["honest","प्रामाणिक"],["invention","शोध (नवीन वस्तू)"],["island","बेट"],["medicine","औषध"],["neighbour","शेजारी"],["patience","संयम"],["respect","आदर"],["science","विज्ञान"],["success","यश"],["wisdom","शहाणपण"],["freedom","स्वातंत्र्य"],["history","इतिहास"],["market","बाजार"],["experiment","प्रयोग"],["cleanliness","स्वच्छता"],["habit","सवय"],["precious","मौल्यवान"],["soldier","सैनिक"]]
-};
-
-const WORDS={
-6:[
-{t:"Short ‘a’ sound (as in cat)",w:[["cat","मांजर"],["bat","वटवाघूळ; बॅट"],["hat","टोपी"],["mat","चटई"],["bag","पिशवी; दप्तर"],["man","माणूस"],["fan","पंखा"],["map","नकाशा"]]},
-{t:"Long ‘ee’ sound (as in tree)",w:[["tree","झाड"],["bee","मधमाशी"],["see","पाहणे"],["feet","पाय (अनेकवचन)"],["green","हिरवा"],["sleep","झोपणे"],["seed","बी"],["sheep","मेंढी"]]},
-{t:"‘oo’ sound (as in moon)",w:[["moon","चंद्र"],["spoon","चमचा"],["food","अन्न"],["school","शाळा"],["room","खोली"],["pool","तलाव"],["tooth","दात"]]},
-{t:"‘sh’ sound",w:[["ship","जहाज"],["shop","दुकान"],["fish","मासा"],["dish","ताट; पदार्थ"],["shoe","बूट"],["wash","धुणे"],["brush","ब्रश"]]},
-{t:"‘ch’ sound",w:[["chair","खुर्ची"],["chalk","खडू"],["lunch","दुपारचे जेवण"],["bench","बाक"],["teacher","शिक्षक"],["child","मूल"]]},
-{t:"Minimal pairs (one sound changes the word)",w:[["ship","जहाज"],["sheep","मेंढी"],["pen","पेन"],["pan","तवा; कढई"],["cat","मांजर"],["cut","कापणे"],["fan","पंखा"],["van","व्हॅन (गाडी)"],["cap","टोपी"],["cup","कप"]]},
-{t:"Sight words (read them by sight)",w:[["the","(विशिष्ट वस्तू दाखवणारे उपपद)"],["was","होता; होती"],["said","म्हणाला; म्हणाली"],["they","ते; त्या"],["there","तिथे"],["where","कुठे"],["what","काय"],["because","कारण"],["friend","मित्र; मैत्रीण"],["people","लोक"]]}
-],
-7:[
-{t:"Silent letters",w:[["knife","सुरी (k silent)"],["write","लिहिणे (w silent)"],["lamb","कोकरू (b silent)"],["hour","तास (h silent)"],["island","बेट (s silent)"],["listen","ऐकणे (t silent)"],["climb","चढणे (b silent)"],["knee","गुडघा (k silent)"],["wrong","चुकीचे (w silent)"],["honest","प्रामाणिक (h silent)"]]},
-{t:"‘-tion’ words (sound: shun)",w:[["station","स्थानक"],["nation","राष्ट्र"],["education","शिक्षण"],["information","माहिती"],["action","कृती"],["attention","लक्ष"],["direction","दिशा"],["pollution","प्रदूषण"]]},
-{t:"‘ph’ says f",w:[["phone","फोन"],["photo","छायाचित्र"],["elephant","हत्ती"],["alphabet","वर्णमाला"],["dolphin","डॉल्फिन (सागरी सस्तन प्राणी)"],["graph","आलेख"]]},
-{t:"‘ou’ sound (as in house)",w:[["house","घर"],["mouse","उंदीर"],["cloud","ढग"],["loud","मोठ्याने"],["round","गोल"],["mountain","पर्वत"],["shout","ओरडणे"]]},
-{t:"Homophones (same sound, different meaning)",w:[["see","पाहणे"],["sea","समुद्र"],["two","दोन"],["too","सुद्धा; खूप"],["write","लिहिणे"],["right","बरोबर; उजवा"],["hear","ऐकणे"],["here","इथे"],["son","मुलगा"],["sun","सूर्य"],["flower","फूल"],["flour","पीठ"],["meet","भेटणे"],["meat","मांस"],["week","आठवडा"],["weak","अशक्त"]]}
-]};
-
-const JUMBLE={
-6:["The cat is on the mat.","She reads a book.","We play in the garden.","My mother cooks tasty food.","The sun rises in the east.","Birds build their nests.","He is my best friend.","They are playing football."],
-7:["She was watching television.","We will visit the museum.","The boy did not finish his homework.","Have you seen my blue pen?","The teacher asked us a question.","The children were singing a song.","Where do you live?","She has written a letter to her grandmother."]
-};
-const FRAMES={
-6:["I like ___ because ___.","My favourite ___ is ___.","There is a ___ in my ___.","I can ___ but I cannot ___.","My friend’s name is ___."],
-7:["Yesterday I ___.","Tomorrow I will ___.","___ is taller than ___.","If it rains, I will ___.","I was ___ when my friend called me."]
-};
-
-const GRAMMAR={
-6:[
-{h:"Noun (नाम)",m:"व्यक्ती, ठिकाण, प्राणी किंवा वस्तू यांच्या नावाला नाम म्हणतात.",e:["Ravi lives in Amravati.","The dog is under the tree.","I have a new book."],x:"Ravi, Amravati, dog, tree, book हे नाम आहेत."},
-{h:"Pronoun (सर्वनाम)",m:"नामाऐवजी वापरल्या जाणाऱ्या शब्दाला सर्वनाम म्हणतात. I, we, you, he, she, it, they.",e:["Ravi is my friend. He is kind.","Meena is in Class 6. She likes drawing."],x:"He = Ravi, She = Meena."},
-{h:"Verb (क्रियापद)",m:"क्रिया दाखवणाऱ्या शब्दाला क्रियापद म्हणतात.",e:["Birds fly.","We read books.","The baby sleeps."],x:"fly, read, sleeps ही क्रियापदे आहेत."},
-{h:"Adjective (विशेषण)",m:"नामाबद्दल अधिक माहिती सांगणाऱ्या शब्दाला विशेषण म्हणतात (रंग, आकार, संख्या, गुण).",e:["She has a red bag.","The tall boy runs fast.","I saw three birds."],x:"red, tall, three ही विशेषणे आहेत."},
-{h:"Articles: a, an, the",m:"व्यंजन उच्चाराने सुरू होणाऱ्या शब्दापूर्वी a, स्वर उच्चाराने (a, e, i, o, u चा उच्चार) सुरू होणाऱ्या शब्दापूर्वी an, आणि विशिष्ट किंवा एकमेव वस्तूपूर्वी the वापरतात. नियम अक्षरावर नाही, उच्चारावर अवलंबून आहे.",e:["a cat, a book, a university (यु उच्चार)","an apple, an egg, an hour (h उच्चारला जात नाही)","the sun, the moon, the book on the table"],x:""},
-{h:"Singular – Plural (एकवचन – अनेकवचन)",m:"बहुतेक शब्दांना -s लावतात. s, x, ch, sh ने शेवट होणाऱ्या शब्दांना -es लावतात. व्यंजन + y असल्यास y जाऊन -ies लागते. काही शब्द पूर्ण बदलतात.",e:["book → books, pen → pens","box → boxes, bench → benches, dish → dishes","baby → babies, story → stories","man → men, woman → women, child → children, tooth → teeth, foot → feet, mouse → mice"],x:""},
-{h:"Simple Present Tense (साधा वर्तमानकाळ)",m:"रोजच्या सवयी व कायमची सत्ये सांगण्यासाठी. He, She, It किंवा एकवचनी नामासोबत क्रियापदाला -s / -es लागते.",e:["I play cricket every day.","She plays kho-kho.","The sun rises in the east.","He does not eat meat. (नकार: do not / does not)","Do you like mangoes? (प्रश्न: Do / Does)"],x:""}
-],
-7:[
-{h:"Tenses (काळ)",m:"क्रिया केव्हा घडते ते काळ सांगतो. खालील वाक्ये एकाच क्रियेचे वेगवेगळे काळ दाखवतात.",tbl:[["Simple Present","She writes a letter.","V1 / V1+s"],["Simple Past","She wrote a letter.","V2"],["Simple Future","She will write a letter.","will + V1"],["Present Continuous","She is writing a letter.","am/is/are + V-ing"],["Past Continuous","She was writing a letter.","was/were + V-ing"],["Present Perfect","She has written a letter.","has/have + V3"]]},
-{h:"Verb forms (V1 – V2 – V3)",m:"काही क्रियापदांची रूपे नियमित नसतात. ती पाठ करा.",tbl:[["go","went","gone"],["eat","ate","eaten"],["write","wrote","written"],["see","saw","seen"],["come","came","come"],["take","took","taken"],["give","gave","given"],["drink","drank","drunk"],["sing","sang","sung"],["run","ran","run"],["buy","bought","bought"],["teach","taught","taught"],["think","thought","thought"],["speak","spoke","spoken"],["do","did","done"]],hdr:["V1","V2","V3"]},
-{h:"Adverb (क्रियाविशेषण)",m:"क्रिया कशी, केव्हा किंवा कुठे घडते ते सांगणारा शब्द.",e:["He runs fast. (कशी)","She speaks softly. (कशी)","We will go tomorrow. (केव्हा)","Please sit here. (कुठे)"],x:""},
-{h:"Preposition (शब्दयोगी अव्यय)",m:"नाम किंवा सर्वनामाचा वाक्यातील इतर शब्दांशी संबंध (जागा, वेळ, दिशा) दाखवणारा शब्द: in, on, under, between, behind, near.",e:["The book is on the table.","The cat is under the bed.","Our school is near the temple.","Meena sits between Ravi and Amit."],x:""},
-{h:"Conjunction (उभयान्वयी अव्यय)",m:"दोन शब्द किंवा दोन वाक्ये जोडणारा शब्द: and, but, or, because, so.",e:["Ravi and Amit are friends.","I was tired, but I finished my work.","Do you want tea or milk?","He stayed home because he was ill.","It was raining, so we stayed inside."],x:""},
-{h:"Degrees of Comparison (तुलना)",m:"Positive (मूळ) → Comparative (दोघांची तुलना) → Superlative (अनेकांत सर्वाधिक).",tbl:[["tall","taller","tallest"],["big","bigger","biggest"],["happy","happier","happiest"],["beautiful","more beautiful","most beautiful"],["good","better","best"],["bad","worse","worst"],["many","more","most"]],hdr:["Positive","Comparative","Superlative"]},
-{h:"Punctuation (विरामचिन्हे)",m:"वाक्याची सुरुवात कॅपिटल अक्षराने करा. I हा शब्द नेहमी कॅपिटल. व्यक्ती व ठिकाणांची नावे कॅपिटलने सुरू करा.",e:["Full stop ( . ) – I go to school.","Question mark ( ? ) – Where do you live?","Exclamation mark ( ! ) – What a lovely garden!","Comma ( , ) – I bought pens, pencils and books."],x:""}
-]};
-
-const READING={
-6:[
-{lv:"🟢 Level 1 – Easy Reading",t:"My School",p:"My school is a happy place. I come to school every day. I learn new things with my friends. My teachers help me read, write and speak English. I like my school."},
-{lv:"🟡 Level 2 – Practice Reading",t:"Nature Around Us",p:"Nature is full of wonderful things. We can see green trees, colourful flowers, birds and insects around us. Sometimes we stop and ask questions. Why do birds fly? Why does rain fall? Such questions make us curious and help us learn."},
-{lv:"🔵 Level 3 – Fluency Reading",t:"One Thing I Wonder",p:"Every day, I notice something interesting in the world around me. I wonder how tiny seeds become large trees. I wonder how birds know where to fly. I wonder why the sky changes colour at sunset. When I ask questions, I discover new ideas and understand the world better."}],
-7:[
-{lv:"🟢 Level 1 – Easy Reading",t:"Our Village Market",p:"Every Sunday, there is a market in our village. Farmers bring fresh vegetables and fruits. People buy rice, oil and spices. Children enjoy the colourful toys and sweets. The market is noisy, but it is full of life."},
-{lv:"🟡 Level 2 – Practice Reading",t:"Save Water",p:"Water is precious. Every living thing needs water to survive. We should close the tap while brushing our teeth. We can collect rainwater and use it for plants. Small habits at home can save a lot of water for the future."},
-{lv:"🔵 Level 3 – Fluency Reading",t:"A Visit to the Fort",p:"Last winter, our class visited an old fort near our town. The walls were tall and made of heavy black stone. Our teacher told us about the brave soldiers who once guarded it. From the top, we could see green fields and a river shining in the sun. We returned home tired but full of stories."}]
-};
-const PRON={6:["nature","curious","wonder","colourful","question","discover"],7:["precious","survive","environment","soldier","knowledge","island"]};
-
-const SPEAK={
-6:["One thing that I wonder about is …","Describe a rainy day in 5 sentences.","Introduce yourself: name, class, school, village and hobby.","My favourite vegetable is … because …"],
-7:["My favourite festival is … (say how you celebrate it).","How can we keep our school clean? Give three ideas.","A person I admire is … because …","What did you do last Sunday? (Use past tense: went, played, helped…)"]
-};
-
-const QUIZ={
-6:[
-{q:"What does the poem ‘One Thing that I Wonder’ encourage?",o:["Avoiding questions","Curiosity and observation"],a:1,e:"The poem is about wondering and asking questions."},
-{q:"Which is an example of alliteration?",o:["Busy bees buzz.","The sky is blue."],a:0,e:"Busy, bees, buzz all begin with the same ‘b’ sound."},
-{q:"What is a minimal pair?",o:["Two words differing in one sound with different meanings","Two words with exactly the same meaning"],a:0,e:"Example: ship – sheep."},
-{q:"Which pair is a minimal pair?",o:["see – sea","ship – sheep","two – too"],a:1,e:"ship and sheep differ in one vowel sound. see–sea and two–too sound the same; they are homophones."},
-{q:"Choose the correct article: ___ apple",o:["a","an","the"],a:1,e:"‘apple’ begins with a vowel sound, so we use ‘an’."},
-{q:"What is the plural of ‘child’?",o:["childs","childes","children"],a:2,e:"child → children (irregular plural)."},
-{q:"Which word is a noun?",o:["run","river","quickly","beautiful"],a:1,e:"A river is the name of a thing/place."},
-{q:"She ___ to school every day.",o:["go","goes","going"],a:1,e:"With ‘she’ in simple present tense we add -es: goes."},
-{q:"Find the adjective: ‘The tall boy runs.’",o:["The","tall","boy","runs"],a:1,e:"‘tall’ describes the boy."},
-{q:"What is the opposite of ‘happy’?",o:["glad","sad","kind"],a:1,e:"happy × sad"},
-{q:"Marathi meaning of ‘forest’ is:",o:["नदी","जंगल","डोंगर"],a:1,e:"forest = जंगल"},
-{q:"Marathi meaning of ‘curious’ is:",o:["जिज्ञासू","आळशी","दयाळू"],a:0,e:"curious = जिज्ञासू"}
-],
-7:[
-{q:"What is the past tense (V2) of ‘go’?",o:["goed","went","gone"],a:1,e:"go – went – gone"},
-{q:"They ___ playing cricket now.",o:["is","am","are"],a:2,e:"‘They’ takes ‘are’ in present continuous tense."},
-{q:"She ___ a letter yesterday.",o:["writes","wrote","written"],a:1,e:"‘yesterday’ shows past time: wrote."},
-{q:"We ___ visit the fort tomorrow.",o:["will","did","were"],a:0,e:"‘tomorrow’ shows future time: will visit."},
-{q:"What is the comparative degree of ‘good’?",o:["gooder","better","best"],a:1,e:"good – better – best"},
-{q:"Superlative degree of ‘beautiful’:",o:["beautifullest","more beautiful","most beautiful"],a:2,e:"beautiful – more beautiful – most beautiful"},
-{q:"Find the preposition: ‘The book is on the table.’",o:["book","is","on","table"],a:2,e:"‘on’ shows the position of the book."},
-{q:"I was tired, ___ I finished my work.",o:["because","but","or"],a:1,e:"‘but’ joins two contrasting ideas."},
-{q:"Find the adverb: ‘He speaks softly.’",o:["He","speaks","softly"],a:2,e:"‘softly’ tells how he speaks."},
-{q:"Which letter is silent in ‘knife’?",o:["k","n","f"],a:0,e:"We say ‘naif’; k is silent."},
-{q:"Which word sounds the same as ‘right’?",o:["light","write","night"],a:1,e:"right and write are homophones."},
-{q:"Marathi meaning of ‘environment’ is:",o:["प्रदूषण","पर्यावरण","प्रयोग"],a:1,e:"environment = पर्यावरण"}
-]};
-
+/* ================= speech ================= */
+let voices=[],rate=0.85;
+try{rate=localStorage.getItem('nke-rate')==='slow'?0.65:0.85}catch(e){}
+function loadVoices(){ try{voices=speechSynthesis.getVoices();}catch(e){} }
+if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged=loadVoices; }
+function speak(text){
+  if(window.AndroidTTS){ try{AndroidTTS.speak(String(text),rate);}catch(e){} return; }
+  if(!('speechSynthesis' in window)){ alert('Audio is not supported in this browser. / या ब्राउझरमध्ये आवाज उपलब्ध नाही.'); return; }
+  speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(String(text));
+  const v=voices.find(v=>v.lang==='en-IN')||voices.find(v=>/^en[-_]GB/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
+  if(v) u.voice=v; u.lang=v?v.lang:'en-IN'; u.rate=rate; speechSynthesis.speak(u);
+}
+function stopSpeak(){ try{ window.AndroidTTS?AndroidTTS.stop():speechSynthesis.cancel(); }catch(e){} }
 /* English → Marathi dictionary (offline) */
 const DICT_RAW=`mother=आई|father=वडील|brother=भाऊ|sister=बहीण|grandmother=आजी|grandfather=आजोबा|uncle=काका; मामा|aunt=काकू; मावशी; आत्या|son=मुलगा|daughter=मुलगी|family=कुटुंब|friend=मित्र; मैत्रीण|child=मूल|boy=मुलगा|girl=मुलगी|man=माणूस; पुरुष|woman=स्त्री|people=लोक|baby=बाळ
 head=डोके|hair=केस|eye=डोळा|ear=कान|nose=नाक|mouth=तोंड|tooth=दात|tongue=जीभ|hand=हात|leg=पाय|foot=पाऊल; पाय|finger=बोट|face=चेहरा|neck=मान|stomach=पोट|heart=हृदय|knee=गुडघा|back=पाठ; मागे|shoulder=खांदा
@@ -251,166 +270,6 @@ const PHRASES={
 };
 const IRREG={went:"go",gone:"go",ate:"eat",eaten:"eat",saw:"see",seen:"see",wrote:"write",written:"write",came:"come",took:"take",taken:"take",gave:"give",given:"give",ran:"run",drank:"drink",drunk:"drink",sang:"sing",sung:"sing",bought:"buy",taught:"teach",thought:"think",spoke:"speak",spoken:"speak",done:"do",made:"make",told:"tell",said:"say",knew:"know",known:"know",flew:"fly",grew:"grow",fell:"fall",slept:"sleep",sat:"sit",stood:"stand",won:"win",lost:"lose",built:"build",brought:"bring",kept:"keep",met:"meet",children:"child",men:"man",women:"woman",teeth:"tooth",feet:"foot",mice:"mouse",leaves:"leaf",better:"good",worse:"bad",worst:"bad",became:"become",read:"read"};
 
-const DICT={};
-DICT_RAW.split(/[|\n]/).forEach(p=>{const i=p.indexOf('=');if(i>0){const k=p.slice(0,i).trim().toLowerCase();if(!DICT[k])DICT[k]=p.slice(i+1).trim();}});
-[6,7].forEach(s=>{VOCAB[s].forEach(([w,m])=>{if(!DICT[w])DICT[w]=m;});WORDS[s].forEach(g=>g.w.forEach(([w,m])=>{if(!DICT[w])DICT[w]=m.replace(/\s*\(.*silent\)/,'');}));});
-
-/* =================== HELPERS =================== */
-let std=null, current={screen:'home'};
-try{const s=localStorage.getItem('nke-std'); if(s==='6'||s==='7') std=+s;}catch(e){}
-const app=document.getElementById('app'), bar=document.getElementById('bar'), barTitle=document.getElementById('barTitle');
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let voices=[]; function loadVoices(){ try{voices=speechSynthesis.getVoices();}catch(e){} }
-if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged=loadVoices; }
-let rate=0.85;
-function speak(text){
-  if(!('speechSynthesis' in window)){ alert('Audio is not supported in this browser. / या ब्राउझरमध्ये आवाज उपलब्ध नाही.'); return; }
-  speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text);
-  const v=voices.find(v=>v.lang==='en-IN')||voices.find(v=>/^en[-_]GB/i.test(v.lang))||voices.find(v=>/^en/i.test(v.lang));
-  if(v) u.voice=v; u.lang=v?v.lang:'en-IN'; u.rate=rate; speechSynthesis.speak(u);
-}
-function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a}
-const stdName=()=>std===6?'Standard 6 · इयत्ता सहावी':'Standard 7 · इयत्ता सातवी';
-
-/* =================== SECTIONS =================== */
-const SECTIONS={
-lessons:{ic:"📚",t:"Lessons",m:"पाठ – Unit 1",only:6,render(){
-  return `<div class="card"><h2>📚 Unit 1 – Lessons</h2><p class="mr" style="color:var(--muted);font-size:15px">पाठाचे नाव निवडा.</p>`+
-  Object.keys(LESSONS6).map(k=>`<button class="chip" data-l="${esc(k)}" style="display:block;width:100%;margin:6px 0">${esc(k)}</button>`).join('')+`</div><div class="card hidden" id="lc"></div>`;},
-  init(){app.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>{const c=document.getElementById('lc');c.innerHTML=LESSONS6[b.dataset.l];c.classList.remove('hidden');c.scrollIntoView({behavior:'smooth',block:'start'});});}},
-
-words:{ic:"🔤",t:"Word Reading",m:"शब्द वाचन",render(){
-  return `<div class="card"><h2>🔤 Word Reading</h2><p class="mr">शब्दावर टॅप करा – उच्चार ऐका, मग स्वतः मोठ्याने वाचा.</p>
-  <div class="btnrow"><button class="btn alt" id="slow">🐢 Slow</button><button class="btn alt" id="norm">🙂 Normal</button></div></div>`+
-  WORDS[std].map((g,gi)=>`<div class="card"><h3 style="margin-top:0">${esc(g.t)}</h3><div class="chips">${g.w.map(([w,m])=>`<button class="chip" data-w="${esc(w)}">${esc(w)}<small>${esc(m)}</small></button>`).join('')}</div>
-  <button class="listen" data-all="${gi}">🔊 Read all</button></div>`).join('');},
-  init(){app.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>speak(b.dataset.w));
-    app.querySelectorAll('[data-all]').forEach(b=>b.onclick=()=>speak(WORDS[std][+b.dataset.all].w.map(x=>x[0]).join(', ')));
-    document.getElementById('slow').onclick=()=>{rate=0.65;speak('slow');};document.getElementById('norm').onclick=()=>{rate=0.85;speak('normal');};}},
-
-sentence:{ic:"✍️",t:"Sentence Making",m:"वाक्य तयार करणे",render(){
-  return `<div class="card"><h2>✍️ Sentence Making</h2>
-  <div class="rule mr"><b>वाक्याची रचना :</b> Subject (कर्ता) + Verb (क्रियापद) + Object (कर्म)<br><span style="font-family:Andika,sans-serif">Ravi + reads + a book.</span><br>इंग्रजीत क्रियापद कर्त्यानंतर लगेच येते; मराठीत ते शेवटी येते (रवी पुस्तक <b>वाचतो</b>).</div>
-  <h3>1. Arrange the words</h3><p class="mr">शब्द योग्य क्रमाने टॅप करून वाक्य बनवा.</p>
-  <div class="slot" id="jAns"></div><div class="chips" id="jPool" style="margin-top:10px"></div>
-  <div class="btnrow"><button class="btn" id="jChk">Check ✓</button><button class="btn alt" id="jShow">Show answer</button><button class="btn alt" id="jNext">Next →</button></div>
-  <div class="out" id="jOut"></div><p class="mr" id="jCount" style="color:var(--muted);font-size:14px"></p></div>
-  <div class="card"><h3 style="margin-top:0">2. Complete the sentence</h3><p class="mr">रिकाम्या जागी स्वतःचे शब्द वापरून वाक्य लिहा.</p>
-  ${FRAMES[std].map(f=>`<div class="eg">${esc(f)}</div>`).join('')}
-  <h3>3. Write your sentence and check</h3>
-  <textarea id="myS" placeholder="Example: I like mangoes because they are sweet."></textarea>
-  <div class="btnrow"><button class="btn" id="sChk">Check my sentence</button><button class="btn alt" id="sSpk">🔊 Listen</button></div><div class="out" id="sOut"></div></div>`;},
-  init(){
-    let idx=0,pool=[],ans=[];const list=JUMBLE[std];
-    const load=()=>{const s=list[idx];const words=s.replace(/[.?!]$/,'').split(' ');
-      const keepCap=w=>w==='I'||/^(Rahul|Ravi|Amit|Meena)$/.test(w);
-      const tiles=words.map((w,i)=>i===0&&!keepCap(w)?w.toLowerCase():w);
-      do{pool=shuffle(tiles.map((w,i)=>({w,i})));}while(pool.length>1&&pool.every((p,k)=>p.i===k));
-      ans=[];draw();document.getElementById('jOut').innerHTML='';document.getElementById('jCount').textContent=`वाक्य ${idx+1} / ${list.length}`;};
-    const draw=()=>{const P=document.getElementById('jPool'),A=document.getElementById('jAns');
-      P.innerHTML=pool.map((p,k)=>`<button class="word" data-k="${k}">${esc(p.w)}</button>`).join('');
-      A.innerHTML=ans.length?ans.map((p,k)=>`<button class="word" data-a="${k}">${esc(p.w)}</button>`).join(''):'<span class="mr" style="color:var(--muted)">येथे वाक्य तयार होईल…</span>';
-      P.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{ans.push(pool.splice(+b.dataset.k,1)[0]);draw();});
-      A.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{pool.push(ans.splice(+b.dataset.a,1)[0]);draw();});};
-    const target=()=>list[idx].replace(/[.?!]$/,'').toLowerCase();
-    document.getElementById('jChk').onclick=()=>{const o=document.getElementById('jOut');
-      if(pool.length) {o.innerHTML='<p class="err mr">सर्व शब्द वापरा.</p>';return;}
-      const mine=ans.map(p=>p.w).join(' ').toLowerCase();
-      o.innerHTML= mine===target()?`<p class="ok">✅ Correct! ${esc(list[idx])}</p>`:'<p class="err mr">❌ अजून एकदा प्रयत्न करा. शब्दावर टॅप करून तो परत काढता येतो.</p>';
-      if(mine===target()) speak(list[idx]);};
-    document.getElementById('jShow').onclick=()=>{document.getElementById('jOut').innerHTML=`<p><b>Answer:</b> ${esc(list[idx])}</p>`;speak(list[idx]);};
-    document.getElementById('jNext').onclick=()=>{idx=(idx+1)%list.length;load();};
-    load();
-    document.getElementById('sSpk').onclick=()=>{const t=document.getElementById('myS').value.trim(); if(t) speak(t);};
-    document.getElementById('sChk').onclick=()=>{const t=document.getElementById('myS').value.trim(),o=document.getElementById('sOut');
-      if(!t){o.innerHTML='<p class="err mr">आधी एक वाक्य लिहा.</p>';return;}
-      const tips=[],words=t.split(/\s+/);
-      if(!/^[A-Z]/.test(t)) tips.push('वाक्याची सुरुवात कॅपिटल अक्षराने करा.');
-      if(!/[.?!]$/.test(t)) tips.push('वाक्याच्या शेवटी पूर्णविराम ( . ), प्रश्नचिन्ह ( ? ) किंवा उद्गारचिन्ह ( ! ) लिहा.');
-      if(/(^|\s)i(\s|[.,?!']|$)/.test(t)) tips.push('“I” (मी) हा शब्द नेहमी कॅपिटल लिहा.');
-      if(words.length<3) tips.push('वाक्य थोडे मोठे लिहा (किमान 3 शब्द).');
-      if(/\s{2,}/.test(document.getElementById('myS').value.trim())) tips.push('दोन शब्दांमध्ये एकच जागा ठेवा.');
-      o.innerHTML= tips.length?'<div class="mr"><p class="err">हे सुधारा :</p><ul>'+tips.map(x=>`<li>${x}</li>`).join('')+'</ul></div>'
-        :'<p class="ok mr">✅ कॅपिटल अक्षर, विरामचिन्ह व रचना ठीक दिसते. आता शिक्षकांना वाक्याचा अर्थ व व्याकरण तपासायला सांगा.</p>';};
-  }},
-
-grammar:{ic:"📘",t:"Grammar",m:"व्याकरण",render(){
-  return GRAMMAR[std].map(g=>`<div class="card"><h2>${esc(g.h)}</h2><p class="mr">${g.m}</p>`+
-    (g.tbl?`<div class="scroll"><table>${g.hdr?`<tr>${g.hdr.map(h=>`<th>${h}</th>`).join('')}</tr>`:'<tr><th>Tense</th><th>Example</th><th>Form</th></tr>'}${g.tbl.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table></div>`:'')+
-    (g.e?g.e.map(x=>`<div class="eg">${esc(x)}</div>`).join(''):'')+(g.x?`<p class="mr" style="color:var(--muted)">${g.x}</p>`:'')+`</div>`).join('');}},
-
-vocab:{ic:"🗂️",t:"Vocabulary",m:"शब्दसंग्रह – फ्लॅशकार्ड",render(){
-  return `<div class="card"><h2>🗂️ Vocabulary Flashcards</h2><p class="mr">कार्डवर टॅप करा – मराठी अर्थ दिसेल.</p>
-  <div class="flash" id="fc"><div class="en" id="fcE"></div><div class="m mr hidden" id="fcM"></div></div>
-  <div class="btnrow"><button class="btn alt" id="fPrev">← Prev</button><button class="btn" id="fSpk">🔊 Listen</button><button class="btn alt" id="fNext">Next →</button></div>
-  <p class="mr" id="fN" style="color:var(--muted);font-size:14px"></p></div>
-  <div class="card"><h3 style="margin-top:0">All words</h3><div class="chips">${VOCAB[std].map(([w,m])=>`<button class="chip" data-w="${esc(w)}">${esc(w)}<small>${esc(m)}</small></button>`).join('')}</div></div>`;},
-  init(){let i=0;const L=VOCAB[std];const show=()=>{document.getElementById('fcE').textContent=L[i][0];const m=document.getElementById('fcM');m.textContent=L[i][1];m.classList.add('hidden');document.getElementById('fN').textContent=`${i+1} / ${L.length}`;};
-    document.getElementById('fc').onclick=()=>document.getElementById('fcM').classList.toggle('hidden');
-    document.getElementById('fPrev').onclick=()=>{i=(i-1+L.length)%L.length;show();};document.getElementById('fNext').onclick=()=>{i=(i+1)%L.length;show();};
-    document.getElementById('fSpk').onclick=()=>speak(L[i][0]);app.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>speak(b.dataset.w));show();}},
-
-reading:{ic:"📖",t:"Reading Practice",m:"वाचन सराव",render(){
-  return `<div class="card"><h2>📖 English Reading Practice</h2><p><b>Goal:</b> Read English aloud clearly, with correct pronunciation, pauses and confidence.</p>
-  <div class="btnrow"><button class="btn alt" id="slow">🐢 Slow</button><button class="btn alt" id="norm">🙂 Normal</button><button class="btn alt" id="stop">⏹ Stop</button></div></div>`+
-  READING[std].map((r,i)=>`<div class="card"><h3 style="margin-top:0">${r.lv}</h3><p><b>${esc(r.t)}</b></p><p style="font-size:19px;line-height:1.75">${esc(r.p)}</p><button class="listen" data-r="${i}">🔊 Listen</button></div>`).join('')+
-  `<div class="card"><h3 style="margin-top:0">🎯 Daily Reading Routine</h3><ol><li>Read the passage silently once.</li><li>Read it aloud slowly.</li><li>Circle difficult words.</li><li>Read again with correct pauses.</li><li>Read once more with confidence.</li></ol>
-  <h3>🗣️ Pronunciation Practice</h3><div class="chips">${PRON[std].map(w=>`<button class="chip" data-w="${w}">${w}</button>`).join('')}</div>
-  <h3>⏱️ One-Minute Reading</h3><p>Choose any passage above. Start the timer and read aloud. Try to improve your fluency each day.</p>
-  <div class="timer" id="tm">1:00</div><div class="btnrow" style="justify-content:center"><button class="btn" id="tGo">Start</button><button class="btn alt" id="tRe">Reset</button></div></div>`;},
-  init(){app.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>speak(READING[std][+b.dataset.r].p));app.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>speak(b.dataset.w));
-    document.getElementById('slow').onclick=()=>{rate=0.65;};document.getElementById('norm').onclick=()=>{rate=0.85;};document.getElementById('stop').onclick=()=>{try{speechSynthesis.cancel()}catch(e){}};
-    timer('tm','tGo','tRe',60);}},
-
-speaking:{ic:"🗣️",t:"Speaking",m:"बोलण्याचा सराव",render(){
-  return `<div class="card"><h2>🗣️ Speaking Practice</h2><p class="mr">एक विषय निवडा आणि टाइमर सुरू करून बोला.</p>
-  ${SPEAK[std].map(s=>`<div class="qa">${esc(s)}</div>`).join('')}
-  <h3>Tips</h3><ul><li>Speak slowly.</li><li>Use complete sentences.</li><li>Look at your listener.</li><li>Ask one question at the end.</li></ul>
-  <div class="btnrow" style="justify-content:center"><button class="btn alt" id="t30">30 sec</button><button class="btn alt" id="t60">60 sec</button></div>
-  <div class="timer" id="sm">0:30</div><div class="btnrow" style="justify-content:center"><button class="btn" id="sGo">Start</button><button class="btn alt" id="sRe">Reset</button></div></div>`;},
-  init(){let t=timer('sm','sGo','sRe',30);document.getElementById('t30').onclick=()=>t.set(30);document.getElementById('t60').onclick=()=>t.set(60);}},
-
-convert:{ic:"🔁",t:"English → Marathi",m:"इंग्रजी ते मराठी अर्थ",render(){
-  return `<div class="card"><h2>🔁 English → Marathi</h2><p class="mr">इंग्रजी शब्द, वाक्प्रचार किंवा छोटे वाक्य लिहा.</p>
-  <textarea id="cIn" placeholder="Example: good morning / forest / I like my school"></textarea>
-  <div class="btnrow"><button class="btn" id="cGo">मराठी अर्थ पाहा</button><button class="btn alt" id="cSpk">🔊 Listen</button></div>
-  <div class="out" id="cOut"></div>
-  <div id="aiBox" class="hidden" style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px">
-   <button class="btn alt" id="aiGo">✨ पूर्ण वाक्याचे भाषांतर (AI)</button><div class="out mr" id="aiOut"></div></div></div>
-  <div class="card mr" style="font-size:14.5px;color:var(--muted)">शब्दकोशातील अर्थ ऑफलाइन चालतात आणि ते शिक्षक-तपासणीसाठी निवडलेले साधे शालेय शब्द आहेत. AI भाषांतर इंटरनेटवर चालते; ते उपयुक्त असले तरी कधीकधी चुकू शकते, म्हणून शिक्षकांकडून तपासून घ्या.</div>`;},
-  init(){
-    const g=id=>document.getElementById(id);
-    g('cSpk').onclick=()=>{const t=g('cIn').value.trim(); if(t) speak(t);};
-    g('cGo').onclick=()=>{const raw=g('cIn').value.trim(),o=g('cOut');
-      if(!raw){o.innerHTML='<p class="err mr">आधी काहीतरी लिहा.</p>';return;}
-      const norm=raw.toLowerCase().replace(/[’‘]/g,"'").replace(/[.?!,]+$/,'').replace(/\s+/g,' ').trim();
-      if(PHRASES[norm]){o.innerHTML=`<div class="eg"><b>${esc(raw)}</b><br><span class="mr" style="font-size:22px">${PHRASES[norm]}</span></div>`;return;}
-      const toks=norm.split(' ').map(w=>w.replace(/^[^a-z']+|[^a-z']+$/g,'')).filter(Boolean);
-      const rows=toks.map(w=>{const r=lookup(w);return `<tr><td>${esc(w)}</td><td class="mr">${r?esc(r.m)+(r.base?` <small style="color:var(--muted)">(मूळ शब्द: ${esc(r.base)}${r.pl?' – अनेकवचन':''})</small>`:''):'<span style="color:var(--muted)">शब्दकोशात नाही</span>'}</td></tr>`;}).join('');
-      o.innerHTML=(toks.length>1?'<p class="mr" style="font-size:14.5px;color:var(--muted)">प्रत्येक शब्दाचा अर्थ (शब्दशः). मराठी वाक्यात शब्दांचा क्रम वेगळा असतो.</p>':'')+`<div class="scroll"><table class="dict"><tr><th>English</th><th>मराठी</th></tr>${rows}</table></div>`;};
-    // AI sentence translation (optional)
-    (async()=>{try{ if(!window.claude||!window.claude.use) return; const sample=await window.claude.use('sample'); if(!sample) return;
-      g('aiBox').classList.remove('hidden');
-      g('aiGo').onclick=async()=>{const t=g('cIn').value.trim(),o=g('aiOut'); if(!t){o.innerHTML='<p class="err">आधी इंग्रजी मजकूर लिहा.</p>';return;}
-        o.innerHTML='<p>भाषांतर होत आहे…</p>'; g('aiGo').disabled=true;
-        try{ const r=await sample(`Translate the following English text into simple, correct Marathi (Devanagari script) suitable for a Class 6–7 student in Maharashtra. Reply with only the Marathi translation and nothing else.\n\nEnglish: ${t}`,{modelTier:'quick',onText:({text})=>{o.innerHTML=`<div class="eg" style="font-size:20px">${esc(text)}</div>`;}});
-          o.innerHTML=`<div class="eg" style="font-size:20px">${esc(r.text.trim())}</div><p style="font-size:13.5px;color:var(--muted)">AI भाषांतर – शिक्षकांकडून तपासून घ्या.</p>`;
-        }catch(e){ o.innerHTML= e&&e.code==='not_granted'?'<p class="err">AI भाषांतरासाठी परवानगी मिळाली नाही. वरील शब्दकोश वापरा.</p>':'<p class="err">AI भाषांतर आत्ता उपलब्ध नाही. थोड्या वेळाने पुन्हा प्रयत्न करा.</p>'; }
-        g('aiGo').disabled=false; };
-    }catch(e){}})();
-  }},
-
-test:{ic:"📝",t:"Test",m:"सराव चाचणी",render(){const Q=QUIZ[std];
-  return `<div class="scorebar"><span id="qs">Score: 0 / ${Q.length}</span><button id="qr">Try again</button></div>`+
-  Q.map((q,i)=>`<div class="q" data-i="${i}"><p>${i+1}. ${esc(q.q)}</p>${q.o.map((t,j)=>`<button class="opt" data-j="${j}">${esc(t)}</button>`).join('')}<div class="why hidden"></div></div>`).join('');},
-  init(){let sc=0,done=0;const Q=QUIZ[std];
-    app.querySelectorAll('.q').forEach(el=>{const q=Q[+el.dataset.i];el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
-      el.querySelectorAll('.opt').forEach(x=>x.disabled=true);const j=+b.dataset.j;
-      if(j===q.a){b.classList.add('right');sc++;}else{b.classList.add('wrong');el.querySelectorAll('.opt')[q.a].classList.add('right');}
-      done++;const w=el.querySelector('.why');w.textContent=(j===q.a?'✅ Correct. ':'❌ Not quite. ')+q.e;w.classList.remove('hidden');
-      document.getElementById('qs').textContent=`Score: ${sc} / ${Q.length}`+(done===Q.length?' 🎉':'');});});
-    document.getElementById('qr').onclick=()=>openSection('test');}}
-};
 
 function lookup(w){
   if(DICT[w]) return {m:DICT[w]};
@@ -428,49 +287,815 @@ function lookup(w){
   for(const t of tries) if(t.length>1&&DICT[t]) return {m:DICT[t],base:t};
   return null;
 }
-function timer(dispId,goId,reId,secs){
-  let total=secs,left=secs,h=null;const d=document.getElementById(dispId);
-  const show=()=>{d.textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')}`;};
-  const stop=()=>{clearInterval(h);h=null;document.getElementById(goId).textContent='Start';};
-  document.getElementById(goId).onclick=()=>{ if(h){stop();return;} if(left<=0) left=total;
-    document.getElementById(goId).textContent='Pause'; h=setInterval(()=>{left--;show();if(left<=0){stop();d.textContent='⏰ Time up!';}},1000);};
-  document.getElementById(reId).onclick=()=>{stop();left=total;show();};
-  show(); return {set(n){stop();total=n;left=n;show();}};
+const DICT_EXTRA=`forest=जंगल|tree=झाड|river=नदी|mountain=पर्वत|hill=टेकडी|sky=आकाश|cloud=ढग|rain=पाऊस|sun=सूर्य|moon=चंद्र|star=तारा|wind=वारा|storm=वादळ|sea=समुद्र|ocean=महासागर|earth=पृथ्वी|land=जमीन|field=शेत|farm=शेत|farmer=शेतकरी|village=गाव|city=शहर|town=नगर|road=रस्ता|bridge=पूल|house=घर|home=घर|room=खोली|door=दार|window=खिडकी|wall=भिंत|roof=छप्पर|garden=बाग|flower=फूल|leaf=पान|fruit=फळ|seed=बी|grass=गवत|stone=दगड|sand=वाळू|soil=माती|water=पाणी|fire=आग|air=हवा|light=प्रकाश|night=रात्र|day=दिवस|morning=सकाळ|evening=संध्याकाळ|week=आठवडा|month=महिना|year=वर्ष|today=आज|tomorrow=उद्या|yesterday=काल|time=वेळ|school=शाळा|class=वर्ग|teacher=शिक्षक|student=विद्यार्थी|book=पुस्तक|notebook=वही|pen=पेन|pencil=पेन्सिल|bag=दप्तर|lesson=धडा|poem=कविता|story=गोष्ट|question=प्रश्न|answer=उत्तर|word=शब्द|sentence=वाक्य|letter=पत्र; अक्षर|language=भाषा|game=खेळ|friend=मित्र|mother=आई|father=वडील|brother=भाऊ|sister=बहीण|grandmother=आजी|grandfather=आजोबा|uncle=काका; मामा|aunt=काकू; मावशी|child=मूल|boy=मुलगा|girl=मुलगी|man=माणूस|woman=स्त्री|people=लोक|king=राजा|queen=राणी|prince=राजपुत्र|princess=राजकन्या|doctor=डॉक्टर|scientist=शास्त्रज्ञ|thief=चोर|guard=रक्षक|dog=कुत्रा|cat=मांजर|cow=गाय|buffalo=म्हैस|goat=शेळी|sheep=मेंढी|horse=घोडा|lion=सिंह|tiger=वाघ|elephant=हत्ती|monkey=माकड|snake=साप|bird=पक्षी|crow=कावळा|parrot=पोपट|peacock=मोर|fish=मासा|ant=मुंगी|bee=मधमाशी|rabbit=ससा|mouse=उंदीर|food=अन्न|rice=भात; तांदूळ|bread=भाकरी; पाव|milk=दूध|egg=अंडे|vegetable=भाजी|sugar=साखर|salt=मीठ|oil=तेल|sweet=गोड|bitter=कडू|hand=हात|leg=पाय|head=डोके|eye=डोळा|ear=कान|nose=नाक|mouth=तोंड|face=चेहरा|body=शरीर|heart=हृदय|money=पैसे|market=बाजार|shop=दुकान|festival=सण|song=गाणे|music=संगीत|picture=चित्र|colour=रंग|red=लाल|blue=निळा|green=हिरवा|yellow=पिवळा|white=पांढरा|black=काळा|big=मोठा|small=लहान|little=छोटा|long=लांब|short=आखूड; बुटका|tall=उंच|new=नवीन|old=जुना; म्हातारा|young=तरुण|good=चांगला|bad=वाईट|happy=आनंदी|sad=दुःखी|angry=रागावलेला|brave=शूर|clever=हुशार|kind=दयाळू|poor=गरीब|rich=श्रीमंत|hot=गरम|cold=थंड|beautiful=सुंदर|clean=स्वच्छ|dirty=घाण|fast=जलद|slow=हळू|strong=बलवान|weak=अशक्त|easy=सोपे|difficult=कठीण|true=खरे|false=खोटे|go=जाणे|come=येणे|eat=खाणे|drink=पिणे|see=पाहणे|look=बघणे|hear=ऐकणे|listen=ऐकणे|speak=बोलणे|say=म्हणणे|tell=सांगणे|talk=बोलणे|read=वाचणे|write=लिहिणे|learn=शिकणे|teach=शिकवणे|play=खेळणे|run=धावणे|walk=चालणे|jump=उडी मारणे|sit=बसणे|stand=उभे राहणे|sleep=झोपणे|wake=उठणे|give=देणे|take=घेणे|make=बनवणे|do=करणे|work=काम करणे|help=मदत करणे|love=प्रेम करणे|like=आवडणे|want=हवे असणे|know=माहीत असणे|think=विचार करणे|find=शोधणे|open=उघडणे|close=बंद करणे|buy=विकत घेणे|sell=विकणे|cook=स्वयंपाक करणे|wash=धुणे|build=बांधणे|grow=वाढणे|fly=उडणे|swim=पोहणे|sing=गाणे म्हणणे|dance=नाचणे|laugh=हसणे|cry=रडणे|live=राहणे|die=मरणे|save=वाचवणे|protect=रक्षण करणे|plant=झाड लावणे; रोप|fight=भांडणे|win=जिंकणे|lose=हरणे|try=प्रयत्न करणे|and=आणि|or=किंवा|but=पण|because=कारण|if=जर|not=नाही|yes=होय|no=नाही|very=खूप|also=सुद्धा|always=नेहमी|never=कधीच नाही|here=इथे|there=तिथे|now=आता|then=मग|with=सोबत|without=शिवाय|in=मध्ये|on=वर|under=खाली|near=जवळ|from=पासून|to=कडे|of=चा/ची/चे|for=साठी|my=माझा/माझी/माझे|your=तुझा/तुमचा|his=त्याचा|her=तिचा|our=आमचा|their=त्यांचा|i=मी|you=तू/तुम्ही|he=तो|she=ती|it=ते|we=आम्ही|they=ते|this=हे|that=ते|what=काय|where=कुठे|when=केव्हा|why=का|who=कोण|how=कसे|one=एक|two=दोन|three=तीन|four=चार|five=पाच|ten=दहा|hundred=शंभर|first=पहिला|last=शेवटचा|every=प्रत्येक|all=सर्व|many=अनेक|some=काही|nature=निसर्ग|health=आरोग्य|exercise=व्यायाम|computer=संगणक|machine=यंत्र|homework=गृहपाठ|news=बातमी|newspaper=वर्तमानपत्र|world=जग|country=देश|india=भारत|space=अवकाश|planet=ग्रह|rocket=रॉकेट|kite=पतंग|flute=बासरी|nest=घरटे|honey=मध|puppet=कठपुतळी|magic=जादू|giant=राक्षस|monster=राक्षस|ship=जहाज|boat=होडी|bus=बस|train=आगगाडी|bicycle=सायकल|car=गाडी|clothes=कपडे|dress=पोशाख|shoe=बूट|ball=चेंडू|toy=खेळणे|gift=भेट|dream=स्वप्न|idea=कल्पना|truth=सत्य|courage=धैर्य|fear=भीती|joy=आनंद|hope=आशा|peace=शांतता|work=काम|job=नोकरी|thank=आभार मानणे|please=कृपया|sorry=माफ करा|welcome=स्वागत`;
+/* ===== My English Book, Grade Six (2026) – 6 units, 30 lessons. Summaries, meanings, notes and questions are original. ===== */
+const L6=[
+{u:1,c:'1.1',t:'Monsoon',ty:'Poem',by:'Anonymous',
+en:'A joyful song about the rainy season. Before the rain, the land is dry and the fields and rivers seem thirsty. Then dark clouds gather, thunder roars and lightning flashes. At last the rain comes, and the earth becomes wet, green and happy.',
+mr:'पावसाळ्यावरील आनंदी गाणे : आधी कोरडी जमीन, मग ढग, गडगडाट व वीज, आणि शेवटी पावसाने चिंब भिजलेली, हिरवीगार, आनंदी पृथ्वी.',
+w:[['parched','very dry and hot','कोरडीठाक'],['drenched','completely wet','चिंब भिजलेले'],['shimmer','to shine softly','लकाकणे'],['streak','a thin flash of light','लकेर, रेघ'],['pit-pat','the sound of falling raindrops','टपटप'],['thunder','the loud sound in the sky during a storm','ढगांचा गडगडाट']],
+l:[{h:'Repetition (figure of speech)',x:'When a word, phrase or line is repeated to make it stronger or more musical, it is called repetition.',eg:['Clap, clap, clap your hands!','Rain, rain, go away.']},
+{h:'Rhyming words',x:'Words that end with the same sound rhyme. Poets use them at the end of lines.',eg:['rain – again','dark – park','dry – sky']}],
+q:[{q:'What is the land like before the rain?',o:['Green','Dry','Snowy'],a:1,e:'The poem says the land is dried up and parched.'},
+{q:'Which bird spreads its feathers when rain comes?',o:['Crow','Peacock','Sparrow'],a:1,e:'Peacocks dance with feathers spread.'},
+{q:'"Drenched" means …',o:['completely wet','very dry','very cold'],a:0,e:'Drenched = soaked, completely wet.'},
+{q:'"Rain, rain, go away" uses which figure of speech?',o:['Simile','Repetition','Pun'],a:1,e:'The word "rain" is repeated.'}],
+task:'Speak or write 5 sentences about a rainy day in your village. Use at least two words from the Word Basket.'},
+
+{u:1,c:'1.2',t:'The Crow and the Snake',ty:'Fable',by:'Panchatantra',
+en:'A crow couple lived on a banyan tree, but a wicked cobra in the hollow of the same tree ate their eggs again and again. The clever crow picked up a queen\'s precious bracelet and dropped it into the cobra\'s hollow. The guards who chased the crow found the bracelet, took it out carefully and drove the snake away into a deep forest without harming it. The crows lived happily after that.',
+mr:'कावळ्यांची अंडी खाणाऱ्या नागाला हुशार कावळ्याने युक्तीने दूर घालवले : राणीचे कडे नागाच्या ढोलीत टाकले; रक्षकांनी कडे काढले आणि नागाला जंगलात हाकलून दिले. बोध : प्रसंगावधानाने संकटावर मात करता येते.',
+w:[['hollow','an empty space inside something, like a tree','ढोली, पोकळी'],['precious','of great value','मौल्यवान'],['swiftly','very quickly','झपाट्याने'],['plunged','moved down suddenly and with force','झेपावला'],['wicked','bad and cruel','दुष्ट'],['tactfully','carefully, without causing trouble','युक्तीने']],
+l:[{h:'Types of stories',x:'A fantasy has magic or fairies. A fable has animals that act like humans and ends with a moral. A factual story is about real life.',eg:['The Crow and the Snake → fable','A story about a school trip → factual']},
+{h:'Describing words (adjectives)',x:'Adjectives tell us more about nouns.',eg:['a wicked cobra','a clever crow','a beautiful nest','a deep forest']},
+{h:'Young ones of animals',x:'Many animals have special names for their young ones.',eg:['cow → calf','dog → puppy','cat → kitten','hen → chick','sheep → lamb','goat → kid']}],
+q:[{q:'Where did the crows live?',o:['On a mango tree','On a banyan tree','In a temple'],a:1,e:'They had a nest on a banyan tree.'},
+{q:'What did the crow drop into the hollow?',o:['A necklace','A bracelet','A ring'],a:1,e:'The queen\'s bracelet.'},
+{q:'What did the guards do with the snake?',o:['Killed it','Chased it into the forest','Kept it as a pet'],a:1,e:'They drove it away without harming it.'},
+{q:'The moral of the story is …',o:['Presence of mind helps us solve problems','Never trust birds','Snakes are kind'],a:0,e:'The crow used presence of mind.'}],
+task:'Retell the story to your friend in your own words. Then act it out: one is the crow, one the lady crow, one a guard.'},
+
+{u:1,c:'1.3',t:'Secret Plan of the Vegetables',ty:'Story (fantasy, humour)',by:'',
+en:'Balbir loved chocolates and tasty food but refused to eat any vegetable. The angry vegetables made a secret plan: Mr. Karela made his favourite egg curry bitter and a cauliflower put salt in his custard. Later Balbir tasted gajar halwa, found it delicious and ate the whole bowl. He told his mother that he did not hate vegetables anymore.',
+mr:'भाज्या न खाणाऱ्या बलबीरला भाज्यांनी गमतीदार युक्ती करून धडा शिकवला. शेवटी गाजर हलवा चाखल्यावर त्याला भाज्या आवडू लागल्या.',
+w:[['growled','spoke in a low, angry voice','गुरगुरला'],['squeezed','pressed hard to get juice out','पिळले'],['greedily','wanting more than you need','हावरटपणे'],['scolding','speaking angrily to someone','रागावणे'],['stubborn','not ready to change one\'s mind','हट्टी'],['bitter','having a sharp, unpleasant taste','कडू']],
+l:[{h:'Simple Present Tense',x:'Use it for daily routine, habits and universal truths. With he / she / it or one person\'s name, add -s or -es to the verb.',eg:['I drink milk every morning.','She eats fruit daily.','The sun rises in the east.','He does not like karela. (negative)']},
+{h:'Suffix -ly',x:'Adding -ly to many describing words makes adverbs that tell how something is done.',eg:['quick → quickly','slow → slowly','greedy → greedily (y → i)','happy → happily']}],
+q:[{q:'What did Balbir refuse to eat?',o:['Chocolates','Vegetables','Custard'],a:1,e:'He said NO to every vegetable.'},
+{q:'Who made the egg curry bitter?',o:['Mr. Potato','Miss Bhindi','Mr. Karela'],a:2,e:'Mr. Karela squeezed his juice on it.'},
+{q:'Which dish did Balbir finally enjoy?',o:['Gajar halwa','Egg curry','Custard'],a:0,e:'He ate the whole bowl of gajar halwa.'},
+{q:'Choose the correct sentence.',o:['She go to school daily.','She goes to school daily.','She going to school daily.'],a:1,e:'He/she/it → verb + s/es.'}],
+task:'Make a list of five vegetables and write one health benefit of each. Talk about healthy food vs. packaged food with your partner.'},
+
+{u:1,c:'1.4',t:'The People Who Protect Nature',ty:'Informative text',by:'',
+en:'This lesson tells about three people who worked selflessly for nature. Tulsi Gowda from a Halakki tribal family in Karnataka is called "Van Devata" and the "Encyclopaedia of the forest"; she planted more than 30,000 saplings. Rahibai Soma Popere, a tribal farmer from Maharashtra known as the "Seed Mother", saves native seeds and started seed banks. Chaitram Pawar from Baripada (Dhule) led tree planting, water conservation and forest protection in many villages. All three received the Padmashri award.',
+mr:'निसर्गासाठी निःस्वार्थपणे काम करणाऱ्या तीन व्यक्ती : तुलसी गौडा (वनदेवता), राहीबाई पोपेरे (बीजमाता) आणि चैत्राम पवार (बारीपाडा). तिघांनाही पद्मश्री पुरस्कार मिळाला आहे.',
+w:[['conservation','protection of nature','संवर्धन'],['sustainable','able to continue for a long time without harm','शाश्वत'],['herbs','plants used in medicine or cooking','वनौषधी'],['cultivation','growing crops on land','लागवड'],['sapling','a young tree','रोपटे'],['landraces','local crop varieties that suit an area','स्थानिक वाण']],
+l:[{h:'Pronouns and gender',x:'Pronouns are used in place of nouns. Use he for males, she for females and it for things or animals.',eg:['Tulsi Gowda → she','Chaitram Pawar → he','the forest → it','Rahibai and farmers → they']},
+{h:'Prefixes',x:'A prefix is added before a word to change its meaning.',eg:['un + known = unknown','re + plant = replant','dis + agree = disagree']}],
+q:[{q:'Who is called "Van Devata"?',o:['Rahibai Popere','Tulsi Gowda','Chaitram Pawar'],a:1,e:'Tulsi Gowda, the Tree Goddess.'},
+{q:'Who is known as the "Seed Mother"?',o:['Rahibai Soma Popere','Tulsi Gowda','A scientist'],a:0,e:'She saves native seeds.'},
+{q:'Chaitram Pawar started his work from which village?',o:['Akole','Baripada','Nashik'],a:1,e:'Baripada in Dhule district.'},
+{q:'"Conservation" means …',o:['protection of nature','cutting trees','building roads'],a:0,e:'Protecting the natural world.'}],
+task:'Write 5 ways in which students can protect nature. Share one idea with the class.'},
+
+{u:1,c:'1.5',t:'One Thing that I Wonder',ty:'Poem',by:'Charles Ghigna',
+en:'The speaker is full of curiosity about the world: why the world is round, why trees grow towards the sky, why the sky is blue, why spiders have eight legs, and why rabbits live underground while birds live in trees. Finally the speaker wonders why we wonder at all. The poem celebrates asking questions.',
+mr:'कवितेतील बालक निसर्गाबद्दल अनेक प्रश्न विचारते – पृथ्वी गोल का, आकाश निळे का, कोळ्याला आठ पाय का… प्रश्न विचारण्याच्या जिज्ञासेचा आनंद ही कविता सांगते.',
+w:[['wonder','to want to know about something','नवल वाटणे, कुतूहल'],['bunnies','young or small rabbits','ससे'],['burrow','to dig a hole in the ground to live in','बीळ करणे'],['whale','a very large animal that lives in the sea','देवमासा'],['curious','eager to know or learn','जिज्ञासू']],
+l:[{h:'Alliteration',x:'When two or more nearby words begin with the same sound, it is called alliteration.',eg:['Busy bees buzz.','Seven silly snakes sang.']},
+{h:'Minimal pairs',x:'Two words that differ in only one sound and have different meanings.',eg:['ship – sheep','pen – pan','cat – cut','fan – van']},
+{h:'Homophones',x:'Words that sound the same but have different spellings and meanings.',eg:['see – sea','eye – I','two – too','bee – be']},
+{h:'Pun',x:'A funny sentence that uses a word with two meanings on purpose.',eg:['I wondered why the ball was getting bigger. Then it hit me!']}],
+q:[{q:'What does the poem encourage?',o:['Curiosity and asking questions','Staying silent','Sleeping early'],a:0,e:'The speaker keeps wondering and asking.'},
+{q:'Which is an example of alliteration?',o:['Busy bees buzz.','The sky is blue.','I like mangoes.'],a:0,e:'b – b – b sounds.'},
+{q:'Which pair is a minimal pair?',o:['see – sea','ship – sheep','two – too'],a:1,e:'Only one vowel sound differs.'},
+{q:'According to the poem, where do bunnies live?',o:['In trees','Underground','In the sea'],a:1,e:'Bunnies burrow underground.'}],
+task:'Say aloud: "One thing that I wonder is …" and give one reason. Write two more such lines of your own.'},
+
+{u:2,c:'2.1',t:'The Brother',ty:'Poem',by:'Amanjeet Singh',
+en:'The poet describes the strong, loving bond between siblings. The brother stays beside the poet in good times and bad times, in laughter and in tears. He is like the moon and the sun, and his strength and hope keep the poet strong. No force can break their bond.',
+mr:'भावंडांमधील प्रेमळ, अतूट नात्याची कविता : सुख-दुःखात भाऊ सोबत असतो; त्याची शक्ती व आशा कवीला बळ देते.',
+w:[['bond','a strong feeling that joins people','नाते, बंध'],['gain','an advantage; something good you get','लाभ'],['worthwhile','useful or enjoyable enough to be worth it','सार्थक'],['presence','being with someone','सहवास']],
+l:[{h:'Simile',x:'A comparison using "like" or "as".',eg:['He is as brave as a lion.','Her smile is like sunshine.']},
+{h:'Metaphor',x:'A direct comparison without "like" or "as" – one thing is called another.',eg:['My brother is my sun.','The classroom was a zoo.']}],
+q:[{q:'The poem is about the bond between …',o:['friends','siblings','teachers'],a:1,e:'It is about a brother.'},
+{q:'"You, my brother, my moon and sun" is an example of …',o:['Simile','Metaphor','Repetition'],a:1,e:'Direct comparison without like/as.'},
+{q:'"As busy as a bee" is a …',o:['Simile','Metaphor','Pun'],a:0,e:'It uses "as".'},
+{q:'"Worthwhile" means …',o:['useless','useful or enjoyable','very old'],a:1,e:'Worth the time or effort.'}],
+task:'Write 4 lines about your brother, sister or best friend. Use one simile.'},
+
+{u:2,c:'2.2',t:'Stories on Strings',ty:'Informative text',by:'',
+en:'India has colourful puppet traditions in every region. Rajasthan\'s Kathputli puppets tell tales of brave kings and clever queens. Bommalattam puppets of the South are large and beautifully carved. Andhra\'s Tholu Bommalata leather puppets make shadow pictures on a white screen, and Odisha and Bengal have small rod puppets. Puppet shows entertained people and taught values like kindness, bravery and truth.',
+mr:'भारतातील विविध कठपुतळी परंपरा : राजस्थानची कठपुतळी, दक्षिणेतील बोम्मलाट्टम, आंध्रातील चामड्याची सावली-बाहुली (थोलू बोम्मलाटा), ओडिशा-बंगालच्या काठी-बाहुल्या. या खेळांतून मनोरंजन व मूल्यशिक्षण होते.',
+w:[['puppet','a model of a person or animal moved by strings, rods or hands','कठपुतळी, बाहुली'],['tradition','a custom followed for a long time','परंपरा'],['carved','shaped by cutting wood or stone','कोरलेले'],['harmony','living peacefully together','सलोखा'],['deities','gods and goddesses','देवदेवता']],
+l:[{h:'Suffix -ful',x:'Adding -ful means "full of".',eg:['colour → colourful','wonder → wonderful','care → careful','help → helpful']},
+{h:'Proper nouns for places',x:'Names of states and places begin with capital letters.',eg:['Rajasthan','Karnataka','Odisha']}],
+q:[{q:'Kathputli puppets come from …',o:['Rajasthan','Kerala','Assam'],a:0,e:'Rajasthan in the North.'},
+{q:'Tholu Bommalata puppets are made of …',o:['clay','leather','paper'],a:1,e:'Shining leather shadow puppets.'},
+{q:'Add -ful: "care" becomes …',o:['careful','carefull','cared'],a:0,e:'-ful has one l.'},
+{q:'Puppet shows were used to …',o:['only sell toys','entertain and teach values','scare children'],a:1,e:'They taught good behaviour.'}],
+task:'Make a paper-bag puppet and give it a short speech (3–4 sentences) in English.'},
+
+{u:2,c:'2.3',t:'All About News',ty:'News report',by:'',
+en:'The lesson shows a school news report about a Maharashtra Din celebration: the headline, place, date and a short account of the programme – songs, speeches and a pledge. It explains how a news report is written and how news differs from rumour.',
+mr:'बातमी कशी लिहितात ते शिकवणारा पाठ : शीर्षक, ठिकाण, दिनांक व घडलेल्या कार्यक्रमाचे वर्णन. बातमी व अफवा यांतील फरक.',
+w:[['headline','the title of a news report','ठळक बातमी, मथळा'],['enthusiasm','strong excitement and interest','उत्साह'],['attire','clothes','पोशाख'],['responsible','someone who can be trusted to behave well','जबाबदार'],['rumour','a story that may not be true','अफवा']],
+l:[{h:'Simple Past Tense',x:'Use it for actions that happened in the past. Regular verbs take -ed; irregular verbs change form.',eg:['The students celebrated Maharashtra Din.','They sang the state song.','The principal spoke about unity.']},
+{h:'Parts of a news report',x:'Headline → place and date → what happened (who, what, where, when, why).',eg:['SCHOOL PLANTS 100 TREES','Amravati, 5 June : …']}],
+q:[{q:'What is the title of a news report called?',o:['Headline','Footnote','Chapter'],a:0,e:'The headline.'},
+{q:'Choose the Simple Past: "They ___ a pledge."',o:['take','took','taking'],a:1,e:'take → took.'},
+{q:'A story that may not be true is a …',o:['report','rumour','poem'],a:1,e:'Rumour.'},
+{q:'The news report was about celebrating …',o:['Maharashtra Din','Diwali','Sports Day'],a:0,e:'1st May, Maharashtra Din.'}],
+task:'Write a short news report (5–6 sentences) about an event in your school. Give it a headline, place and date.'},
+
+{u:2,c:'2.4',t:'Healthy Dessert : Millet Kheer of Kalahandi Tribals',ty:'Informative text / recipe',by:'',
+en:'Tribals of Kalahandi (Odisha) make a sweet called Suan Kheer from foxtail millet. It satisfies the wish for a sweet after a meal and is also healthy. The lesson describes how millet, jaggery, peanuts and fennel are cooked together, and why millets ("mota anaaj") are good for health.',
+mr:'कालाहांडी (ओडिशा) येथील आदिवासींची वरी/कांग (फॉक्सटेल मिलेट) पासून केलेली "सुआन खीर" – गोड आणि पौष्टिक. भरडधान्ये आरोग्यासाठी का चांगली ते सांगणारा पाठ.',
+w:[['millets','small grains used as food','भरडधान्ये'],['craving','a strong wish for something','तीव्र इच्छा'],['simmering','cooking gently in liquid that is almost boiling','मंद आचेवर उकळणे'],['repertoire','all the things a person or group can do or make','संग्रह'],['sumptuous','rich and very pleasing (food)','चविष्ट व भरपूर']],
+l:[{h:'Imperative sentences (instructions)',x:'Recipes use sentences that begin with a verb to give instructions.',eg:['Boil the millet.','Stir it continuously.','Add jaggery slowly.']},
+{h:'Words for quantity',x:'We use units to say how much.',eg:['half a kilo of millet','2 litres of water','100 grams of peanuts']}],
+q:[{q:'Suan Kheer is made from …',o:['rice','foxtail millet','wheat'],a:1,e:'Suan chaula = foxtail millet.'},
+{q:'Kalahandi is in …',o:['Odisha','Maharashtra','Punjab'],a:0,e:'Kalahandi district, Odisha.'},
+{q:'Which sentence gives an instruction?',o:['Stir the kheer.','She stirred the kheer.','The kheer is sweet.'],a:0,e:'It begins with a verb.'},
+{q:'Why is Suan Kheer special?',o:['It is sweet and healthy','It is very spicy','It is only for kings'],a:0,e:'Twin benefits: tasty and healthy.'}],
+task:'Write the recipe of a healthy dish from your home in 5 simple steps.'},
+
+{u:2,c:'2.5',t:'The Plight of the Shy Son-in-Law',ty:'Folk tale (humour)',by:'',
+en:'A very shy son-in-law secretly ate a sweet dish at his in-laws\' house and got it smeared on his face. Too shy to be seen, he hid among the sheep at night. A thief came to steal the heaviest sheep, lifted him and carried him away! When the tired thief was about to drop him, the man said, "Please put me down gently." The frightened thief threw him down and ran away.',
+mr:'लाजाळू जावयाची गमतीदार लोककथा : लपण्यासाठी तो मेंढ्यांमध्ये बसला; चोराने त्यालाच सर्वात जड मेंढी समजून उचलले. "हळूच खाली ठेवा" हे ऐकून चोर घाबरून पळाला.',
+w:[['plight','a difficult situation','दयनीय अवस्था'],['smeared','spread something sticky over a surface','माखलेले'],['gently','softly and carefully','हळुवारपणे'],['possessed','owned or had','बाळगलेले'],['creature','any living being','प्राणी, जीव']],
+l:[{h:'Past tense forms',x:'Many verbs change completely in the past tense.',eg:['go → went','eat → ate','run → ran','throw → threw','carry → carried']},
+{h:'Relations',x:'Words for family relations.',eg:['sister\'s son → nephew','sister\'s daughter → niece','mother\'s brother → uncle','sister\'s husband → brother-in-law']}],
+q:[{q:'Where did the son-in-law hide?',o:['In the kitchen','Among the sheep','On the roof'],a:1,e:'He hid among the sheep.'},
+{q:'Which sheep did the thief want?',o:['The lightest','The heaviest','The youngest'],a:1,e:'He lifted each to find the heaviest.'},
+{q:'Why did the thief run away?',o:['The "sheep" spoke!','He saw a dog','It started raining'],a:0,e:'The man said, "Please put me down gently."'},
+{q:'Past tense of "throw" is …',o:['throwed','threw','thrown'],a:1,e:'throw – threw – thrown.'}],
+task:'Tell a funny story from your family or village in 6–8 sentences using past tense.'},
+
+{u:3,c:'3.1',t:'The World of Geometry',ty:'Poem',by:'',
+en:'A playful poem in which a single line looks for company. Two lines meet to form an angle, a third makes a triangle, a fourth makes a square, and more lines keep joining to make pentagons, hexagons and other shapes. It connects poetry with geometry and with shapes seen in Warli paintings.',
+mr:'रेषांपासून आकार कसे तयार होतात हे गमतीने सांगणारी कविता : दोन रेषा – कोन, तीन – त्रिकोण, चार – चौरस, पुढे पंचकोन, षट्‌कोन…',
+w:[['pentagon','a flat shape with five sides','पंचकोन'],['hexagon','a flat shape with six sides','षट्‌कोन'],['heptagon','a flat shape with seven sides','सप्तकोन'],['octagon','a flat shape with eight sides','अष्टकोन'],['nonagon','a flat shape with nine sides','नवकोन'],['decagon','a flat shape with ten sides','दशकोन'],['symmetry','matching parts on both sides','सममिती']],
+l:[{h:'Number prefixes',x:'Many shape names come from number prefixes.',eg:['tri = 3 (triangle)','penta = 5 (pentagon)','hexa = 6','octa = 8 (octopus has 8 arms!)','deca = 10']}],
+q:[{q:'A shape with six sides is a …',o:['pentagon','hexagon','octagon'],a:1,e:'hexa = 6.'},
+{q:'Two lines meeting at a point form …',o:['an angle','a square','a circle'],a:0,e:'They form an angle.'},
+{q:'"Octa" means …',o:['5','8','10'],a:1,e:'octagon has 8 sides.'},
+{q:'Which art style is mentioned for finding shapes?',o:['Warli painting','Oil painting','Cartoon'],a:0,e:'Warli paintings use simple shapes.'}],
+task:'Draw a picture using only triangles, circles and lines (like Warli art). Describe it in 4 sentences.'},
+
+{u:3,c:'3.2',t:'She Knew No Fear',ty:'Story (true courage)',by:'',
+en:'Nirmala was jealous of clever Sayal and ignored her. One day at the grazing ground a huge python coiled around Nirmala\'s legs. Sayal bravely hit the python again and again, freed Nirmala and escaped from its hold herself. The village was proud, and Sayal was honoured by the President on Republic Day. Nirmala gave up her jealousy and became happier.',
+mr:'धाडसी सायलने अजगराच्या विळख्यातून निर्मलाला वाचवले. प्रजासत्ताक दिनी राष्ट्रपतींनी तिचा सन्मान केला. निर्मलाने मत्सर सोडला आणि ती आनंदी झाली.',
+w:[['ignored','paid no attention to','दुर्लक्ष केले'],['coiled','wound itself round and round','विळखा घातला'],['shrieked','screamed in a high voice','किंचाळली'],['squirmed','twisted and moved restlessly','वळवळला'],['jealousy','an unhappy feeling when you want what someone else has','मत्सर'],['bravery','courage','शौर्य']],
+l:[{h:'Base form of verbs',x:'Past forms can be changed back to the base (first) form.',eg:['ignored → ignore','shrieked → shriek','ran → run','caught → catch']},
+{h:'Suffixes -ness, -ful, -ous',x:'Suffixes make new words.',eg:['happy → happiness','fear → fearless / fearful','courage → courageous']}],
+q:[{q:'Why did Nirmala dislike Sayal?',o:['Sayal was cleverer and more beautiful','Sayal was rude','Sayal took her book'],a:0,e:'She was jealous.'},
+{q:'What coiled around Nirmala?',o:['A cobra','A python','A rope'],a:1,e:'A huge python.'},
+{q:'Who honoured Sayal?',o:['The Principal','The President','The Sarpanch'],a:1,e:'On Republic Day.'},
+{q:'Base form of "caught" is …',o:['catched','catch','catching'],a:1,e:'catch – caught – caught.'}],
+task:'Tell about a brave act you saw or heard of. Use 5 sentences.'},
+
+{u:3,c:'3.3',t:'In Eskimo Land',ty:'Informative text',by:'',
+en:'The Eskimos (Inuit) live in very cold lands like Greenland, near the North Pole, where there are no trees, cars or summer heat – only snow and ice. The lesson describes their igloos made of snow blocks, their warm fur clothes, their food, dogs and sledges, and light canoes used for hunting.',
+mr:'उत्तर ध्रुवाजवळील ग्रीनलँडसारख्या अतिथंड प्रदेशातील एस्किमो (इनुइट) लोकांचे जीवन : बर्फाची इग्लू घरे, केसाळ कपडे, कुत्रे, घसरगाडी व शिकार.',
+w:[['igloo','a dome-shaped house made of snow blocks','बर्फाचे घर'],['extremely','very','अत्यंत'],['raw','not cooked','कच्चे'],['canoe','a light, narrow boat','लहान होडी'],['crawl','to move on hands and knees','रांगणे'],['Inuit','indigenous people of the Arctic','इनुइट लोक']],
+l:[{h:'Simple Future Tense',x:'Use will + verb to talk about tomorrow, next week or later.',eg:['I will visit my grandmother tomorrow.','It will snow in Greenland.','They will not go out in the storm.']}],
+q:[{q:'Eskimos live in …',o:['deserts','very cold snowy lands','rainforests'],a:1,e:'Near the North Pole.'},
+{q:'An igloo is made of …',o:['bricks','snow blocks','wood'],a:1,e:'Blocks of snow.'},
+{q:'Simple Future: "We ___ play tomorrow."',o:['will','did','are'],a:0,e:'will + verb.'},
+{q:'"Raw" means …',o:['cooked','not cooked','frozen only'],a:1,e:'Not cooked.'}],
+task:'Imagine you visit Greenland. Write 5 sentences about what you will see and do (use "will").'},
+
+{u:3,c:'3.4',t:'The Magic Words Club',ty:'Story / values',by:'',
+en:'Imagine a world where no one says "please" or "thank you" – it would feel sad. The Magic Words Club teaches polite "magic words": please, thank you, sorry, excuse me and may I. It also teaches good manners in different places and the silent language of the body – posture, eye contact and a smile.',
+mr:'"प्लीज, थँक यू, सॉरी, एक्सक्यूज मी, मे आय" अशा जादुई शब्दांनी आणि चांगल्या शिष्टाचारांनी जग आनंदी होते हे सांगणारा पाठ; देहबोलीचेही महत्त्व.',
+w:[['manners','the way we behave with others','शिष्टाचार'],['posture','the way a person sits or stands','बसण्या-उभे राहण्याची ढब'],['universal','for everyone everywhere','सार्वत्रिक'],['mysterious','hard to understand or explain','रहस्यमय'],['grumpy','bad-tempered','चिडखोर']],
+l:[{h:'Polite expressions',x:'Use the right magic word for each situation.',eg:['Please pass the salt.','Thank you for helping me.','Sorry, I am late.','Excuse me, may I come in?']}],
+q:[{q:'When you are late for class you say …',o:['Thank you','Sorry','Welcome'],a:1,e:'Apologise for being late.'},
+{q:'To ask permission politely we say …',o:['May I …?','Give me …','Go away'],a:0,e:'"May I come in?"'},
+{q:'"Grumpy" means …',o:['bad-tempered','very happy','sleepy'],a:0,e:'Easily annoyed.'},
+{q:'In a library you should …',o:['shout','speak very softly','play music'],a:1,e:'Keep your voice as quiet as a whisper.'}],
+task:'Role-play with a partner: a shop, a library and a bus stop. Use at least three magic words.'},
+
+{u:3,c:'3.5',t:'Joy of Letter Writing',ty:'Conversation (play)',by:'',
+en:'Harshita, a sixth-grade student, is doing her English homework on letter writing. Her younger brother Shantanu asks questions, and she explains what a letter is and that letters are of two types – formal and informal – and how each is written.',
+mr:'बहीण हर्षिता लहान भावाला पत्रलेखन समजावते – पत्र म्हणजे काय, औपचारिक व अनौपचारिक पत्रे आणि त्यांची मांडणी.',
+w:[['formal','official; used for offices, schools, businesses','औपचारिक'],['informal','friendly; used for family and friends','अनौपचारिक'],['address','where a person lives','पत्ता'],['salutation','the greeting at the start, like "Dear …"','संबोधन']],
+l:[{h:'Informal letter format',x:'Your address and date → salutation (Dear …) → body → closing (Your loving …) → your name.',eg:['Dear Aaji,','Your loving granddaughter, Riya']},
+{h:'Formal letter format',x:'Sender\'s address, date → receiver\'s designation and address → subject → Respected Sir/Madam → body → Yours faithfully/sincerely, name.',eg:['Subject: Request for leave','Yours faithfully,']}],
+q:[{q:'A letter to your friend is …',o:['formal','informal','a notice'],a:1,e:'Friendly letters are informal.'},
+{q:'A leave application to the Headmaster is …',o:['formal','informal'],a:0,e:'Official letters are formal.'},
+{q:'"Dear Ravi," is the …',o:['subject','salutation','closing'],a:1,e:'The greeting.'},
+{q:'Harshita explained letter writing to …',o:['her teacher','her brother Shantanu','her father'],a:1,e:'Her younger brother.'}],
+task:'Write an informal letter to your grandparents telling them about your school.'},
+
+{u:4,c:'4.1',t:'Now Where Will This Bird Rest?',ty:'Poem (translated)',by:'Mahadevi Verma (translated from Hindi)',
+en:'A storm breaks branches and blows away a little bird\'s nest. The children try to call the bird into their house, but it only cries and will not stay. They wonder how to bring a tree inside, build a nest or mend its broken eggs. The poem shows sympathy for birds and the importance of trees.',
+mr:'महादेवी वर्मा यांच्या हिंदी कवितेचा अनुवाद : वादळात घरटे उडून गेलेल्या पक्ष्याबद्दलची करुणा. आता हा पक्षी कुठे राहणार? – झाडांचे महत्त्व.',
+w:[['storm','very strong wind with rain','वादळ'],['gust','a sudden strong rush of wind','वाऱ्याचा झोत'],['sorrow','great sadness','दुःख'],['mend','to repair','दुरुस्त करणे'],['nest','a home that a bird builds','घरटे']],
+l:[{h:'Personification',x:'Giving human feelings or actions to animals or things.',eg:['The bird speaks of its sorrow.','The wind howled angrily.']},
+{h:'Question sentences',x:'The poem asks many questions to show worry.',eg:['Where will this bird live?','How can we build a nest?']}],
+q:[{q:'What destroyed the bird\'s nest?',o:['A storm','A cat','Children'],a:0,e:'The storm blew it away.'},
+{q:'Did the bird stay in the house?',o:['Yes','No'],a:1,e:'It cried and would not stay.'},
+{q:'The poem was originally written in …',o:['Marathi','Hindi','Tamil'],a:1,e:'By Mahadevi Verma, in Hindi.'},
+{q:'"Sorrow" means …',o:['joy','great sadness','anger'],a:1,e:'Deep sadness.'}],
+task:'Write 4 sentences on "Why we must save trees for birds".'},
+
+{u:4,c:'4.2',t:'Aim High Like Sheetal Devi',ty:'Skit',by:'',
+en:'A group of friends talk excitedly about Sheetal Devi, who won a gold medal for India in Paralympic Archery. Born without arms, she learned to shoot with her legs and practised every day. People doubted her, but she proved them wrong. The friends learn to never give up in studies and sports.',
+mr:'दोन्ही हात नसूनही पायांनी धनुर्विद्या करून पॅरालिम्पिकमध्ये सुवर्णपदक जिंकणाऱ्या शीतल देवीबद्दल मित्रांचा संवाद. बोध : कधीही हार मानू नका.',
+w:[['paralympics','sports competition for athletes with disabilities','पॅरालिम्पिक'],['archery','the sport of shooting arrows with a bow','धनुर्विद्या'],['aim','a goal','ध्येय, नेम'],['focus','to give full attention','लक्ष केंद्रित करणे'],['amazing','very surprising','आश्चर्यकारक'],['dedication','hard work and commitment','निष्ठा']],
+l:[{h:'Opposites (antonyms)',x:'Words with opposite meanings.',eg:['strong × weak','possible × impossible','win × lose','brave × afraid']},
+{h:'Speaking in a skit',x:'In a skit, the speaker\'s name is written before a colon, then the words spoken.',eg:['Sakshi : Did you hear the news?']}],
+q:[{q:'Sheetal Devi won gold in …',o:['Paralympic Archery','Wrestling','Chess'],a:0,e:'Paralympic Archery.'},
+{q:'She shoots arrows using her …',o:['hands','legs','mouth'],a:1,e:'She made her legs work like hands.'},
+{q:'Opposite of "possible" is …',o:['unpossible','impossible','dispossible'],a:1,e:'im + possible.'},
+{q:'The lesson of the skit is …',o:['Never give up','Sports are boring','Only rich people win'],a:0,e:'Keep trying.'}],
+task:'Speak for one minute about a sportsperson you admire.'},
+
+{u:4,c:'4.3',t:'How to Salute the Sun',ty:'Informative text',by:'',
+en:'Our body is a wonderful machine that needs good food, exercise and rest. Surya Namaskar (Sun Salutation) is a complete exercise of 12 postures in one cycle that gives the benefits of both gross and subtle exercise. Anyone from 8 to 80 years can do it; it helps children grow with a healthy body, a balanced mind, better concentration and memory.',
+mr:'सूर्यनमस्कार – 12 आसनांचा एक संपूर्ण व्यायाम. 8 ते 80 वयोगटातील कोणीही करू शकतो; शरीर निरोगी, मन शांत व एकाग्रता वाढते.',
+w:[['marvellous','wonderful','अद्भुत'],['creed','a set of beliefs','पंथ, श्रद्धा'],['chanted','said or sang a word many times','जप केला'],['efficiency','working well without waste','कार्यक्षमता'],['posture','a position of the body','आसन, स्थिती']],
+l:[{h:'Present Continuous Tense',x:'For actions happening now: am / is / are + verb-ing.',eg:['I am doing Surya Namaskar.','She is breathing slowly.','They are stretching their arms.']}],
+q:[{q:'One cycle of Surya Namaskar has how many steps?',o:['8','10','12'],a:2,e:'12 postures.'},
+{q:'Who can do Surya Namaskar?',o:['Only adults','Anyone from 8 to 80 years','Only athletes'],a:1,e:'Any able person, 8 to 80.'},
+{q:'Present Continuous: "She ___ doing yoga now."',o:['is','are','was'],a:0,e:'She is + verb-ing.'},
+{q:'"Marvellous" means …',o:['wonderful','terrible','tiny'],a:0,e:'Very good, wonderful.'}],
+task:'Describe your morning exercise routine in 5 sentences (use present continuous for what you are doing now).'},
+
+{u:4,c:'4.4',t:'The Naughty Keyboard',ty:'Story (fantasy)',by:'',
+en:'Bezzil the wizard lived in an enchanted house where every object had a mind of its own. His computer keyboard was naughty and played tricks with his emails. When Bezzil wrote to the packers and movers to send a table to his brother in Antarctica, the bored keyboard replaced "table" with its own name! The movers began packing the keyboard. Bezzil set things right, and the keyboard learnt its lesson.',
+mr:'जादूगार बेझिलचा खोडकर कीबोर्ड ईमेलमध्ये "टेबल"ऐवजी स्वतःचे नाव टाकतो आणि स्वतःच अंटार्क्टिकाला पाठवला जाऊ लागतो! शेवटी तो धडा शिकतो.',
+w:[['enchanted','under a magic spell','जादू केलेले'],['wizard','a man with magic powers','जादूगार'],['mischievous','naughty, playfully causing trouble','खोडकर'],['yelped','gave a short cry of pain or fear','केकाटला'],['heed','attention','लक्ष']],
+l:[{h:'Subject–verb agreement',x:'A singular subject takes a singular verb.',eg:['Bezzil lives in an enchanted house. (not "live")','The keyboard was naughty. (not "were")']},
+{h:'Crossword clues',x:'Crosswords use short meanings (clues) to find words.',eg:['affected by magic → enchanted','a person with magic powers → wizard']}],
+q:[{q:'Bezzil wanted to send what to his brother?',o:['A keyboard','A table','A television'],a:1,e:'A table, to Antarctica.'},
+{q:'What trick did the keyboard play?',o:['Replaced "table" with its own name','Deleted all emails','Switched off the TV'],a:0,e:'It typed its own name instead.'},
+{q:'Correct sentence:',o:['Bezzil live in a house.','Bezzil lives in a house.'],a:1,e:'Singular subject → lives.'},
+{q:'"Mischievous" means …',o:['naughty','sleepy','polite'],a:0,e:'Playfully naughty.'}],
+task:'Imagine your pencil box could talk. Write 5 sentences about a trick it plays on you.'},
+
+{u:4,c:'4.5',t:'A Honey Bee Speaks : A Monologue',ty:'Monologue',by:'',
+en:'A honey bee speaks to us, correcting the idea that bees are lazy. It explains that bees are very busy: flitting from flower to flower to collect nectar, living in a honeycomb with thousands of cells, fanning their wings to keep the hive cool, caring for larvae and working together without fighting.',
+mr:'मधमाशीचे स्वगत (एकट्याचे भाषण) : मधमाशी आळशी नसून खूप कष्टाळू असते – फुलांतून मकरंद गोळा करणे, पोळ्याची काळजी घेणे, एकत्र मिळून काम करणे.',
+w:[['monologue','a long speech by one person','स्वगत'],['flitting','moving quickly from place to place','भिरभिरणे'],['nectar','sweet juice in flowers','मकरंद'],['larvae','young insects just out of eggs','अळ्या'],['honeycomb','a structure of wax cells made by bees','मधाचे पोळे']],
+l:[{h:'Past Continuous Tense',x:'For an action going on at a time in the past: was / were + verb-ing.',eg:['The bee was collecting nectar.','We were watching the hive.']},
+{h:'The letter c: /k/ and /s/',x:'c sounds /k/ before a, o, u (cat, cook) and /s/ before e, i, y (city, rice, cycle).',eg:['cat, cook, cup → /k/','city, rice, cycle → /s/']}],
+q:[{q:'A monologue is a speech by …',o:['one person','two people','a crowd'],a:0,e:'Mono = one.'},
+{q:'Bees collect … from flowers.',o:['nectar','water only','leaves'],a:0,e:'Sweet nectar.'},
+{q:'In "city", c sounds like …',o:['/k/','/s/'],a:1,e:'c before i → /s/.'},
+{q:'Past Continuous: "They ___ playing."',o:['was','were','is'],a:1,e:'They → were.'}],
+task:'Write a short monologue (5–6 sentences) of an ant, a tree or a river.'},
+
+{u:5,c:'5.1',t:'Homework Machine',ty:'Humorous poem',by:'',
+en:'The speaker describes a "perfect" machine that does homework: put in the homework and a coin, switch it on, and the answer comes out in seconds. But the machine says nine plus four is three! The funny ending shows that machines are not always as perfect as we think, and we must think for ourselves.',
+mr:'गृहपाठ करणारे "परिपूर्ण" यंत्र – पण ते 9 + 4 = 3 असे चुकीचे उत्तर देते! यंत्रांवर पूर्ण विसंबून राहू नये, स्वतः विचार करावा हे सांगणारी विनोदी कविता.',
+w:[['contraption','a strange machine or device','विचित्र यंत्र'],['dime','an American coin worth ten cents','अमेरिकन नाणे'],['switch','a button to turn something on or off','बटण'],['perfect','without any mistake','परिपूर्ण']],
+l:[{h:'Identifying figures of speech',x:'Revise: repetition, alliteration, simile, metaphor, personification.',eg:['"Oh, the Homework Machine, oh, the Homework Machine" → repetition']}],
+q:[{q:'What answer did the machine give for nine plus four?',o:['13','3','94'],a:1,e:'It said three – a mistake!'},
+{q:'The poem shows that machines …',o:['never make mistakes','can make mistakes','can think like us'],a:1,e:'It is not as perfect as it seemed.'},
+{q:'"Contraption" means …',o:['a strange machine','a kind of fruit','a teacher'],a:0,e:'An odd device.'},
+{q:'What must be dropped into the machine?',o:['A dime (coin)','A pencil','Water'],a:0,e:'Put in homework and a dime.'}],
+task:'Discuss: Should students use machines/AI to do homework? Give two reasons.'},
+
+{u:5,c:'5.2',t:'The Lifeline of Maharashtra : The Godavari River',ty:'Informative text',by:'',
+en:'The Godavari is the second longest river in India after the Ganga. It rises at Trimbakeshwar near Nashik in the Western Ghats and is considered sacred. It supports drinking water, farming, culture and economic activities in Maharashtra, so it is called the lifeline of the state. The lesson also talks about pollution and the need to keep the river clean.',
+mr:'गोदावरी – गंगेनंतर भारतातील दुसरी सर्वांत लांब नदी; उगम नाशिकजवळ त्र्यंबकेश्वर. पिण्याचे पाणी, शेती, संस्कृती यांना आधार म्हणून ती महाराष्ट्राची जीवनरेखा; प्रदूषण रोखण्याची गरज.',
+w:[['originates','begins or starts from a place','उगम पावते'],['tributary','a small river that flows into a bigger river','उपनदी'],['sacred','holy','पवित्र'],['rely on','to depend on','अवलंबून असणे'],['sewage','dirty waste water','सांडपाणी'],['expanse','a wide open area','विस्तार']],
+l:[{h:'The /s/ sound',x:'The /s/ sound can be spelt s, ss, c or sc.',eg:['sun, grass','city, rice','science, scene']}],
+q:[{q:'Where does the Godavari originate?',o:['Trimbakeshwar near Nashik','Pune','Mumbai'],a:0,e:'In the Western Ghats near Nashik.'},
+{q:'The Godavari is India\'s … longest river.',o:['first','second','fifth'],a:1,e:'Second, after the Ganga.'},
+{q:'Why is it called a lifeline?',o:['It supports water, farming and life','It is very short','It is only for boating'],a:0,e:'Millions depend on it.'},
+{q:'A small river joining a big river is a …',o:['tributary','canal','sea'],a:0,e:'Tributary.'}],
+task:'Write 5 sentences on how we can keep our rivers clean.'},
+
+{u:5,c:'5.3',t:'Nasreddin Hodja and the Smell of Soup',ty:'Folk tale (wit)',by:'',
+en:'A poor beggar held his dry bread over a pot of soup to catch its smell. The greedy innkeeper demanded payment for the smell. The wise judge Nasreddin Hodja jingled some coins near the innkeeper\'s ear and said that the man had taken only the smell of the soup, so the innkeeper had been paid with the sound of money.',
+mr:'गरीब भिकाऱ्याने फक्त सूपचा वास घेतला म्हणून खानावळवाल्याने पैसे मागितले; चतुर नसरुद्दीन होजाने नाण्यांचा आवाज ऐकवून "वासाचे मोल आवाजाने चुकते" असा न्याय दिला.',
+w:[['savoury','salty or spicy, not sweet','चवदार (खारट)'],['cauldron','a large deep cooking pot','मोठे भांडे'],['stammered','spoke with difficulty, repeating sounds','अडखळत बोलला'],['beckoned','signalled someone to come near','खुणेने बोलावले'],['terrified','very frightened','भयभीत'],['protest','to say you disagree','निषेध करणे']],
+l:[{h:'Future Continuous Tense',x:'For an action that will be going on in the future: will be + verb-ing.',eg:['I will be studying at 7 pm.','They will be playing tomorrow evening.']},
+{h:'Punctuation',x:'Use capital letters, commas, full stops, question marks and quotation marks correctly.',eg:['"You may go," said Hodja.','Did the beggar eat the soup?']}],
+q:[{q:'What did the beggar take from the soup?',o:['Its smell','A bowl of soup','A spoon'],a:0,e:'Only the smell.'},
+{q:'How was the innkeeper "paid"?',o:['With the sound of coins','With gold','With bread'],a:0,e:'Hodja jingled coins.'},
+{q:'Future Continuous: "I ___ reading at 8 pm."',o:['will be','was','am'],a:0,e:'will be + verb-ing.'},
+{q:'"Terrified" means …',o:['very frightened','very happy','tired'],a:0,e:'Very afraid.'}],
+task:'Tell a story of Birbal or Tenali Raman showing wit, in 6 sentences.'},
+
+{u:5,c:'5.4',t:'Festival of Kites',ty:'Conversation',by:'',
+en:'Riya and Rahul see many kites in the sky while returning from the market with Dadaji. Dadaji explains Makar Sankranti: it follows the solar calendar, marks the end of winter, and from this day the days start getting longer. Staying in the sun while flying kites and eating tilgul help build immunity when the weather changes.',
+mr:'मकरसंक्रांतीच्या दिवशी पतंग उडवण्यामागचे कारण आजोबा मुलांना सांगतात : सौर दिनदर्शिका, हिवाळ्याचा शेवट, दिवस मोठे होऊ लागणे, उन्हात राहणे व तिळगुळाने रोगप्रतिकारशक्ती वाढणे.',
+w:[['tradition','a custom followed for a long time','परंपरा'],['immunity','the body\'s strength to fight diseases','रोगप्रतिकारशक्ती'],['exposure','being open to something (like sunlight)','संपर्क'],['diversity','variety','विविधता'],['solar calendar','a calendar based on the Sun','सौर दिनदर्शिका']],
+l:[{h:'Conversation (dialogue) writing',x:'Write the speaker\'s name, a colon, then the words spoken. Keep sentences short and natural.',eg:['Riya : Why are so many kites flying today?','Dadaji : Because today is Makar Sankranti.']}],
+q:[{q:'Kites are flown on …',o:['Makar Sankranti','Diwali','Holi'],a:0,e:'Makar Sankranti.'},
+{q:'Makar Sankranti follows the …',o:['solar calendar','lunar calendar only','school calendar'],a:0,e:'It is based on the Sun.'},
+{q:'"Immunity" means …',o:['strength to fight diseases','a kind of kite','cold weather'],a:0,e:'Body\'s defence.'},
+{q:'After Makar Sankranti, the days …',o:['get longer','get shorter','stay same'],a:0,e:'Duration of the day starts increasing.'}],
+task:'Write a short conversation (6 lines) between you and your friend about your favourite festival.'},
+
+{u:5,c:'5.5',t:'The Magic of Flute',ty:'Story',by:'',
+en:'King Madho Singh\'s daughter Mohini fell seriously ill and never smiled. One day soft flute music reached the palace and Mohini smiled for the first time. The king found the flute player, an orphan boy named Chandu, sitting in a trance. His music cured the princess. The king arranged for Chandu\'s education, and he later became the king\'s advisor.',
+mr:'आजारी राजकन्या मोहिनी बासरीचा सूर ऐकून हसली आणि बरी झाली. बासरीवादक अनाथ चंदूला राजाने शिक्षण दिले; पुढे तो राजाचा सल्लागार झाला.',
+w:[['physician','a doctor','वैद्य, डॉक्टर'],['reward','a prize for something good','बक्षीस'],['mesmerising','holding attention completely','मंत्रमुग्ध करणारा'],['trance','a dream-like state','तंद्री'],['wafted','carried gently through the air','दरवळले, तरंगत आले'],['gradually','slowly','हळूहळू']],
+l:[{h:'Prefixes and suffixes',x:'Add a prefix or suffix to make a new word.',eg:['un + happy = unhappy','help + less = helpless','kind + ness = kindness']},
+{h:'Digraphs: th',x:'Two letters making one sound. "th" is voiceless in thin, bath and voiced in this, mother.',eg:['voiceless: thin, three, bath','voiced: this, that, mother']}],
+q:[{q:'What cured the princess?',o:['Medicine','Flute music','Sleep'],a:1,e:'Chandu\'s flute music.'},
+{q:'Who was Chandu?',o:['A prince','An orphan boy','A physician'],a:1,e:'An orphan who needed a job and study.'},
+{q:'"Physician" means …',o:['doctor','musician','king'],a:0,e:'A doctor.'},
+{q:'In "this", th is …',o:['voiced','voiceless'],a:0,e:'Voiced /ð/.'}],
+task:'Name 5 musical instruments. Speak about the one you like and why.'},
+
+{u:6,c:'6.1',t:'The World is With You',ty:'Poem',by:'',
+en:'A thought-provoking poem that tells the reader that the world is moving forward and is ready to support you, but you must also be "with yourself" – disciplined, focused and not postponing things "later and later". How you live your life depends on you.',
+mr:'जग तुमच्यासोबत आहे, पण तुम्ही स्वतःसोबत आहात का? – शिस्त, एकाग्रता व कामे पुढे न ढकलण्याचा संदेश देणारी कविता.',
+w:[['discipline','training yourself to follow rules and good habits','शिस्त'],['later','after some time','नंतर'],['least','smallest amount','किमान']],
+l:[{h:'Repetition in poems',x:'Poets repeat words to stress an idea.',eg:['"Why, why, why"','"later, later and later"']}],
+q:[{q:'The poem mainly asks us to …',o:['be disciplined and not delay','sleep more','run away'],a:0,e:'Be "with you".'},
+{q:'"later, later and later" shows …',o:['repetition','simile','pun'],a:0,e:'The word is repeated.'},
+{q:'"Discipline" means …',o:['following good rules and habits','playing all day','being angry'],a:0,e:'Self-control and good habits.'}],
+task:'List 5 good habits you want to follow every day.'},
+
+{u:6,c:'6.2',t:'The Day Dreamer',ty:'Folk tale (humour)',by:'',
+en:'A very poor couple in a Bengal village always day-dreamed about getting rich. They dreamt of buying a cow and quarrelled loudly about its milk. Their neighbour Chenna started beating the husband, saying the "cow" had eaten his cucumber and bean saplings – though he too had only planned his garden! Everyone realised how silly it is to fight over things that do not exist.',
+mr:'गरीब दांपत्य "गाय घेऊ" अशा दिवास्वप्नात गायीच्या दुधावरून भांडते; शेजारी चेन्ना नसलेल्या बागेसाठी भांडतो! कल्पनेतील गोष्टींवरून भांडणे मूर्खपणाचे – हा बोध.',
+w:[['miserable','very unhappy or poor','दयनीय'],['daydream','to imagine pleasant things while awake','दिवास्वप्न पाहणे'],['commotion','noisy confusion','गोंधळ'],['folly','a foolish act','मूर्खपणा'],['extravagance','spending too much money','उधळपट्टी']],
+l:[{h:'Simple Future Tense (revision)',x:'will + verb for plans and predictions.',eg:['We will buy a cow.','I will milk the cow.','She will sell butter.']}],
+q:[{q:'The couple dreamt about getting a …',o:['cow','car','house'],a:0,e:'A cow.'},
+{q:'Why did Chenna hit the husband?',o:['He said the "cow" ate his saplings','He stole money','He was late'],a:0,e:'An imaginary cow and imaginary saplings!'},
+{q:'"Folly" means …',o:['a foolish act','a festival','a friend'],a:0,e:'Foolishness.'},
+{q:'The story teaches us …',o:['not to fight over imaginary things','to buy cows','to shout loudly'],a:0,e:'Day-dreaming quarrels are silly.'}],
+task:'What do you want to become in future? Speak for 1 minute using "will".'},
+
+{u:6,c:'6.3',t:'The Space Women Scientists in India',ty:'Informative text',by:'',
+en:'When India successfully put a satellite into orbit around Mars, a photo of celebrating women at ISRO went viral. The lesson introduces women scientists who worked on the Mars Orbiter Mission – Ritu Karidhal, Nandini Harinath and Anuradha T.K. – and how their love for science broke the stereotype that rocket science is only for men.',
+mr:'भारताच्या मंगळयान मोहिमेत काम करणाऱ्या इस्रोतील महिला शास्त्रज्ञ – रितू करिधाल, नंदिनी हरिनाथ, अनुराधा टी. के. – आणि "रॉकेट विज्ञान फक्त पुरुषांचे" हा समज त्यांनी कसा मोडला.',
+w:[['orbit','the curved path of one object around another in space','कक्षा'],['stereotype','a fixed, often untrue idea about a group','रूढ समज'],['ecstatic','extremely happy','अत्यानंदित'],['interplanetary','between planets','आंतरग्रहीय'],['heritage','traditions and experience from the past','वारसा']],
+l:[{h:'Conditional sentences (If …)',x:'"If" sentences talk about what will happen in a condition.',eg:['If there are no colours, the world will look dull.','If you study hard, you will succeed.']}],
+q:[{q:'Which mission is talked about?',o:['Mars Orbiter Mission','Moon walk','Ocean mission'],a:0,e:'India\'s satellite around Mars.'},
+{q:'Ritu Karidhal worked at …',o:['ISRO','NASA only','a bank'],a:0,e:'Indian Space Research Organisation.'},
+{q:'"Stereotype" means …',o:['a fixed, often untrue idea','a space rocket','a music player'],a:0,e:'A fixed idea about a group.'},
+{q:'"Ecstatic" means …',o:['extremely happy','very sad','sleepy'],a:0,e:'Full of joy.'}],
+task:'Write 5 sentences about a woman you admire (a scientist, teacher or someone in your family).'},
+
+{u:6,c:'6.4',t:'My Books',ty:'Poem',by:'Harindranath Chattopadhyay',
+en:'The poet says books are his friends who give him endless joy. Every time he reads, he finds something new – a story, a picture or a dream. Books take him to faraway forests and skies; they are like boats sailing on a sea of knowledge, fun and mystery.',
+mr:'पुस्तके माझे मित्र आहेत – ती अखंड आनंद देतात, दूरच्या प्रदेशात नेतात; ज्ञान, मजा व रहस्याच्या सागरात चालणाऱ्या नौका आहेत.',
+w:[['joy','great happiness','आनंद'],['mystery','something hard to understand or explain','रहस्य'],['sail','to travel on water in a boat','नौकानयन करणे'],['knowledge','what we know and learn','ज्ञान']],
+l:[{h:'Metaphor (revision)',x:'"My books are boats" – books are directly called boats.',eg:['Books are my friends.','Knowledge is a sea.']}],
+q:[{q:'Books are compared to …',o:['boats','cars','trees'],a:0,e:'"boats that sail the sea".'},
+{q:'"My books are my friends" is a …',o:['metaphor','simile','pun'],a:0,e:'Direct comparison.'},
+{q:'Does the poet find something new each time he reads?',o:['Yes','No'],a:0,e:'Something new every time.'}],
+task:'Tell your class about your favourite book or story and why you like it.'},
+
+{u:6,c:'6.5',t:'Playing Detective',ty:'Story',by:'',
+en:'Raju, the innkeeper\'s son, loved playing detective and suspected every quiet guest. He secretly followed a serious-looking tourist all day but fell asleep on a bench. He woke up back at the inn – the tourist had noticed him and carried him home! Raju learnt that the man was an architect hired to remodel village buildings, and that not all quiet people are "fishy".',
+mr:'गुप्तहेर बनायला आवडणारा राजू एका शांत पर्यटकाचा पाठलाग करतो, पण बाकावर झोपी जातो; तोच पर्यटक त्याला घरी आणतो. तो वास्तुविशारद निघतो – प्रत्येक शांत माणूस संशयास्पद नसतो!',
+w:[['detective','a person who solves crimes','गुप्तहेर'],['suspicious','making you feel something is wrong','संशयास्पद'],['fishy','seeming dishonest','संशयास्पद'],['architect','a person who designs buildings','वास्तुविशारद'],['vaguely','not clearly','अस्पष्टपणे']],
+l:[{h:'Prepositions',x:'Words that show position or relation: in, on, at, under, near, behind, to.',eg:['Raju sat on a bench.','The man walked to the square.','He was back at the inn.']},
+{h:'Homophones',x:'Same sound, different spelling and meaning.',eg:['their – there','right – write','hear – here']}],
+q:[{q:'What was the tourist\'s real job?',o:['A thief','An architect','A detective'],a:1,e:'He was hired to remodel buildings.'},
+{q:'What happened to Raju on the bench?',o:['He fell asleep','He caught a thief','He went home'],a:0,e:'His eyelids grew heavy.'},
+{q:'Find the preposition: "Raju sat on a bench."',o:['sat','on','bench'],a:1,e:'"on" shows position.'},
+{q:'The story teaches that …',o:['not all quiet people are fishy','tourists are thieves','sleeping is bad'],a:0,e:'Don\'t judge too quickly.'}],
+task:'Write a short mystery of 6 sentences with a surprise ending.'}
+];
+/* ===== My English Book Seven – 4 units, 22 lessons. Summaries, meanings, notes and questions are original. ===== */
+const L7=[
+{u:1,c:'1.1',t:"It's a small world",ty:'Song',by:'',
+en:'A cheerful song about how people all over the world share the same laughter, tears, hopes and fears. There is one moon and one sun for everyone, and a smile means friendship in every land. Though mountains and oceans divide us, the world is small because we are all connected.',
+mr:'जगभरातील लोक सुख-दुःख, आशा-भीती सारखीच वाटून घेतात; एकच चंद्र, एकच सूर्य आणि हसू म्हणजे मैत्री – म्हणून हे जग लहान आहे, असा संदेश देणारे गीत.',
+w:[['aware','knowing about something','जाणीव असलेला'],['divide','to separate into parts','विभागणे'],['share','to have or use together','वाटून घेणे'],['friendship','a relationship between friends','मैत्री']],
+l:[{h:'Rhyming words',x:'Find pairs of words that end with the same sound.',eg:['tears – fears','share – aware','sun – one']}],
+q:[{q:'According to the song, a smile means …',o:['friendship','anger','fear'],a:0,e:'A smile means friendship to everyone.'},
+{q:'"tears" rhymes with …',o:['fears','tear-drop','laugh'],a:0,e:'tears – fears.'},
+{q:'The main idea is that people of the world …',o:['share the same feelings','never meet','speak one language'],a:0,e:'We share laughter and tears.'}],
+task:'Say "hello" and "thank you" in five languages you know or can find out.'},
+
+{u:1,c:'1.2',t:'Warm up with Tara and Friends',ty:'Language games',by:'',
+en:'Tara and her friends are back at school after the holidays. Through fun word games – saying the alphabet, reading word tables quickly, making words from letters and acting out scenes – students recall what they learnt earlier. A small poem reminds us of the eight parts of speech.',
+mr:'सुट्टीनंतर शाळेत परतलेली तारा व तिचे मित्र – शब्दखेळ, पटकन वाचन, प्रसंग अभिनय यांतून आधी शिकलेल्या इंग्रजीची उजळणी; शब्दांच्या आठ जातींची आठवण.',
+w:[['recall','to remember','आठवणे'],['enact','to act out','अभिनय करणे'],['slip','a small piece of paper','चिठ्ठी']],
+l:[{h:'The eight parts of speech',x:'Every English word belongs to a word class.',eg:['Noun – name (Tara, school)','Pronoun – in place of a noun (she, they)','Adjective – describes a noun (happy, tall)','Verb – action (run, read)','Adverb – how/when/where (quickly)','Preposition – relation (in, on, under)','Conjunction – joins (and, but)','Interjection – sudden feeling (Oh! Wow!)']}],
+q:[{q:'Which word is an adverb?',o:['quickly','quick','quickness'],a:0,e:'It tells how.'},
+{q:'"Wow!" is a/an …',o:['interjection','noun','verb'],a:0,e:'Shows sudden feeling.'},
+{q:'"under" is a …',o:['preposition','pronoun','verb'],a:0,e:'Shows position.'}],
+task:'Play "Be quick!": read a list of 10 words aloud in 15 seconds with a partner.'},
+
+{u:1,c:'1.3',t:'Little Girls Wiser than Old People',ty:'Story',by:'Leo Tolstoy',
+en:'On Easter morning two little girls, Malasha and Akulka, met at a puddle in their new clothes. While playing, Malasha splashed muddy water on Akulka\'s dress. Their mothers began to quarrel, then the men joined in and a big fight started. Meanwhile, the girls had forgotten the matter and were happily playing together again – showing more wisdom than the grown-ups.',
+mr:'टॉलस्टॉय यांची कथा : खेळताना एका मुलीने दुसरीच्या नवीन कपड्यांवर चिखल उडवला; त्यावरून मोठी माणसे भांडली, पण मुली सर्व विसरून पुन्हा खेळू लागल्या – मुले मोठ्यांपेक्षा शहाणी ठरली.',
+w:[['puddle','a small pool of water on the ground','डबके'],['kerchief','a square cloth worn on the head','रुमाल'],['bespattered','splashed with small drops','शिंतोडे उडालेले'],['quarrel','an angry argument','भांडण'],['rill','a very small stream','ओहोळ']],
+l:[{h:'Common and proper nouns',x:'A proper noun is the special name of a person, place or thing and begins with a capital letter. Others are common nouns.',eg:['girl → Malasha','village → Amravati','river → Godavari']}],
+q:[{q:'Where did the two girls meet?',o:['At a puddle','In school','At a shop'],a:0,e:'At a puddle in the lane.'},
+{q:'Who started quarrelling?',o:['The grown-ups','The girls','The teachers'],a:0,e:'The mothers and then the men.'},
+{q:'Why are the girls called wiser?',o:['They forgot the quarrel and played again','They ran away','They won the fight'],a:0,e:'They did not hold a grudge.'},
+{q:'"Malasha" is a …',o:['proper noun','common noun','verb'],a:0,e:'A special name.'}],
+task:'Tell about a time you and a friend quickly made up after a quarrel.'},
+
+{u:1,c:'1.4',t:'Journey to the West',ty:'Classic literature (extract)',by:'Wu Cheng\'en (China)',
+en:'The passage introduces "Journey to the West", a sixteenth-century Chinese epic novel. Its most popular character is Sun Wukong, the clever and powerful Monkey King, who goes on a long journey to the West with a monk. It shows how great literature from other countries reaches us through translation.',
+mr:'चीनमधील 16 व्या शतकातील महाकादंबरी "जर्नी टू द वेस्ट" व तिचे लोकप्रिय पात्र "माकड राजा" सुन वुकोंग यांची ओळख; अनुवादामुळे जगातील साहित्य आपल्यापर्यंत पोहोचते.',
+w:[['epic','a long story of a hero\'s great deeds','महाकाव्य'],['classic','a work of lasting excellence','अभिजात'],['translate','to change from one language to another','अनुवाद करणे'],['journey','a long trip','प्रवास']],
+l:[{h:'Prefix, suffix and root',x:'A root word can take a prefix (before) or suffix (after).',eg:['un + happy','kind + ness','re + write + ing']},
+{h:'Countable and uncountable nouns',x:'Countable nouns have singular and plural forms; uncountable nouns (water, rice, advice) do not.',eg:['one book – two books','some water, much rice']}],
+q:[{q:'"Journey to the West" is from …',o:['China','India','England'],a:0,e:'A Chinese classic.'},
+{q:'Its popular character is the …',o:['Monkey King','Lion King','Snake Queen'],a:0,e:'Sun Wukong.'},
+{q:'Which noun is uncountable?',o:['water','book','pen'],a:0,e:'We cannot say "two waters" in normal use.'},
+{q:'In "unhappy", "un" is a …',o:['prefix','suffix','root'],a:0,e:'Added before the root.'}],
+task:'Find the name of one story translated into Marathi from another language and tell about it.'},
+
+{u:1,c:'1.5',t:'Children are going to school',ty:'Poem (translated)',by:'Nida Fazli',
+en:'In this poem the Hindi-Urdu poet Nida Fazli paints a beautiful picture of early morning as children go to school. The whole world – the earth, birds, trees and sky – seems to wake up and smile with them, because children going to school bring hope and light to the world.',
+mr:'निदा फाजली यांची कविता : मुले शाळेत जात असताना सकाळचे सुंदर चित्र – संपूर्ण निसर्ग जागा होऊन आनंदाने हसतो; शाळेत जाणारी मुले जगाला आशा देतात.',
+w:[['particle','a very small piece','कण'],['prominent','famous and important','प्रसिद्ध'],['harmony','peaceful agreement','सलोखा']],
+l:[{h:'Verbs with -s in the present tense',x:'With a singular subject (he, she, it, the Earth), the verb takes -s or -es.',eg:['The Earth wakes up.','The sun shines.','A bird sings.']}],
+q:[{q:'The poem describes …',o:['early morning as children go to school','a night storm','a market'],a:0,e:'Morning scene.'},
+{q:'Nida Fazli wrote in …',o:['Hindi and Urdu','Marathi','English'],a:0,e:'A Hindi-Urdu poet.'},
+{q:'Correct: "The sun ___ every day."',o:['shine','shines'],a:1,e:'Singular subject → -s.'}],
+task:'Describe your morning on the way to school using any two of your five senses.'},
+
+{u:1,c:'1.6',t:'In a Class of their own!',ty:'Story / discussion',by:'',
+en:'The lesson begins with an opinion poll on what makes a good friend, student and teacher. The story shows a classroom where a caring teacher understands students and helps them grow – and students learn that effort, participation and kindness matter more than learning answers by heart.',
+mr:'चांगला मित्र, चांगला विद्यार्थी व चांगला शिक्षक कसा असतो यावरील मत-सर्वेक्षण व वर्गातील प्रसंग : प्रयत्न, सहभाग व समजूतदारपणा महत्त्वाचा.',
+w:[['opinion poll','asking many people what they think','मतचाचणी'],['punctual','on time','वक्तशीर'],['participate','to take part','सहभागी होणे']],
+l:[{h:'Adverbs of manner',x:'They tell how an action is done; many end in -ly.',eg:['She spoke softly.','He answered politely.','They worked quickly.']},
+{h:'Collective nouns',x:'Names for groups.',eg:['a class of students','a herd of cows','a team of players','a flock of birds']},
+{h:'Concrete and abstract nouns',x:'Concrete nouns can be seen or touched (desk, tree); abstract nouns are ideas or feelings (honesty, joy, friendship).',eg:['concrete: book, teacher','abstract: kindness, courage']}],
+q:[{q:'"a herd of cows" – "herd" is a …',o:['collective noun','verb','adjective'],a:0,e:'Name of a group.'},
+{q:'Which is an abstract noun?',o:['honesty','desk','pencil'],a:0,e:'It is an idea/quality.'},
+{q:'"She spoke softly." – "softly" is an …',o:['adverb','adjective','noun'],a:0,e:'Tells how she spoke.'}],
+task:'Conduct a quick opinion poll of 5 friends: "What makes a good friend?" Present the result.'},
+
+{u:2,c:'2.1',t:'We shall overcome',ty:'Song of hope',by:'',
+en:'A famous song of hope and unity sung around the world. The singers believe deep in their hearts that one day they will overcome their difficulties, walk hand in hand, live without fear and be set free by the truth.',
+mr:'आशा व एकतेचे जगप्रसिद्ध गीत : एक दिवस आपण अडचणींवर मात करू, हातात हात घालून चालू, निर्भय राहू – असा विश्वास.',
+w:[['overcome','to succeed in dealing with a problem','मात करणे'],['afraid','feeling fear','घाबरलेला'],['truth','what is true','सत्य']],
+l:[{h:'"shall / will" for future',x:'"shall" is often used with I and we; "will" with all persons.',eg:['We shall overcome.','They will walk together.']}],
+q:[{q:'The song is about …',o:['hope and unity','a holiday','food'],a:0,e:'Overcoming together.'},
+{q:'"overcome" means …',o:['to succeed against a problem','to fall asleep','to run away'],a:0,e:'To defeat a difficulty.'},
+{q:'"We shall overcome" is in which tense?',o:['future','past','present continuous'],a:0,e:'shall + verb.'}],
+task:'Sing the song in your class. Then say one difficulty you want to overcome this year.'},
+
+{u:2,c:'2.2',t:'Two Fables',ty:'Fables',by:'Aesop (retold)',
+en:'A fable is a very short story, often with animal characters, that ends with a moral. These fables come from Aesop, the Greek storyteller, and include the well-known tale of the Town Mouse and the Country Mouse, who learn that a simple, safe life can be better than a rich but dangerous one.',
+mr:'ग्रीक कथाकार इसापच्या बोधकथा – शहरी उंदीर व ग्रामीण उंदीर : साधे पण सुरक्षित जीवन हे श्रीमंत पण धोकादायक जीवनापेक्षा चांगले.',
+w:[['fable','a short story with a moral','बोधकथा'],['moral','the lesson of a story','तात्पर्य'],['feast','a large, rich meal','मेजवानी']],
+l:[{h:'Regular and irregular past tense',x:'Regular verbs add -ed (walk → walked). Irregular verbs change form.',eg:['run → ran','see → saw','eat → ate','come → came','go → went']}],
+q:[{q:'A fable usually ends with a …',o:['moral','song','recipe'],a:0,e:'A lesson.'},
+{q:'Aesop was a … storyteller.',o:['Greek','Indian','Chinese'],a:0,e:'Greek.'},
+{q:'Past tense of "eat" is …',o:['eated','ate','eaten'],a:1,e:'eat – ate – eaten.'}],
+task:'Tell one fable from the Panchatantra and state its moral.'},
+
+{u:2,c:'2.3',t:'Teeny-tiny',ty:'Traditional English story',by:'',
+en:'A funny, slightly spooky traditional tale. A teeny-tiny woman living in a teeny-tiny house finds a teeny-tiny bone in a churchyard and keeps it in her cupboard. At night a teeny-tiny voice keeps asking for the bone, until she finally answers "Take it!" The repeated words "teeny-tiny" make it fun to read aloud.',
+mr:'"टीनी-टायनी" हे शब्द सतत वापरलेली गमतीदार पण थोडी भीतिदायक पारंपरिक इंग्रजी कथा : छोट्या बाईला सापडलेल्या हाडासाठी रात्री छोटा आवाज मागणी करत राहतो.',
+w:[['teeny-tiny','very small','इवलासा'],['churchyard','land around a church','चर्चचे आवार'],['cupboard','a cabinet with shelves','कपाट'],['awakened','woke up','जागी झाली']],
+l:[{h:'Adjectives – kinds',x:'Adjectives tell about size, age, shape, colour, material, etc. Usual order: size – age – shape – colour.',eg:['a small stone (size)','a young man (age)','a square box (shape)','a big old round red ball']}],
+q:[{q:'What did the woman find in the churchyard?',o:['A bone','A coin','A cat'],a:0,e:'A teeny-tiny bone.'},
+{q:'"teeny-tiny" means …',o:['very small','very old','very loud'],a:0,e:'Very small.'},
+{q:'"a young man" – "young" tells about …',o:['age','colour','shape'],a:0,e:'Age.'}],
+task:'Rewrite the first few lines of the story using "huge" instead of "teeny-tiny". Is it still funny?'},
+
+{u:2,c:'2.4',t:'Putting together a Class Magazine',ty:'Informative text / project',by:'',
+en:'Tara and her friends decide to make their own class magazine instead of buying one. They plan what to include – stories, poems, recipes, puzzles, interviews and informative articles – divide the work, collect items, edit them and design the pages together.',
+mr:'तारा व मित्र स्वतःचे वर्गमासिक तयार करतात – कथा, कविता, कोडी, मुलाखती, माहितीपर लेख यांची निवड, कामाची वाटणी, संपादन व मांडणी.',
+w:[['magazine','a periodical with articles and pictures','मासिक'],['edit','to correct and improve writing','संपादन करणे'],['specimen','a sample','नमुना'],['instructions','steps telling how to do something','सूचना']],
+l:[{h:'Writing instructions',x:'Instructions begin with verbs and follow an order.',eg:['Fold the paper in half.','Cut along the line.','Stick the two parts together.']}],
+q:[{q:'What did Tara and friends make?',o:['A class magazine','A kite','A cake'],a:0,e:'Their own magazine.'},
+{q:'Instructions usually begin with a …',o:['verb','noun','number only'],a:0,e:'e.g., "Fold …".'},
+{q:'"edit" means …',o:['correct and improve','throw away','print'],a:0,e:'To improve writing.'}],
+task:'Plan one page of your class magazine: choose a title and write a riddle, a joke or a short poem.'},
+
+{u:2,c:'2.5',t:'Windy Lines',ty:'Collection of quotations',by:'',
+en:'A collection of famous lines by different poets on the subject of wind – how no one can see where the wind comes from or goes, and how it can be strong, cold, playful or gentle. It encourages students to collect memorable lines on other topics like rain, the moon or home.',
+mr:'वाऱ्याविषयी विविध कवींच्या प्रसिद्ध ओळींचा संग्रह; पाऊस, चंद्र, घर अशा विषयांवरील ओळी गोळा करण्याची प्रेरणा.',
+w:[['quotation','words repeated from what someone said or wrote','अवतरण'],['breeze','a gentle wind','झुळूक'],['gust','a sudden strong wind','झोत']],
+l:[{h:'Personification',x:'Poets often speak to the wind as if it were a person.',eg:['The wind whispered through the trees.','O wind, where do you go?']}],
+q:[{q:'The lines are all about …',o:['the wind','the sea','food'],a:0,e:'Windy lines.'},
+{q:'A gentle wind is a …',o:['breeze','storm','flood'],a:0,e:'Breeze.'},
+{q:'"The wind whispered" is an example of …',o:['personification','simile','pun'],a:0,e:'Wind acts like a person.'}],
+task:'Collect three beautiful lines about rain or the moon and write them on a greeting card.'},
+
+{u:2,c:'2.6',t:'Great scientists have a questioning mind',ty:'Biographical essay',by:'Dr A. P. J. Abdul Kalam',
+en:'Dr A. P. J. Abdul Kalam, former President of India and Bharat Ratna, writes about the great scientist Sir C. V. Raman. Raman\'s questioning mind – for example wondering why the sea looks blue – led to the discovery of the "Raman Effect", which won him the Nobel Prize. Kalam says curiosity and hard work make great scientists.',
+mr:'डॉ. ए. पी. जे. अब्दुल कलाम यांनी सर सी. व्ही. रामन यांच्याविषयी लिहिलेला लेख : "समुद्र निळा का?" अशा प्रश्नांतून "रामन परिणाम" शोधला व नोबेल मिळाले. जिज्ञासा व परिश्रम महत्त्वाचे.',
+w:[['questioning','always asking why','प्रश्न विचारणारा'],['discovery','finding something new','शोध'],['contribution','what someone gives to help','योगदान'],['inspire','to fill with the wish to do something good','प्रेरणा देणे']],
+l:[{h:'Subject and predicate',x:'A sentence has a subject (who/what) and a predicate (what is said about it). The verb agrees with the subject.',eg:['Raman | discovered the Raman Effect.','The students | ask many questions.']}],
+q:[{q:'Who wrote about C. V. Raman here?',o:['Dr A. P. J. Abdul Kalam','Tagore','Tolstoy'],a:0,e:'Dr Kalam.'},
+{q:'Raman\'s discovery is called the …',o:['Raman Effect','Kalam Law','Blue Rule'],a:0,e:'Raman Effect.'},
+{q:'In "The students ask questions", the subject is …',o:['The students','ask','questions'],a:0,e:'Who asks.'}],
+task:'Write three "Why …?" questions about things around you, like Raman did.'},
+
+{u:3,c:'3.1',t:'Sleep, Baby, Sleep!',ty:'Lullaby',by:'Traditional',
+en:'A gentle traditional lullaby sung to put a baby to sleep. It tells of the father looking after his sheep, the mother shaking a tree from which dreams fall, and the stars as lambs with the moon as their shepherd.',
+mr:'बाळाला झोपवण्यासाठीचे पारंपरिक अंगाईगीत : मेंढ्या राखणारे बाबा, स्वप्ने पाडणारे झाड, आकाशातील तारे म्हणजे कोकरे आणि चंद्र म्हणजे मेंढपाळ.',
+w:[['lullaby','a soft song to make a baby sleep','अंगाईगीत'],['herd','to look after a group of animals','राखणे'],['shepherd','a person who looks after sheep','मेंढपाळ'],['bleat','the cry of a sheep','बें बें करणे']],
+l:[{h:'Metaphor',x:'The stars are called lambs and the moon a shepherd.',eg:['The stars are lambs.','The moon is the shepherd of the night.']}],
+q:[{q:'A lullaby is sung to …',o:['make a baby sleep','wake people up','start a race'],a:0,e:'A sleeping song.'},
+{q:'In the lullaby, the moon is called a …',o:['shepherd','lamb','tree'],a:0,e:'Shepherd of the night.'},
+{q:'"bleat" is the sound of a …',o:['sheep','dog','cow'],a:0,e:'Sheep bleat.'}],
+task:'Sing a Marathi lullaby (अंगाईगीत) you know and explain its meaning in English.'},
+
+{u:3,c:'3.2',t:'The Welcome',ty:'One-act play',by:'Rabindranath Tagore',
+en:'A funny one-act play by Gurudev Rabindranath Tagore. A young man comes home to his village proud of passing his M.A. examination, but everyone he meets is more interested in other small matters – like his cat – than in his success. The play shows how people respond to news in different ways.',
+mr:'रवींद्रनाथ टागोरांची विनोदी एकांकिका : एम.ए. उत्तीर्ण झालेला तरुण गावात येतो, पण लोकांना त्याच्या यशापेक्षा इतर क्षुल्लक गोष्टींत (त्याच्या मांजरीत) जास्त रस असतो.',
+w:[['enthusiastic','showing great interest and excitement','उत्साही'],['sarcastic','saying the opposite of what you mean to mock','उपरोधिक'],['indifferent','not interested','उदासीन'],['attentive','listening carefully','लक्ष देणारा']],
+l:[{h:'Continuous and perfect forms',x:'"be + verb-ing" shows an action not complete; "have/has + verb-ed/-en" shows a completed action with a present result; "had + past participle" is past perfect.',eg:['He is waiting. / He was waiting.','He has passed M.A.','He had seen the cat before.']},
+{h:'Verb forms',x:'base – past – past participle',eg:['see – saw – seen','go – went – gone','write – wrote – written']}],
+q:[{q:'The young man had passed …',o:['M.A.','10th standard','a driving test'],a:0,e:'His M.A. examination.'},
+{q:'Who wrote the play?',o:['Rabindranath Tagore','Nida Fazli','Jules Verne'],a:0,e:'Gurudev Tagore.'},
+{q:'"He has passed" is in which form?',o:['perfect','continuous','simple past'],a:0,e:'has + past participle.'},
+{q:'A person who is not interested is …',o:['indifferent','enthusiastic','attentive'],a:0,e:'Indifferent.'}],
+task:'Act out a response to "I have come first in class!" – enthusiastic, sarcastic and indifferent.'},
+
+{u:3,c:'3.3',t:'News Analysis',ty:'Informative text',by:'',
+en:'Many people believe everything printed or broadcast is true. The lesson shows how the same event can be reported differently and why we must read news carefully, compare sources, separate facts from opinions and think with an open mind before forming our views.',
+mr:'छापलेली प्रत्येक बातमी खरी असतेच असे नाही : एकाच घटनेची वेगवेगळी वर्णने, तथ्य व मत यांतील फरक आणि खुल्या मनाने विचार करून मत बनवणे.',
+w:[['reliable','can be trusted','विश्वसनीय'],['tally','to match','जुळणे'],['bulletin','a short news broadcast','वार्तापत्र'],['opinion','what someone thinks','मत']],
+l:[{h:'Fact and opinion',x:'A fact can be checked; an opinion is what someone thinks.',eg:['Fact: The match was played on Sunday.','Opinion: It was the best match ever.']}],
+q:[{q:'"The school has 500 students." This is a …',o:['fact','opinion'],a:0,e:'It can be checked.'},
+{q:'"Mangoes are the tastiest fruit." This is an …',o:['opinion','fact'],a:0,e:'Personal view.'},
+{q:'"reliable" means …',o:['can be trusted','very old','printed'],a:0,e:'Trustworthy.'}],
+task:'Read two newspaper reports of the same event. Write two differences you notice.'},
+
+{u:3,c:'3.4',t:"Please don't read this poem!",ty:'Humorous poem',by:'Kenn Nesbitt',
+en:'A funny poem by children\'s poet Kenn Nesbitt. The poet keeps warning the reader NOT to read his poem – which only makes the reader want to read it even more. It shows how being told "don\'t" often has the opposite effect.',
+mr:'केन नेस्बिट यांची विनोदी कविता : कवी वाचकाला "ही कविता वाचू नका" असे सतत सांगतो – आणि त्यामुळेच ती वाचायची इच्छा जास्त होते!',
+w:[['warn','to tell someone about danger','इशारा देणे'],['tempted','wanting to do something','मोह झालेला'],['humorous','funny','विनोदी']],
+l:[{h:'Questions with be and have',x:'"be" and "have" (as helping verbs) make questions without "do": just move them before the subject.',eg:['You are reading. → Are you reading?','She has finished. → Has she finished?']}],
+q:[{q:'The poet tells the reader to …',o:['not read the poem','sing the poem','draw the poem'],a:0,e:'A funny warning.'},
+{q:'Make a question: "They are playing."',o:['Are they playing?','Do they playing?','They playing?'],a:0,e:'Move "are" first.'},
+{q:'"humorous" means …',o:['funny','sad','angry'],a:0,e:'Funny.'}],
+task:'Write 3 funny "Please don\'t …" lines of your own.'},
+
+{u:3,c:'3.5',t:'The Red-headed League',ty:'Detective story',by:'Sir Arthur Conan Doyle',
+en:'Mr Jabez Wilson, a red-haired pawnbroker, gets a strange, well-paid job from the "Red-headed League" – copying an encyclopaedia every day. When the League suddenly closes, he asks Sherlock Holmes for help. Holmes discovers that it was a trick to keep Wilson away from his shop while criminals dug a tunnel from his cellar to a nearby bank. Holmes and the police catch them.',
+mr:'शेरलॉक होम्सची रहस्यकथा : लाल केसांच्या जॅबेझ विल्सनला विचित्र नोकरी देऊन दुकानापासून दूर ठेवले जाते, कारण गुन्हेगार त्याच्या तळघरातून बँकेपर्यंत भुयार खणत असतात. होम्स त्यांना पकडतो.',
+w:[['detective','a person who investigates crimes','गुप्तहेर'],['observation','noticing things carefully','निरीक्षण'],['cellar','a room below the ground','तळघर'],['burglary','breaking into a building to steal','घरफोडी']],
+l:[{h:'Negatives with be and have',x:'Add "not" after be/have (helping verbs) – no "do" is needed.',eg:['He is not at home.','They have not finished.']},
+{h:'Adverbs from adjectives',x:'Many adverbs are made by adding -ly to adjectives.',eg:['careful → carefully','quiet → quietly','sudden → suddenly']}],
+q:[{q:'Who is the famous detective?',o:['Sherlock Holmes','Raju','Ned Land'],a:0,e:'Sherlock Holmes.'},
+{q:'Why was Wilson given the strange job?',o:['To keep him away from his shop','To make him rich','To test his writing'],a:0,e:'Criminals were digging a tunnel.'},
+{q:'Negative of "She is late":',o:['She is not late.','She does not late.','She not is late.'],a:0,e:'is + not.'},
+{q:'Adverb from "sudden":',o:['suddenly','suddenness','suddener'],a:0,e:'+ly.'}],
+task:'In groups, write the outline of a short mystery: the crime, the clues and how it was solved.'},
+
+{u:4,c:'4.1',t:'Double Standards',ty:'Humorous poem',by:'',
+en:'A child points out, with humour, how grown-ups judge the same action differently for children and for themselves: when the child wakes late, he is lazy, but when the adult wakes late, the alarm is to blame; when the child says "No", he is stubborn, but the adult is "firm". The poem asks for fairness.',
+mr:'मुलांसाठी एक नियम आणि मोठ्यांसाठी दुसरा – याच "दुटप्पी" वागण्यावर मुलाने गमतीने बोट ठेवणारी कविता.',
+w:[['stubborn','refusing to change one\'s mind','हट्टी'],['firm','strong and not changing','ठाम'],['clumsy','often dropping or breaking things','वेंधळा'],['forgivable','that can be forgiven','क्षम्य']],
+l:[{h:'Antonyms',x:'Opposites.',eg:['lazy × active','rude × polite','careless × careful','wrong × right','firm × weak']}],
+q:[{q:'When the adult wakes late, the poem says …',o:['the alarm is crazy','he is lazy','it is good'],a:0,e:'Blame goes to the alarm.'},
+{q:'Antonym of "careless":',o:['careful','carefree','cared'],a:0,e:'careful.'},
+{q:'The poem asks for …',o:['fairness','more homework','silence'],a:0,e:'Same standard for all.'}],
+task:'Write two short speeches on one situation: an adult scolding, and the same adult excusing themselves.'},
+
+{u:4,c:'4.2',t:"Baby Pangolin's Night Out",ty:'Story (nature)',by:'Bhau Katdare',
+en:'Written by nature lover Bhau Katdare of Sahyadri Nisarg Mitra, Chiplun, this story follows a baby pangolin on a night outing with its mother – learning to find ants and termites, curl into a ball for safety and avoid dangers. It creates love for this shy, endangered animal and the need to protect it.',
+mr:'सह्याद्री निसर्ग मित्र (चिपळूण) चे भाऊ काटदरे यांची कथा : आईसोबत रात्री फिरायला गेलेले खवले मांजराचे पिल्लू – मुंग्या-वाळवी शोधणे, धोका आला की चेंडूसारखे गुंडाळणे. दुर्मीळ प्राण्याच्या संरक्षणाचा संदेश.',
+w:[['pangolin','a shy animal covered in scales that eats ants','खवले मांजर'],['endangered','at risk of disappearing','संकटग्रस्त'],['conservation','protection of nature','संवर्धन'],['termite','a small insect that eats wood','वाळवी']],
+l:[{h:'Introducing yourself',x:'Say your name, class, school and one thing about yourself politely.',eg:['Hello, I am Riya. I study in Std 7 at ZP School, Amravati. I love drawing.']}],
+q:[{q:'A pangolin mainly eats …',o:['ants and termites','grass','fish'],a:0,e:'Ants and termites.'},
+{q:'To stay safe, a pangolin …',o:['rolls into a ball','flies away','barks loudly'],a:0,e:'It curls up.'},
+{q:'"endangered" means …',o:['at risk of disappearing','very dangerous','very big'],a:0,e:'Few are left.'}],
+task:'Find the names of 5 rare animals of India and one way to protect each.'},
+
+{u:4,c:'4.3',t:'Chasing the Sea Monster',ty:'Science fiction (extract)',by:'Jules Verne',
+en:'From Jules Verne\'s novel "Twenty Thousand Leagues under the Sea". Sailors on a ship believe a strange, glowing "sea monster" is a huge animal and chase it, with the harpooner Ned Land ready to strike. In reality it is a submarine – something unknown in Verne\'s time. Verne is called the "Father of Science Fiction".',
+mr:'ज्यूल्स व्हर्न यांच्या कादंबरीतील भाग : जहाजावरील खलाशी एका विचित्र "समुद्री राक्षसाचा" पाठलाग करतात; प्रत्यक्षात ती पाणबुडी असते. व्हर्न यांना विज्ञानकथेचे जनक म्हणतात.',
+w:[['harpoon','a spear used to hunt whales','भाला'],['submarine','a ship that travels under water','पाणबुडी'],['astern','at the back of a ship','जहाजाच्या मागे'],['deck','the floor of a ship','जहाजाचा डेक']],
+l:[{h:'Transitive and intransitive verbs',x:'A transitive verb needs an object; an intransitive verb does not.',eg:['Ned threw the harpoon. (transitive)','The bird flies. (intransitive)']},
+{h:'Suffix -less',x:'-less means "without".',eg:['fear → fearless','help → helpless','care → careless']}],
+q:[{q:'The "sea monster" was actually a …',o:['submarine','whale','shark'],a:0,e:'A submarine.'},
+{q:'Jules Verne is called the Father of …',o:['Science Fiction','Poetry','History'],a:0,e:'Science fiction.'},
+{q:'"The baby smiled." – "smiled" is …',o:['intransitive','transitive'],a:0,e:'No object.'},
+{q:'"without fear" = …',o:['fearless','fearful','feared'],a:0,e:'-less = without.'}],
+task:'Imagine a machine of the future. Describe it in 5 sentences.'},
+
+{u:4,c:'4.4',t:'A Parody',ty:'Poems (original and parody)',by:'Isaac Watts; Lewis Carroll',
+en:'A parody copies the style of a well-known work to make it funny – like a verbal cartoon. Isaac Watts\' poem praises the busy bee that works all day to gather honey. Lewis Carroll\'s parody uses the same pattern for a little crocodile that cheerfully "welcomes" little fishes into its jaws!',
+mr:'विडंबन (पॅरडी) म्हणजे प्रसिद्ध रचनेच्या शैलीची नक्कल करून केलेली गंमत. आयझॅक वॉट्स यांच्या कष्टाळू मधमाशीच्या कवितेचे लुईस कॅरल यांनी मगरीवरील विडंबन केले.',
+w:[['parody','a funny copy of a serious work','विडंबन'],['skilfully','with skill','कौशल्याने'],['grin','a wide smile','हसू'],['scale','small hard plates on a fish or reptile','खवला']],
+l:[{h:'Verbs with two objects',x:'Some verbs take two objects: a person and a thing.',eg:['She gave me a book.','He told us a story.']}],
+q:[{q:'A parody is …',o:['a funny imitation','a sad story','a science book'],a:0,e:'Like a verbal cartoon.'},
+{q:'The parody is about a little …',o:['crocodile','dog','bird'],a:0,e:'The little crocodile.'},
+{q:'"She gave me a book" has how many objects?',o:['two','one','none'],a:0,e:'me + a book.'}],
+task:'Write a funny parody of any rhyme you know (2–4 lines).'},
+
+{u:4,c:'4.5',t:'From The Selfish Giant',ty:'Fairy tale (extract)',by:'Oscar Wilde',
+en:'Children loved playing in the Giant\'s beautiful garden. When the selfish Giant returned, he drove them out and built a high wall. Spring never came to his garden – it stayed in winter. When the children crept back in, spring returned. The Giant realised his selfishness, broke down the wall and let the children play forever.',
+mr:'ऑस्कर वाइल्ड यांची परीकथा : स्वार्थी राक्षसाने मुलांना बागेतून हाकलले; बागेत वसंत आलाच नाही. मुले परत आली तेव्हा बहर आला. राक्षसाने भिंत पाडली व मुलांना कायम खेळू दिले.',
+w:[['selfish','caring only about oneself','स्वार्थी'],['trespasser','a person who enters without permission','अनधिकृत प्रवेश करणारा'],['blossom','flowers on a tree','बहर, मोहोर'],['gruff','rough and unfriendly (voice)','घोगरा, रुक्ष']],
+l:[{h:'Writing dialogues for a play',x:'Write character names, their speeches and stage directions in brackets.',eg:['GIANT : (angrily) What are you doing here?','CHILD : (softly) We only want to play.']}],
+q:[{q:'Why did spring not come to the garden?',o:['The Giant shut out the children','There was no water','It was too hot'],a:0,e:'Selfishness kept winter there.'},
+{q:'What did the Giant build?',o:['A high wall','A house','A bridge'],a:0,e:'A wall with a notice board.'},
+{q:'"selfish" means …',o:['caring only about oneself','very kind','very tall'],a:0,e:'Only for oneself.'}],
+task:'Turn one scene of the story into a short play with 3 characters.'}
+];
+const DICT={};
+DICT_RAW.split(/[|\n]/).forEach(p=>{const i=p.indexOf('=');if(i>0){const k=p.slice(0,i).trim().toLowerCase();if(!DICT[k])DICT[k]=p.slice(i+1).trim();}});
+DICT_EXTRA.split('|').forEach(p=>{const i=p.indexOf('=');if(i>0){const k=p.slice(0,i).trim().toLowerCase();if(!DICT[k])DICT[k]=p.slice(i+1).trim();}});
+[L6,L7].forEach(L=>L.forEach(l=>l.w.forEach(([w,e,m])=>{const k=w.toLowerCase();if(!DICT[k])DICT[k]=m;})));
+
+/* ================= skills data ================= */
+const WORDS={
+6:[{t:'Short ‘a’ sound (cat)',w:[['cat','मांजर'],['bat','वटवाघूळ; बॅट'],['hat','टोपी'],['mat','चटई'],['bag','पिशवी'],['man','माणूस'],['fan','पंखा'],['map','नकाशा']]},
+{t:'Long ‘ee’ sound (tree)',w:[['tree','झाड'],['bee','मधमाशी'],['see','पाहणे'],['feet','पाय'],['green','हिरवा'],['sleep','झोपणे'],['seed','बी'],['sheep','मेंढी']]},
+{t:'‘th’ – voiceless (thin) and voiced (this)',w:[['thin','बारीक'],['three','तीन'],['bath','आंघोळ'],['think','विचार करणे'],['this','हे'],['that','ते'],['mother','आई'],['brother','भाऊ']]},
+{t:'Letter c as /k/ and /s/',w:[['cat','मांजर'],['cook','स्वयंपाक करणे'],['cup','कप'],['city','शहर'],['rice','तांदूळ'],['cycle','सायकल'],['circle','वर्तुळ'],['face','चेहरा']]},
+{t:'‘sh’ and ‘ch’ sounds',w:[['ship','जहाज'],['shop','दुकान'],['fish','मासा'],['wash','धुणे'],['chair','खुर्ची'],['chalk','खडू'],['lunch','दुपारचे जेवण'],['teacher','शिक्षक']]},
+{t:'Minimal pairs (one sound changes)',w:[['ship','जहाज'],['sheep','मेंढी'],['pen','पेन'],['pan','तवा'],['cat','मांजर'],['cut','कापणे'],['fan','पंखा'],['van','व्हॅन']]},
+{t:'Homophones (same sound)',w:[['see','पाहणे'],['sea','समुद्र'],['two','दोन'],['too','सुद्धा'],['eye','डोळा'],['I','मी'],['bee','मधमाशी'],['be','असणे']]},
+{t:'Sight words',w:[['the','(उपपद)'],['was','होता'],['said','म्हणाला'],['they','ते'],['there','तिथे'],['where','कुठे'],['what','काय'],['because','कारण'],['friend','मित्र'],['people','लोक']]}],
+7:[{t:'Silent letters',w:[['knife','सुरी (k)'],['write','लिहिणे (w)'],['lamb','कोकरू (b)'],['hour','तास (h)'],['island','बेट (s)'],['listen','ऐकणे (t)'],['climb','चढणे (b)'],['knee','गुडघा (k)'],['wrong','चुकीचे (w)'],['honest','प्रामाणिक (h)']]},
+{t:'‘-tion’ words (shun)',w:[['station','स्थानक'],['nation','राष्ट्र'],['education','शिक्षण'],['information','माहिती'],['action','कृती'],['attention','लक्ष'],['direction','दिशा'],['pollution','प्रदूषण']]},
+{t:'‘ph’ says f',w:[['phone','फोन'],['photo','छायाचित्र'],['elephant','हत्ती'],['alphabet','वर्णमाला'],['dolphin','डॉल्फिन'],['graph','आलेख']]},
+{t:'Suffix -less and -ly',w:[['fearless','निर्भय'],['careless','निष्काळजी'],['helpless','असहाय'],['quickly','पटकन'],['softly','हळुवारपणे'],['carefully','काळजीपूर्वक']]},
+{t:'Homophones',w:[['write','लिहिणे'],['right','बरोबर; उजवा'],['hear','ऐकणे'],['here','इथे'],['son','मुलगा'],['sun','सूर्य'],['flower','फूल'],['flour','पीठ'],['week','आठवडा'],['weak','अशक्त']]},
+{t:'Irregular verbs (read aloud: base – past – past participle)',w:[['go went gone','जाणे'],['see saw seen','पाहणे'],['write wrote written','लिहिणे'],['eat ate eaten','खाणे'],['take took taken','घेणे'],['speak spoke spoken','बोलणे']]}]};
+const JUMBLE={6:['The cat is on the mat.','She reads a book.','We play in the garden.','My mother cooks tasty food.','The sun rises in the east.','Birds build their nests.','They are playing football.','I will visit my grandmother.'],
+7:['She was watching television.','We will visit the museum.','The boy did not finish his homework.','Have you seen my blue pen?','The teacher asked us a question.','The children were singing a song.','Where do you live?','She has written a letter to her grandmother.']};
+const FRAMES={6:['I like ___ because ___.','One thing that I wonder is ___.','Yesterday I ___.','Tomorrow I will ___.','I am ___ing now.'],7:['I have never ___.','When I reached school, the bell had ___.','___ is taller than ___.','If it rains, I will ___.','A good friend always ___.']};
+const READING={6:[{lv:'🟢 Level 1',t:'My School',p:'My school is a happy place. I come to school every day. I learn new things with my friends. My teachers help me read, write and speak English. I like my school.'},
+{lv:'🟡 Level 2',t:'Nature Around Us',p:'Nature is full of wonderful things. We can see green trees, colourful flowers, birds and insects around us. Sometimes we stop and ask questions. Why do birds fly? Why does rain fall? Such questions make us curious and help us learn.'},
+{lv:'🔵 Level 3',t:'Our Village Market',p:'Every Sunday, there is a market in our village. Farmers bring fresh vegetables and fruits. People buy rice, oil and spices. Children enjoy the colourful toys and sweets. The market is noisy, but it is full of life.'}],
+7:[{lv:'🟢 Level 1',t:'Save Water',p:'Water is precious. Every living thing needs water to survive. We should close the tap while brushing our teeth. We can collect rainwater and use it for plants. Small habits at home can save a lot of water for the future.'},
+{lv:'🟡 Level 2',t:'A Visit to the Fort',p:'Last winter, our class visited an old fort near our town. The walls were tall and made of heavy black stone. Our teacher told us about the brave soldiers who once guarded it. From the top, we could see green fields and a river shining in the sun. We returned home tired but full of stories.'},
+{lv:'🔵 Level 3',t:'The Questioning Mind',p:'Great discoveries often begin with a simple question. A curious student may wonder why the sky is blue or why a stick looks bent in water. Instead of ignoring such thoughts, good learners observe carefully, read books and test their ideas. Every question we ask is a small step towards new knowledge.'}]};
+const SPEAK={6:['One thing that I wonder is … (give one reason).','Describe a rainy day in 5 sentences.','Introduce yourself: name, class, school, village and hobby.','Talk about a sportsperson you admire (like Sheetal Devi).','Tell your favourite festival and how you celebrate it.'],
+7:['Introduce yourself to a visitor from another country.','Tell a story of a quarrel that ended happily.','What makes a good friend? Give three points.','Talk about a scientist and one question you would ask.','Describe a rare animal and how we can protect it.']};
+
+/* ================= progress ================= */
+function progKey(){ const p=window.NK&&NK.profile; return 'nke-prog-'+(p&&p.phone?p.phone:'guest'); }
+function getProg(){ try{return JSON.parse(localStorage.getItem(progKey())||'{}')}catch(e){return {}} }
+function setProg(p){ try{localStorage.setItem(progKey(),JSON.stringify(p))}catch(e){} }
+function pstd(p,s){ s=s||std; p[s]=p[s]||{done:{},best:{}}; return p[s]; }
+function starStr(best,total){ if(best==null) return ''; const r=best/total; return r>=0.9?'★★★':r>=0.6?'★★☆':'★☆☆'; }
+
+/* ================= quiz engine ================= */
+function runQuiz(box,questions,onDone){
+  const Q=questions.map(q=>{const idx=shuffle(q.o.map((_,i)=>i));return {q:q.q,o:idx.map(i=>q.o[i]),a:idx.indexOf(q.a),e:q.e};});
+  let i=0,score=0,marks=[];
+  const dots=()=>`<div class="qdots">${Q.map((_,k)=>`<i class="${k<marks.length?(marks[k]?'r':'w'):k===i?'c':''}"></i>`).join('')}</div>`;
+  const show=()=>{const q=Q[i];
+    out(box,`<div class="qz">${dots()}<p style="margin:0;color:var(--muted);font-size:14px">Question ${i+1} / ${Q.length}</p><p class="qtext">${q.q}</p>${q.o.map((t,j)=>`<button class="opt" data-j="${j}">${t}</button>`).join('')}<div id="qw"></div></div>`);
+    box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{box.querySelectorAll('.opt').forEach(x=>x.disabled=true);const j=+b.dataset.j,ok=j===q.a;
+      if(ok){b.classList.add('right');score++;} else {b.classList.add('wrong');box.querySelectorAll('.opt')[q.a].classList.add('right');}
+      marks.push(ok); out(box.querySelector('#qw'),`<div class="why">${ok?'✅ Correct! ':'❌ Not quite. '}${q.e}</div><button class="go" id="qn">${i+1<Q.length?'Next question →':'See result'}</button>`);
+      box.querySelector('.qdots').outerHTML=dots(); const nb=box.querySelector('#qn'); nb.focus({preventScroll:true});
+      nb.onclick=()=>{i++; if(i<Q.length) show(); else finish();};});};
+  const finish=()=>{const r=score/Q.length;
+    out(box,`<div class="qz result"><div class="big">${r>=0.9?'🏆':r>=0.6?'👍':'💪'}</div><b>Score : ${score} / ${Q.length}</b><p style="font-size:26px;color:var(--marigold);margin:4px 0">${starStr(score,Q.length)}</p>
+    <p>${r>=0.9?'Excellent! / उत्कृष्ट!':r>=0.6?'Good! Read the wrong ones again. / छान!':'Read the lesson again and try once more. / पुन्हा प्रयत्न करा.'}</p><button class="go" id="qAgain">Try again</button></div>`);
+    box.querySelector('#qAgain').onclick=()=>runQuiz(box,questions,onDone); onDone&&onDone(score,Q.length);};
+  show();
 }
 
-/* =================== SCREENS =================== */
+/* ================= screens ================= */
+const bar=$('bar'),barTitle=$('barTitle'); let current={screen:'home'};
+function setBar(t,sub){ bar.classList.remove('hidden'); barTitle.innerHTML=`<span>${esc(t)}</span><small class="mr">${esc(sub||'')}</small>`; }
+function spkBtn(){ $('spdBtn').textContent=rate<0.8?'🐢':'🙂'; $('spdBtn').setAttribute('aria-label',rate<0.8?'Slow reading':'Normal reading'); }
+
 function renderHome(){
-  bar.classList.add('hidden');
-  app.innerHTML=`<section class="hero"><div class="ruled"><h1>Nayan Kalpande English</h1></div>
-  <p>Learn · Practise · Speak · Test<br><span class="mr">इंग्रजी वाचन, शब्दसंग्रह, वाक्यरचना, बोलणे आणि चाचणी – मराठी मदतीसह.</span></p></section>
-  ${window.NK&&NK.profile?`<div class="acct mr"><span>Hello, <b>${esc(String(NK.profile.name).split(' ')[0])}</b> 👋</span><button class="iconbtn" id="hTop">🏆 Top 10</button><button class="iconbtn" id="hAcc" aria-label="My account">👤</button></div>`:''}
-  <h2 style="margin:22px 0 0;font-size:22px">Choose your standard <span class="mr" style="font-weight:500;font-size:17px;color:var(--muted)">/ इयत्ता निवडा</span></h2>
+  bar.classList.add('hidden'); const P=getProg();
+  const pct=s=>Math.round(Object.keys((P[s]||{}).done||{}).length/LESSONS(s).length*100);
+  const last=P.last&&LESSONS(P.last.std).find(l=>l.c===P.last.c);
+  out(app,`<div class="page"><section class="hero"><h1 style="font-family:Andika,sans-serif">Nayan Kalpande English<span class="mr">इंग्रजी – वाचा, बोला, लिहा</span></h1>
+  <p>Learn · Practise · Speak · Test<br><span class="mr">मराठी मदतीसह इंग्रजी वाचन, शब्दसंग्रह, व्याकरण व सराव.</span></p></section>
+  ${window.NK&&NK.profile?`<div class="hello"><span>Hello, <b>${esc(String(NK.profile.name).split(' ')[0])}</b> 👋</span><button class="iconbtn" id="hTop">🏆 Top 10</button><button class="iconbtn" id="hAcc" aria-label="My account">👤</button></div>`:''}
+  ${last?`<button class="cont" id="cont"><span style="font-size:30px">▶️</span><span><b>Continue</b><span class="mr">Std ${P.last.std} · ${esc(last.c)} ${esc(last.t)}</span></span></button>`:''}
+  <h2 style="margin:20px 0 0;font-size:21px">Choose your standard <span class="mr" style="font-weight:500;font-size:16px;color:var(--muted)">/ इयत्ता निवडा</span></h2>
   <div class="std-grid">
-   <button class="std-tile ${std===6?'chosen':''}" data-s="6"><div class="ruled"><span class="n">6<sup>th</sup></span></div><b>Standard 6</b><span class="mr">इयत्ता सहावी</span></button>
-   <button class="std-tile ${std===7?'chosen':''}" data-s="7"><div class="ruled"><span class="n">7<sup>th</sup></span></div><b>Standard 7</b><span class="mr">इयत्ता सातवी</span></button>
+   <button class="std-tile ${std===6?'chosen':''}" data-s="6"><span class="num">6</span><b>Standard 6</b><small class="mr">इयत्ता सहावी · 30 lessons (2026)</small><div class="pbar"><i style="width:${pct(6)}%"></i></div><small>${pct(6)}% done</small></button>
+   <button class="std-tile ${std===7?'chosen':''}" data-s="7"><span class="num">7</span><b>Standard 7</b><small class="mr">इयत्ता सातवी · 22 lessons</small><div class="pbar"><i style="width:${pct(7)}%"></i></div><small>${pct(7)}% done</small></button>
   </div>
-  <p class="note mr">महाराष्ट्र राज्य मंडळाच्या इयत्ता ६ वी व ७ वी इंग्रजी अभ्यासातील भाषिक कौशल्यांवर (वाचन, शब्दसंग्रह, व्याकरण, बोलणे, लेखन) आधारित सराव. पाठ्यपुस्तकासोबत वापरा.</p>`;
+  <p class="note mr">महाराष्ट्र राज्य मंडळाच्या My English Book (इ. 6 वी – 2026, इ. 7 वी) मधील सर्व पाठांवर आधारित सारांश, शब्दार्थ, भाषाभ्यास व सराव. पाठ्यपुस्तकासोबत वापरा.</p></div>`);
   app.querySelectorAll('.std-tile').forEach(b=>b.onclick=()=>{std=+b.dataset.s;try{localStorage.setItem('nke-std',std)}catch(e){}go({screen:'menu'});});
-  const ht=document.getElementById('hTop'),ha=document.getElementById('hAcc'); if(ht) ht.onclick=()=>NK.showTop10(); if(ha) ha.onclick=()=>NK.showProfile();
+  if($('cont')) $('cont').onclick=()=>{std=P.last.std;try{localStorage.setItem('nke-std',std)}catch(e){}go({screen:'lesson',c:P.last.c,tab:P.last.tab||'about'});};
+  if($('hTop')) $('hTop').onclick=()=>NK.showTop10(); if($('hAcc')) $('hAcc').onclick=()=>NK.showProfile();
 }
+
+const MENU=[['lessons','📚','Textbook Lessons','पाठ्यपुस्तकातील सर्व पाठ'],['words','🔤','Word Reading','शब्द वाचन'],['sentence','✍️','Sentence Making','वाक्य तयार करणे'],['grammar','📘','Grammar & Language','व्याकरण व भाषाभ्यास'],['vocab','🗂️','Vocabulary','शब्दसंग्रह – फ्लॅशकार्ड'],['reading','📖','Reading Practice','वाचन सराव'],['speaking','🗣️','Speaking','बोलण्याचा सराव'],['convert','🔁','English → Marathi','इंग्रजी ते मराठी अर्थ'],['test','📝','Test','मिश्र चाचणी']];
 function renderMenu(){
-  bar.classList.remove('hidden'); barTitle.innerHTML=`${std===6?'Standard 6':'Standard 7'}<small>Nayan Kalpande English</small>`;
-  app.innerHTML=`<div class="menu">`+Object.entries(SECTIONS).filter(([k,s])=>!s.only||s.only===std).map(([k,s])=>
-   `<button class="tile" data-k="${k}"><span class="ic">${s.ic}</span><b>${s.t}</b><span class="mr">${s.m}</span></button>`).join('')+
-   (window.NK?`<button class="tile" id="mTop"><span class="ic">🏆</span><b>Top 10</b><span class="mr">टॉप १० वापरकर्ते</span></button><button class="tile" id="mAcc"><span class="ic">👤</span><b>My Account</b><span class="mr">माझे खाते</span></button>`:'')+`</div>`;
-  const mt=document.getElementById('mTop'),ma=document.getElementById('mAcc'); if(mt) mt.onclick=()=>NK.showTop10(); if(ma) ma.onclick=()=>NK.showProfile();
-  app.querySelectorAll('.tile').forEach(b=>b.onclick=()=>go({screen:'sec',sec:b.dataset.k}));
+  setBar(std===6?'Standard 6':'Standard 7','Nayan Kalpande English'); const P=getProg(),ps=pstd(P),L=LESSONS(),done=Object.keys(ps.done).length;
+  out(app,`<div class="page"><div class="head2"><h2>What will you learn today?</h2><span class="prog">${done}/${L.length} lessons</span></div><div class="lpbar"><i style="width:${Math.round(done/L.length*100)}%"></i></div>
+  <div class="extra">${MENU.map((m,i)=>`<button class="xbtn ${i===0?'wide':''}" data-k="${m[0]}"><b>${m[1]} ${m[2]}</b><span class="mr">${m[3]}</span></button>`).join('')}
+  ${window.NK?`<button class="xbtn" id="mTop"><b>🏆 Top 10</b><span class="mr">टॉप १० वापरकर्ते</span></button><button class="xbtn" id="mAcc"><b>👤 My Account</b><span class="mr">माझे खाते</span></button>`:''}</div></div>`);
+  app.querySelectorAll('.xbtn[data-k]').forEach(b=>b.onclick=()=>go({screen:b.dataset.k}));
+  if($('mTop')) $('mTop').onclick=()=>NK.showTop10(); if($('mAcc')) $('mAcc').onclick=()=>NK.showProfile();
 }
-function openSection(k){
-  const s=SECTIONS[k]; bar.classList.remove('hidden'); barTitle.innerHTML=`${s.t}<small>${stdName()}</small>`;
-  try{speechSynthesis.cancel()}catch(e){}
-  app.innerHTML=s.render(); s.init&&s.init(); window.scrollTo(0,0);
+
+function renderLessons(){
+  setBar('Textbook Lessons',stdName()); const P=getProg(),ps=pstd(P),L=LESSONS();let h='',u=0;
+  L.forEach(l=>{if(l.u!==u){u=l.u;h+=`<p class="unit">UNIT ${['','ONE','TWO','THREE','FOUR','FIVE','SIX'][u]}</p>`;}
+    h+=`<button class="chap ${ps.done[l.c]?'done':''}" data-c="${l.c}" data-k="${esc((l.c+' '+l.t+' '+l.ty+' '+(l.by||'')).toLowerCase())}"><span class="no" style="font-size:17px">${l.c}</span><span class="tx"><b style="font-family:Andika,sans-serif">${esc(l.t)}</b><span>${esc(l.ty)}${l.by?' · '+esc(l.by):''}</span></span><span class="stars">${starStr(ps.best[l.c],l.q.length)}</span></button>`;});
+  out(app,`<div class="page"><div class="search"><input id="srch" placeholder="Search lessons… (e.g. poem, river)" aria-label="Search lessons"></div><div id="clist">${h}</div><p id="noRes" class="hidden" style="color:var(--muted)">No lesson found.</p></div>`);
+  app.querySelectorAll('.chap').forEach(b=>b.onclick=()=>go({screen:'lesson',c:b.dataset.c,tab:'about'}));
+  $('srch').oninput=()=>{const t=$('srch').value.trim().toLowerCase();let any=0;app.querySelectorAll('.chap').forEach(b=>{const m=!t||b.dataset.k.includes(t);b.classList.toggle('hidden',!m);if(m)any++;});app.querySelectorAll('.unit').forEach(x=>x.classList.toggle('hidden',!!t));$('noRes').classList.toggle('hidden',!!any);};
 }
-function render(){ if(!std&&current.screen!=='home') current={screen:'home'};
-  if(current.screen==='home') renderHome(); else if(current.screen==='menu') renderMenu(); else openSection(current.sec); }
-function go(st){ current=st; try{history.pushState(st,'')}catch(e){} render(); window.scrollTo(0,0); }
-window.addEventListener('popstate',e=>{current=e.state||{screen:'home'};render();});
-document.getElementById('backBtn').onclick=()=>{ if(history.state&&history.state.screen!=='home') history.back(); else go({screen:'home'}); };
+
+const LTABS=[['about','📖 About'],['words','🔤 Words'],['lang','✍️ Language'],['quiz','✅ Practice'],['task','🗣️ Speak & Write']];
+function renderLesson(c,tab){
+  const L=LESSONS(),l=L.find(x=>x.c===c); if(!l) return go({screen:'lessons'},true);
+  setBar(`${l.c} ${l.t}`,stdName()); const idx=L.indexOf(l),prev=L[idx-1],next=L[idx+1],ps=pstd(getProg());
+  out(app,`<div class="page"><div class="chhead"><span class="no" style="font-size:19px">${l.c}</span><div><h2 style="font-family:Andika,sans-serif">${esc(l.t)}</h2><small>${esc(l.ty)}${l.by?' · '+esc(l.by):''}</small></div></div>
+  <div class="tabs" role="tablist">${LTABS.map(t=>`<button class="tab" role="tab" data-t="${t[0]}" aria-selected="${t[0]===tab}">${t[1]}</button>`).join('')}</div><div id="tabBody"></div>
+  <div class="navrow"><button id="pv" ${prev?'':'disabled'}>← Previous</button><button id="dn" class="donebtn ${ps.done[l.c]?'is':''}">${ps.done[l.c]?'✓ Done':'Mark done'}</button><button id="nx" ${next?'':'disabled'}>Next →</button></div></div>`);
+  const body=$('tabBody');
+  const openTab=t=>{app.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t)); stopSpeak();
+    const P=getProg();P.last={std,c,tab:t};setProg(P);
+    if(t==='about') out(body,`<div class="card"><h2>What is this lesson about?</h2><p style="font-size:18px;line-height:1.7">${esc(l.en)}</p><button class="listen" id="lsAbout">🔊 Listen</button>
+      <h3 class="mr">मराठीत सारांश</h3><p class="mr">${esc(l.mr)}</p></div><div class="card mr" style="font-size:15px;color:var(--muted)">📗 मूळ ${l.ty.toLowerCase().includes('poem')||l.ty.toLowerCase().includes('song')||l.ty.toLowerCase().includes('lullaby')?'कविता':'पाठ'} पाठ्यपुस्तकात (पाठ ${esc(l.c)}) वाचा. येथे तिचा अर्थ, शब्दार्थ व सराव आहे.</div>`);
+    else if(t==='words') out(body,`<div class="card"><h2>Word Basket</h2><p class="mr" style="color:var(--muted);font-size:15px">🔊 दाबून उच्चार ऐका.</p>${l.w.map((w,i)=>`<div class="wl"><button class="spk" data-i="${i}" aria-label="Listen ${esc(w[0])}">🔊</button><div><b>${esc(w[0])}</b> – ${esc(w[1])}<br><span class="m">${esc(w[2])}</span></div></div>`).join('')}</div>`);
+    else if(t==='lang') out(body,l.l.map(x=>`<div class="card"><h2>${esc(x.h)}</h2><p>${esc(x.x)}</p>${x.eg.map(e=>`<div class="eg">${esc(e)} <button class="listen" data-say="${esc(e)}" aria-label="Listen">🔊</button></div>`).join('')}</div>`).join(''));
+    else if(t==='quiz'){out(body,'<div id="qbox"></div>'); runQuiz($('qbox'),l.q,(s,t2)=>{const P2=getProg(),p=pstd(P2);p.best[c]=Math.max(p.best[c]||0,s);if(s/t2>=0.6)p.done[c]=true;setProg(P2);const d=$('dn');if(d&&p.done[c]){d.classList.add('is');d.textContent='✓ Done';}});}
+    else out(body,`<div class="card"><h2>Speak & Write</h2><p style="font-size:18px">${esc(l.task)}</p><textarea id="tw" placeholder="Write here… (your answer stays on this phone)"></textarea><div class="btnrow" style="display:flex;gap:8px;margin-top:8px"><button class="go" id="twS" style="flex:1">🔊 Listen to my answer</button><button class="go alt" id="twC" style="flex:1">Check capitals & full stop</button></div><div class="out" id="twO"></div></div>`);
+    if($('lsAbout')) $('lsAbout').onclick=()=>speak(l.en);
+    body.querySelectorAll('.spk').forEach(b=>b.onclick=()=>speak(l.w[+b.dataset.i][0]));
+    body.querySelectorAll('[data-say]').forEach(b=>b.onclick=()=>speak(b.dataset.say.replace(/→|×|–/g,',')));
+    if($('tw')){const key='nke-note-'+std+'-'+c;try{$('tw').value=localStorage.getItem(key)||''}catch(e){}
+      $('tw').oninput=()=>{try{localStorage.setItem(key,$('tw').value)}catch(e){}};
+      $('twS').onclick=()=>{const v=$('tw').value.trim();if(v)speak(v);};$('twC').onclick=()=>checkSentences($('tw').value,$('twO'));}
+    try{history.replaceState({screen:'lesson',c,tab:t},'')}catch(e){} current={screen:'lesson',c,tab:t};};
+  app.querySelectorAll('.tab').forEach(b=>b.onclick=()=>openTab(b.dataset.t)); openTab(tab);
+  $('pv').onclick=()=>prev&&go({screen:'lesson',c:prev.c,tab:'about'}); $('nx').onclick=()=>next&&go({screen:'lesson',c:next.c,tab:'about'});
+  $('dn').onclick=()=>{const P=getProg(),p=pstd(P);if(p.done[c])delete p.done[c];else p.done[c]=true;setProg(P);$('dn').classList.toggle('is',!!p.done[c]);$('dn').textContent=p.done[c]?'✓ Done':'Mark done';};
+}
+
+function checkSentences(text,o){
+  const t=String(text).trim(); if(!t) return out(o,'<p class="err mr">आधी काहीतरी लिहा.</p>');
+  const parts=t.split(/(?<=[.?!])\s+/).filter(Boolean),tips=[];
+  parts.forEach((s,i)=>{ if(!/^["'“]?[A-Z0-9]/.test(s)) tips.push(`Sentence ${i+1}: start with a capital letter. / वाक्याची सुरुवात कॅपिटल अक्षराने करा.`); });
+  if(!/[.?!]["'”]?$/.test(t)) tips.push('End with a full stop (.), question mark (?) or exclamation mark (!).');
+  if(/(^|\s)i(\s|[.,?!']|$)/.test(t)) tips.push('Write "I" (मी) as a capital letter.');
+  if(/\s{2,}/.test(t)) tips.push('Leave only one space between words.');
+  out(o,tips.length?`<div class="mr"><p class="err">Please correct / हे सुधारा :</p><ul>${tips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:'<p class="ok" style="color:var(--ok);font-weight:700">✅ Capitals and punctuation look fine. Ask your teacher to check the meaning and grammar.</p>');
+}
+
+function renderWords(){ setBar('Word Reading',stdName());
+  out(app,`<div class="page"><div class="card"><h2>🔤 Word Reading</h2><p class="mr">शब्दावर टॅप करा – उच्चार ऐका आणि मोठ्याने म्हणा.</p></div>`+WORDS[std].map((g,gi)=>`<div class="card"><h3 style="margin-top:0">${esc(g.t)}</h3><div class="chips">${g.w.map(([w,m])=>`<button class="chip" data-w="${esc(w)}">${esc(w)}<small>${esc(m)}</small></button>`).join('')}</div><button class="listen" data-all="${gi}">🔊 Read all</button></div>`).join('')+'</div>');
+  app.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>speak(b.dataset.w)); app.querySelectorAll('[data-all]').forEach(b=>b.onclick=()=>speak(WORDS[std][+b.dataset.all].w.map(x=>x[0]).join(', ')));}
+
+function renderSentence(){ setBar('Sentence Making',stdName());
+  out(app,`<div class="page"><div class="card"><h2>✍️ Sentence Making</h2><div class="rule mr"><b>वाक्याची रचना :</b> Subject (कर्ता) + Verb (क्रियापद) + Object (कर्म)<br><span class="en">Ravi + reads + a book.</span><br>इंग्रजीत क्रियापद कर्त्यानंतर लगेच येते; मराठीत शेवटी (रवी पुस्तक <b>वाचतो</b>).</div>
+  <h3>1. Arrange the words</h3><p class="mr">शब्द योग्य क्रमाने टॅप करा.</p><div class="slot" id="jAns"></div><div class="chips" id="jPool" style="margin-top:10px"></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="go" id="jChk" style="flex:1">Check ✓</button><button class="go alt" id="jShow" style="flex:1">Show answer</button><button class="go alt" id="jNext" style="flex:1">Next →</button></div>
+  <div class="out" id="jOut"></div><p id="jCount" class="mr" style="color:var(--muted);font-size:14px"></p></div>
+  <div class="card"><h3 style="margin-top:0">2. Complete the sentence</h3>${FRAMES[std].map(f=>`<div class="eg">${esc(f)}</div>`).join('')}
+  <h3>3. Write and check</h3><textarea id="myS" placeholder="Example: I like mangoes because they are sweet."></textarea>
+  <div style="display:flex;gap:8px;margin-top:8px"><button class="go" id="sChk" style="flex:1">Check my sentence</button><button class="go alt" id="sSpk" style="flex:1">🔊 Listen</button></div><div class="out" id="sOut"></div></div></div>`);
+  let idx=0,pool=[],ans=[];const list=JUMBLE[std];
+  const load=()=>{const words=list[idx].replace(/[.?!]$/,'').split(' ');const tiles=words.map((w,i)=>i===0&&w!=='I'?w.toLowerCase():w);
+    do{pool=shuffle(tiles.map((w,i)=>({w,i})));}while(pool.length>1&&pool.every((p,k)=>p.i===k));ans=[];draw();out($('jOut'),'');$('jCount').textContent=`Sentence ${idx+1} / ${list.length}`;};
+  const draw=()=>{out($('jPool'),pool.map((p,k)=>`<button class="word" data-k="${k}">${esc(p.w)}</button>`).join(''));
+    out($('jAns'),ans.length?ans.map((p,k)=>`<button class="word" data-a="${k}">${esc(p.w)}</button>`).join(''):'<span class="mr" style="color:var(--muted)">येथे वाक्य तयार होईल…</span>');
+    $('jPool').querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{ans.push(pool.splice(+b.dataset.k,1)[0]);draw();});
+    $('jAns').querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{pool.push(ans.splice(+b.dataset.a,1)[0]);draw();});};
+  const target=()=>list[idx].replace(/[.?!]$/,'').toLowerCase();
+  $('jChk').onclick=()=>{if(pool.length) return out($('jOut'),'<p class="err mr">सर्व शब्द वापरा.</p>');const ok=ans.map(p=>p.w).join(' ').toLowerCase()===target();
+    out($('jOut'),ok?`<p style="color:var(--ok);font-weight:700">✅ Correct! ${esc(list[idx])}</p>`:'<p class="err mr">❌ पुन्हा प्रयत्न करा. शब्दावर टॅप करून तो परत काढा.</p>'); if(ok) speak(list[idx]);};
+  $('jShow').onclick=()=>{out($('jOut'),`<p><b>Answer:</b> ${esc(list[idx])}</p>`);speak(list[idx]);}; $('jNext').onclick=()=>{idx=(idx+1)%list.length;load();}; load();
+  $('sChk').onclick=()=>checkSentences($('myS').value,$('sOut')); $('sSpk').onclick=()=>{const v=$('myS').value.trim();if(v)speak(v);};}
+
+function renderGrammar(){ setBar('Grammar & Language',stdName()); const seen={},items=[];
+  LESSONS().forEach(l=>l.l.forEach(x=>{const k=x.h.replace(/\s*\(.*\)/,'').toLowerCase();(seen[k]=seen[k]||{h:x.h,parts:[]}).parts.push({c:l.c,t:l.t,x:x.x,eg:x.eg});if(seen[k].parts.length===1)items.push(seen[k]);}));
+  out(app,`<div class="page"><div class="card"><h2>📘 Grammar & Language</h2><p class="mr">तुमच्या पाठ्यपुस्तकातील सर्व भाषाभ्यास एकाच ठिकाणी – प्रत्येक मुद्दा कोणत्या पाठात आहे तेही दिले आहे.</p><div class="search"><input id="gs" placeholder="Search… (tense, noun, simile)"></div></div>
+  <div id="gl">${items.map(it=>`<div class="card gi" data-k="${esc(it.h.toLowerCase())}"><h2>${esc(it.h)}</h2><p>${esc(it.parts[0].x)}</p>${[...new Set(it.parts.flatMap(p=>p.eg))].slice(0,6).map(e=>`<div class="eg">${esc(e)}</div>`).join('')}<p style="font-size:14px;color:var(--muted)">📍 Lessons: ${it.parts.map(p=>`<a href="#" data-c="${p.c}" style="color:inherit">${p.c}</a>`).join(', ')}</p></div>`).join('')}</div></div>`);
+  $('gs').oninput=()=>{const t=$('gs').value.trim().toLowerCase();app.querySelectorAll('.gi').forEach(g=>g.classList.toggle('hidden',!!t&&!g.dataset.k.includes(t)&&!g.textContent.toLowerCase().includes(t)));};
+  app.querySelectorAll('a[data-c]').forEach(a=>a.onclick=e=>{e.preventDefault();go({screen:'lesson',c:a.dataset.c,tab:'lang'});});}
+
+function renderVocab(){ setBar('Vocabulary',stdName()); const V=[];LESSONS().forEach(l=>l.w.forEach(w=>V.push([...w,l.c])));
+  out(app,`<div class="page"><div class="card"><h2>🗂️ Flashcards</h2><p class="mr">कार्डवर टॅप करा – अर्थ दिसेल. (${V.length} words from your textbook)</p>
+  <div class="flash" id="fc"><div class="fe" id="fcE"></div><div id="fcM" class="hidden"><div class="fm" id="fcEn"></div><div class="fmr" id="fcMr"></div></div><small id="fcL" style="color:var(--muted)"></small></div>
+  <div style="display:flex;gap:8px;margin-top:10px"><button class="go alt" id="fPrev" style="flex:1">← Prev</button><button class="go" id="fSpk" style="flex:1">🔊 Listen</button><button class="go alt" id="fNext" style="flex:1">Next →</button></div>
+  <button class="go alt" id="fShuf">🔀 Shuffle</button><p id="fN" style="color:var(--muted);font-size:14px;text-align:center"></p></div></div>`);
+  let i=0,A=V; const show=()=>{const v=A[i];$('fcE').textContent=v[0];$('fcEn').textContent=v[1];$('fcMr').textContent=v[2];$('fcL').textContent='Lesson '+v[3];$('fcM').classList.add('hidden');$('fN').textContent=`${i+1} / ${A.length}`;};
+  $('fc').onclick=()=>$('fcM').classList.toggle('hidden'); $('fPrev').onclick=()=>{i=(i-1+A.length)%A.length;show();}; $('fNext').onclick=()=>{i=(i+1)%A.length;show();};
+  $('fSpk').onclick=()=>speak(A[i][0]); $('fShuf').onclick=()=>{A=shuffle(V);i=0;show();}; show();}
+
+function timer(dispId,goId,reId,secs){let total=secs,left=secs,h=null;const d=$(dispId);const show=()=>{d.textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')}`;};
+  const stop=()=>{clearInterval(h);h=null;$(goId).textContent='Start';};
+  $(goId).onclick=()=>{if(h){stop();return;}if(left<=0)left=total;$(goId).textContent='Pause';h=setInterval(()=>{if(!document.body.contains(d)){clearInterval(h);return;}left--;show();if(left<=0){stop();d.textContent='⏰ Time up!';}},1000);};
+  $(reId).onclick=()=>{stop();left=total;show();};show();return {set(n){stop();total=n;left=n;show();}};}
+
+function renderReading(){ setBar('Reading Practice',stdName());
+  out(app,`<div class="page"><div class="card"><h2>📖 Reading Practice</h2><p><b>Goal:</b> Read aloud clearly, with correct pronunciation, pauses and confidence.</p><p class="mr">वेग बदलण्यासाठी वरचे 🐢/🙂 बटण वापरा.</p></div>`+
+  READING[std].map((r,i)=>`<div class="card"><h3 style="margin-top:0">${r.lv}</h3><p><b>${esc(r.t)}</b></p><p style="font-size:19px;line-height:1.8">${esc(r.p)}</p><button class="listen" data-r="${i}">🔊 Listen</button> <button class="listen" id="stop${i}">⏹ Stop</button></div>`).join('')+
+  `<div class="card"><h3 style="margin-top:0">🎯 Daily routine</h3><ol><li>Read silently once.</li><li>Read aloud slowly.</li><li>Circle difficult words.</li><li>Read again with correct pauses.</li><li>Read once more with confidence.</li></ol>
+  <h3>⏱️ One-minute reading</h3><div class="timer" id="tm">1:00</div><div style="display:flex;gap:8px"><button class="go" id="tGo" style="flex:1">Start</button><button class="go alt" id="tRe" style="flex:1">Reset</button></div></div></div>`);
+  app.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>speak(READING[std][+b.dataset.r].p)); READING[std].forEach((_,i)=>$('stop'+i).onclick=stopSpeak); timer('tm','tGo','tRe',60);}
+
+function renderSpeaking(){ setBar('Speaking',stdName());
+  out(app,`<div class="page"><div class="card"><h2>🗣️ Speaking Practice</h2><p class="mr">एक विषय निवडा आणि टाइमर सुरू करून बोला.</p>${SPEAK[std].map(s=>`<div class="eg">${esc(s)}</div>`).join('')}
+  <h3>Tips</h3><ul><li>Speak slowly and clearly.</li><li>Use complete sentences.</li><li>Look at your listener and smile.</li><li>End with a question to your listener.</li></ul>
+  <div style="display:flex;gap:8px"><button class="go alt" id="t30" style="flex:1">30 sec</button><button class="go alt" id="t60" style="flex:1">60 sec</button></div>
+  <div class="timer" id="sm">0:30</div><div style="display:flex;gap:8px"><button class="go" id="sGo" style="flex:1">Start</button><button class="go alt" id="sRe" style="flex:1">Reset</button></div></div></div>`);
+  const t=timer('sm','sGo','sRe',30);$('t30').onclick=()=>t.set(30);$('t60').onclick=()=>t.set(60);}
+
+function renderConvert(){ setBar('English → Marathi',stdName());
+  out(app,`<div class="page"><div class="card"><h2>🔁 English → Marathi</h2><p class="mr">इंग्रजी शब्द, वाक्प्रचार किंवा छोटे वाक्य लिहा.</p><textarea id="cIn" placeholder="Example: good morning / forest / I like my school"></textarea>
+  <div style="display:flex;gap:8px;margin-top:8px"><button class="go" id="cGo" style="flex:1">मराठी अर्थ पाहा</button><button class="go alt" id="cSpk" style="flex:1">🔊 Listen</button></div><div class="out" id="cOut"></div></div>
+  <div class="card mr" style="font-size:14.5px;color:var(--muted)">हा शब्दकोश ऑफलाइन चालतो; त्यात शालेय शब्द व तुमच्या पाठ्यपुस्तकातील सर्व शब्द आहेत. वाक्यांसाठी प्रत्येक शब्दाचा अर्थ दिसतो – मराठी वाक्यरचना वेगळी असते.</div></div>`);
+  $('cSpk').onclick=()=>{const t=$('cIn').value.trim();if(t)speak(t);};
+  $('cGo').onclick=()=>{const raw=$('cIn').value.trim(),o=$('cOut');if(!raw) return out(o,'<p class="err mr">आधी काहीतरी लिहा.</p>');
+    const norm=raw.toLowerCase().replace(/[’‘]/g,"'").replace(/[.?!,]+$/,'').replace(/\s+/g,' ').trim();
+    if(PHRASES[norm]) return out(o,`<div class="eg"><b>${esc(raw)}</b><br><span class="mr" style="font-size:22px">${esc(PHRASES[norm])}</span></div>`);
+    const toks=norm.split(' ').map(w=>w.replace(/^[^a-z']+|[^a-z']+$/g,'')).filter(Boolean);
+    const rows=toks.map(w=>{const r=lookup(w);return `<tr><td>${esc(w)}</td><td class="mr wrap">${r?esc(r.m)+(r.base?` <small style="color:var(--muted)">(मूळ शब्द: ${esc(r.base)}${r.pl?' – अनेकवचन':''})</small>`:''):'<span style="color:var(--muted)">शब्दकोशात नाही</span>'}</td></tr>`;}).join('');
+    out(o,(toks.length>1?'<p class="mr" style="font-size:14.5px;color:var(--muted)">प्रत्येक शब्दाचा अर्थ (शब्दशः).</p>':'')+`<div class="scroll"><table><tr><th>English</th><th>मराठी</th></tr>${rows}</table></div>`);};}
+
+function renderTest(){ setBar('Test',stdName()); const all=[];LESSONS().forEach(l=>l.q.forEach(q=>all.push({...q,q:`<small style="color:var(--muted);font-weight:500">Lesson ${l.c} · ${esc(l.t)}</small><br>${q.q}`})));
+  out(app,`<div class="page"><div class="card"><h2>📝 Mixed Test</h2><p>15 questions from all your lessons. New questions every time.</p></div><div id="qbox"></div></div>`); runQuiz($('qbox'),shuffle(all).slice(0,15));}
+
+function render(){ stopSpeak();
+  if(!std&&current.screen!=='home') current={screen:'home'};
+  const R={home:renderHome,menu:renderMenu,lessons:renderLessons,words:renderWords,sentence:renderSentence,grammar:renderGrammar,vocab:renderVocab,reading:renderReading,speaking:renderSpeaking,convert:renderConvert,test:renderTest};
+  if(current.screen==='lesson') renderLesson(current.c,current.tab||'about'); else (R[current.screen]||renderHome)(); spkBtn(); }
+function go(state,replace){ current=state; try{replace?history.replaceState(state,''):history.pushState(state,'')}catch(e){} render(); window.scrollTo(0,0); }
+window.addEventListener('popstate',e=>{ current=e.state||{screen:'home'}; render(); });
+$('backBtn').onclick=()=>{ if(history.state&&history.state.screen!=='home') history.back(); else go({screen:'home'}); };
+$('spdBtn').onclick=()=>{ rate=rate<0.8?0.85:0.65; try{localStorage.setItem('nke-rate',rate<0.8?'slow':'normal')}catch(e){} spkBtn(); speak(rate<0.8?'slow':'normal'); };
 try{history.replaceState({screen:'home'},'')}catch(e){}
 render();
 if(window.NK) NK.onReady(p=>{ if(!std&&p&&(p.cls==='6'||p.cls==='7')){ std=+p.cls; try{localStorage.setItem('nke-std',std)}catch(e){} } render(); });
