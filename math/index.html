@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nayan Kalpande Math</title>
+<script>window.NK_APP="math";</script>
+<script src="../config.js"></script>
+<script src="../shared/auth.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Mukta:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f8f3; --grid:rgba(38,86,160,.09); --ink:#1b2d5a; --muted:#56607a;
+  --card:#ffffff; --line:#d8dfe9; --slate:#22463b; --chalk:#f4f1e6;
+  --marigold:#e89b12; --margin:#cf4638; --ok:#1d8a4b; --bad:#c3342a; --soft:#eef3fb;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#111922; --grid:rgba(140,180,255,.06); --ink:#e6ecf7; --muted:#9ba7bd;
+  --card:#19232f; --line:#2c3b4f; --slate:#1e3d33; --chalk:#f1eee2;
+  --marigold:#f3b23c; --margin:#ff7b6b; --ok:#4cc27d; --bad:#ff7a6e; --soft:#1f2c3b;}}
+:root[data-theme="dark"]{
+  --paper:#111922; --grid:rgba(140,180,255,.06); --ink:#e6ecf7; --muted:#9ba7bd;
+  --card:#19232f; --line:#2c3b4f; --slate:#1e3d33; --chalk:#f1eee2;
+  --marigold:#f3b23c; --margin:#ff7b6b; --ok:#4cc27d; --bad:#ff7a6e; --soft:#1f2c3b;}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;color:var(--ink);font-family:"Mukta","Noto Sans Devanagari","Mangal",sans-serif;font-size:17px;line-height:1.6;
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:22px 22px;}
+h1,h2,h3,.bar-title,.std-num{font-family:"Baloo 2","Mukta","Noto Sans Devanagari",sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:16px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:2px solid var(--margin);}
+.bar .wrap{display:flex;align-items:center;gap:10px;padding:10px 14px}
+.bar-title{font-weight:800;font-size:19px;flex:1;line-height:1.2}
+.bar-title small{display:block;font-family:"Mukta",sans-serif;font-weight:500;font-size:13px;color:var(--muted)}
+.iconbtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;min-width:44px;height:44px;font-size:18px;cursor:pointer;font-family:inherit;padding:0 10px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--marigold);outline-offset:2px}
+.hidden{display:none!important}
+/* Home */
+.hero{padding:28px 4px 8px}
+.hero h1{font-size:40px;line-height:1.05;margin:0;letter-spacing:-.5px}
+.hero h1 span{display:block;font-size:22px;color:var(--margin);margin-top:6px;font-weight:700}
+.hero p{color:var(--muted);margin:10px 0 0}
+.std-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 10px}
+.std-tile{background:var(--slate);color:var(--chalk);border:0;border-radius:18px;padding:18px 10px 16px;cursor:pointer;text-align:center;
+  box-shadow:inset 0 0 0 6px #7a5a3a, 0 6px 0 #5e4329;font-family:inherit;transition:transform .12s}
+.std-tile:active{transform:translateY(3px)}
+.std-num{font-size:84px;line-height:1;font-weight:800;display:block}
+.std-lab{font-size:19px;font-weight:700}
+.std-tile.chosen{outline:4px solid var(--marigold);outline-offset:3px}
+.note{font-size:14px;color:var(--muted);border-left:3px solid var(--margin);padding:4px 10px;margin:18px 0}
+/* Menu */
+.topic{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:14px;margin:10px 0;cursor:pointer;color:var(--ink);font-family:inherit}
+.topic .sym{flex:0 0 56px;height:56px;border-radius:14px;background:var(--slate);color:var(--chalk);display:grid;place-items:center;font-size:30px;font-weight:800;font-family:"Baloo 2",sans-serif}
+.topic b{display:block;font-size:19px;font-family:"Baloo 2",sans-serif}
+.topic span{font-size:14.5px;color:var(--muted);line-height:1.4;display:block}
+/* Content */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 18px;margin:14px 0}
+.card h2{margin:0 0 6px;font-size:23px}
+.card h3{margin:16px 0 4px;font-size:19px;color:var(--margin)}
+.card p{margin:6px 0}
+.def{background:var(--soft);border-radius:12px;padding:10px 12px;margin:10px 0}
+.rule{border:2px dashed var(--marigold);border-radius:12px;padding:10px 12px;margin:10px 0;font-weight:500}
+.eg{font-family:"Mukta",sans-serif;background:var(--soft);border-left:4px solid var(--ink);padding:8px 12px;border-radius:8px;margin:8px 0}
+ul,ol{padding-left:22px;margin:6px 0}li{margin:4px 0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;margin:8px 0;min-width:100%}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:center;white-space:nowrap}
+th{background:var(--soft);font-weight:700}
+td.dv{background:var(--slate);color:var(--chalk);font-weight:700}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1 1 120px}
+label{font-size:14px;color:var(--muted);display:block}
+input,select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:18px;background:var(--paper);color:var(--ink);font-family:inherit}
+.go{background:var(--margin);color:#fff;border:0;border-radius:12px;padding:12px 18px;font-size:18px;font-weight:700;cursor:pointer;margin-top:10px;font-family:inherit;width:100%}
+.out{margin-top:12px}
+.out:empty{display:none}
+.ans{font-size:22px;font-weight:700;color:var(--ok)}
+.err{color:var(--bad);font-weight:600}
+.shapes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0}
+.shape{border:1px solid var(--line);border-radius:12px;padding:8px;text-align:center;background:var(--paper)}
+.shape svg{width:100%;height:auto;max-width:150px}
+.shape b{display:block;font-family:"Baloo 2",sans-serif;font-size:17px}
+.shape span{font-size:13.5px;color:var(--muted);line-height:1.35;display:block}
+svg .s{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+svg .a{fill:none;stroke:var(--margin);stroke-width:2.5}
+svg .f{fill:var(--soft);stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round}
+svg text{fill:var(--ink);font-family:"Mukta",sans-serif;font-size:14px}
+input[type=range]{padding:0;accent-color:var(--margin)}
+.big-angle{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.big-angle svg{width:200px;max-width:100%;height:auto}
+.tag{display:inline-block;background:var(--marigold);color:#1b1b1b;border-radius:8px;padding:2px 10px;font-weight:700}
+/* Quiz */
+.q{border:1px solid var(--line);border-radius:14px;padding:12px;margin:12px 0;background:var(--card)}
+.q p{margin:0 0 8px;font-weight:700}
+.opt{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:10px 12px;margin:6px 0;font-size:16.5px;cursor:pointer;font-family:inherit}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,transparent)}
+.why{font-size:15px;margin-top:6px;color:var(--muted)}
+.scorebar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);background:var(--slate);color:var(--chalk);border-radius:12px;padding:8px 14px;font-weight:700;display:flex;justify-content:space-between;align-items:center;z-index:3}
+.scorebar button{background:var(--chalk);color:var(--slate);border:0;border-radius:8px;padding:6px 12px;font-weight:700;cursor:pointer;font-family:inherit}
+.acct{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin-top:14px}.acct span{flex:1}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 30px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar hidden" id="bar">
+  <div class="wrap">
+    <button class="iconbtn" id="backBtn" aria-label="मागे">←</button>
+    <div class="bar-title" id="barTitle">Nayan Kalpande Math</div>
+    <button class="iconbtn" id="digitBtn" aria-label="अंक बदला">१२३</button>
+  </div>
+</div>
+
+<main class="wrap" id="app"></main>
+
+<footer><a href="../privacy.html" style="color:inherit">गोपनीयता धोरण</a> · Nayan Kalpande Math · इयत्ता ६ वी व ७ वी · महाराष्ट्र राज्य मंडळ (बालभारती) अभ्यासक्रमातील घटकांवर आधारित सराव</footer>
+
+<script>
+/* ---------- helpers ---------- */
+const MRD='०१२३४५६७८९';
+let std=null, useMr=true, current={screen:'home'};
+try{ useMr = localStorage.getItem('nkm-digits')!=='en'; const s=localStorage.getItem('nkm-std'); if(s==='6'||s==='7') std=+s; }catch(e){}
+const app=document.getElementById('app');
+function convertDigits(root){
+  if(!useMr) return;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT); let n;
+  while((n=w.nextNode())){ if(/[0-9]/.test(n.nodeValue)) n.nodeValue=n.nodeValue.replace(/[0-9]/g,d=>MRD[d]); }
+}
+function out(el,html){ el.innerHTML=html; convertDigits(el); }
+function num(v){ const s=String(v).trim().replace(/[०-९]/g,c=>MRD.indexOf(c)); if(s==='') return NaN; return Number(s); }
+function fmt(n){ const r=Math.round(n*100)/100; return (Object.is(r,-0)?0:r).toString(); }
+function escH(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function stdWord(){ return std===6?'इयत्ता ६ वी':'इयत्ता ७ वी'; }
+
+/* ---------- maths ---------- */
+function pf(n){const f=[];let d=2;while(n>1&&d*d<=n){while(n%d===0){f.push(d);n/=d}d++}if(n>1)f.push(n);return f}
+function gcd(a,b){while(b){[a,b]=[b,a%b]}return a}
+function lcm(a,b){return a/gcd(a,b)*b}
+function counts(arr){const m={};arr.forEach(x=>m[x]=(m[x]||0)+1);return m}
+function spf(n){if(n%2===0)return 2;for(let d=3;d*d<=n;d+=2)if(n%d===0)return d;return n}
+
+/* ---------- SVG drawings ---------- */
+function angleSVG(deg){
+  const cx=110,cy=110,r=88,rad=deg*Math.PI/180;
+  const x2=cx+r*Math.cos(rad), y2=cy-r*Math.sin(rad);
+  let arc='';
+  if(deg===90){ arc=`<path class="a" d="M${cx+18} ${cy} L${cx+18} ${cy-18} L${cx} ${cy-18}"/>`; }
+  else if(deg>=360){ arc=`<circle class="a" cx="${cx}" cy="${cy}" r="26"/>`; }
+  else if(deg>0){ const ax=cx+26*Math.cos(rad), ay=cy-26*Math.sin(rad);
+    arc=`<path class="a" d="M${cx+26} ${cy} A26 26 0 ${deg>180?1:0} 0 ${ax.toFixed(2)} ${ay.toFixed(2)}"/>`; }
+  return `<svg viewBox="0 0 220 220" role="img" aria-label="${deg} अंशाचा कोन">
+    ${arc}<line class="s" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>
+    <line class="s" x1="${cx}" y1="${cy}" x2="${x2.toFixed(2)}" y2="${y2.toFixed(2)}"/>
+    <circle cx="${cx}" cy="${cy}" r="4" fill="var(--margin)"/></svg>`;
+}
+const TRI={
+  sam:`<polygon class="f" points="70,12 20,98 120,98"/>`,
+  dvi:`<polygon class="f" points="70,10 40,100 100,100"/>`,
+  vis:`<polygon class="f" points="20,100 120,100 48,26"/>`,
+  kat:`<polygon class="f" points="25,18 25,100 118,100"/><path class="a" d="M25 86 H39 V100"/>`,
+  lag:`<polygon class="f" points="18,100 118,100 64,22"/>`,
+  vish:`<polygon class="f" points="10,100 82,100 126,42"/>`
+};
+const QUAD={
+  ayat:`<rect class="f" x="15" y="30" width="110" height="60"/>`,
+  chaur:`<rect class="f" x="35" y="18" width="70" height="70"/>`,
+  sambhuj:`<polygon class="f" points="70,8 118,56 70,104 22,56"/>`,
+  samantar:`<polygon class="f" points="42,25 127,25 102,92 17,92"/>`,
+  samlamb:`<polygon class="f" points="45,25 95,25 125,92 15,92"/>`,
+  patang:`<polygon class="f" points="70,8 105,44 70,106 35,44"/>`
+};
+const svgBox=(inner)=>`<svg viewBox="0 0 140 112" role="img">${inner}</svg>`;
+
+/* ---------- topics ---------- */
+const TOPICS={
+hcf:{sym:'÷',title:'मसावि व लसावि',sub:()=>'मूळ अवयव पद्धत व भागाकार पद्धत, स्पष्टीकरणासह कॅल्क्युलेटर',
+body:()=>`
+<div class="card"><h2>मूलभूत संकल्पना</h2>
+<div class="def"><b>विभाजक (अवयव):</b> ज्या संख्येने दिलेल्या संख्येला नि:शेष भाग जातो ती संख्या.<br>उदा. 12 चे विभाजक : 1, 2, 3, 4, 6, 12</div>
+<div class="def"><b>पट (विभाज्य):</b> दिलेल्या संख्येला 1, 2, 3, … ने गुणून मिळणाऱ्या संख्या.<br>उदा. 4 चे पट : 4, 8, 12, 16, 20, …</div>
+<div class="def"><b>मूळ संख्या:</b> जिचे फक्त दोनच विभाजक असतात – 1 व ती संख्या स्वतः. उदा. 2, 3, 5, 7, 11, 13<br>
+<b>संयुक्त संख्या:</b> जिचे दोनपेक्षा जास्त विभाजक असतात. उदा. 4, 6, 8, 9, 10<br>
+1 ही संख्या मूळ संख्याही नाही आणि संयुक्त संख्याही नाही. 2 ही एकमेव सम मूळ संख्या आहे.</div>
+<div class="rule">मसावि (महत्तम सामाईक विभाजक) = दिलेल्या संख्यांच्या सामाईक विभाजकांपैकी सर्वांत मोठा विभाजक.<br>
+लसावि (लघुतम सामाईक विभाज्य) = दिलेल्या संख्यांच्या सामाईक पटांपैकी सर्वांत लहान पट.</div>
+</div>
+
+<div class="card"><h2>पद्धत १ : मूळ अवयव पद्धत</h2>
+<p>उदाहरण : 24 व 36 यांचा मसावि व लसावि काढा.</p>
+<div class="eg">24 = 2 × 2 × 2 × 3<br>36 = 2 × 2 × 3 × 3</div>
+<p><b>मसावि :</b> दोन्ही संख्यांतील सामाईक मूळ अवयव 2, 2, 3 आहेत.<br>∴ मसावि = 2 × 2 × 3 = <b>12</b></p>
+<p><b>लसावि :</b> लसावि = सामाईक अवयव × उरलेले अवयव<br>24 मधील उरलेला अवयव 2 व 36 मधील उरलेला अवयव 3<br>∴ लसावि = (2 × 2 × 3) × 2 × 3 = <b>72</b></p>
+</div>
+
+<div class="card"><h2>पद्धत २ : भागाकार पद्धत</h2>
+<h3>भागाकार पद्धतीने मसावि</h3>
+<ol><li>मोठ्या संख्येला लहान संख्येने भागा.</li><li>बाकी 0 आली नाही, तर आधीच्या भाजकाला बाकीने भागा.</li><li>बाकी 0 येईपर्यंत असे करत राहा. बाकी 0 येते तेव्हाचा <b>शेवटचा भाजक हाच मसावि</b>.</li></ol>
+<div class="scroll"><table><tr><th>भाज्य</th><th>भाजक</th><th>भागाकार</th><th>बाकी</th></tr>
+<tr><td>36</td><td>24</td><td>1</td><td>12</td></tr><tr><td>24</td><td><b>12</b></td><td>2</td><td>0</td></tr></table></div>
+<p>बाकी 0 आली, म्हणून मसावि = <b>12</b></p>
+<h3>भागाकार पद्धतीने लसावि</h3>
+<p>संख्या एका ओळीत लिहून त्यांना मूळ संख्येने भागत जा. ज्या संख्येला भाग जात नाही ती तशीच खाली लिहा. सर्व संख्या 1 होईपर्यंत भागा. <b>सर्व भाजकांचा गुणाकार = लसावि</b>.</p>
+<div class="scroll"><table>
+<tr><td class="dv">2</td><td>24</td><td>36</td></tr><tr><td class="dv">2</td><td>12</td><td>18</td></tr>
+<tr><td class="dv">2</td><td>6</td><td>9</td></tr><tr><td class="dv">3</td><td>3</td><td>9</td></tr>
+<tr><td class="dv">3</td><td>1</td><td>3</td></tr><tr><td></td><td>1</td><td>1</td></tr></table></div>
+<p>लसावि = 2 × 2 × 2 × 3 × 3 = <b>72</b></p>
+</div>
+
+<div class="card"><h2>महत्त्वाचा नियम</h2>
+<div class="rule">दोन संख्यांसाठी : मसावि × लसावि = त्या दोन संख्यांचा गुणाकार</div>
+<div class="eg">12 × 72 = 864 आणि 24 × 36 = 864</div>
+${std===7?`<div class="def"><b>सहमूळ संख्या :</b> ज्या दोन संख्यांचा मसावि 1 असतो त्या संख्या. उदा. 8 व 15.<br>सहमूळ संख्यांचा लसावि = त्यांचा गुणाकार. 8 व 15 चा लसावि = 120</div>`:''}
+</div>
+
+<div class="card"><h2>🧮 मसावि–लसावि कॅल्क्युलेटर</h2>
+<p>संख्या लिहा (1 ते 99999). दोन्ही पद्धतींनी पायरीसह उत्तर मिळेल.</p>
+<div class="row"><div><label>पहिली संख्या</label><input id="h1" inputmode="numeric" value="24"></div>
+<div><label>दुसरी संख्या</label><input id="h2" inputmode="numeric" value="36"></div>
+${std===7?`<div><label>तिसरी संख्या (ऐच्छिक)</label><input id="h3" inputmode="numeric" placeholder="रिकामी ठेवू शकता"></div>`:''}</div>
+<button class="go" id="hGo">उत्तर काढा</button><div class="out" id="hOut"></div></div>
+
+${std===7?`<div class="card"><h2>शाब्दिक उदाहरणे</h2>
+<p><b>१.</b> 24 मीटर व 36 मीटर लांबीच्या दोन दोऱ्या आहेत. दोन्ही दोऱ्यांचे समान लांबीचे, जास्तीत जास्त लांबीचे तुकडे करायचे आहेत. प्रत्येक तुकडा किती लांबीचा असेल?</p>
+<div class="eg">"जास्तीत जास्त समान भाग" → मसावि काढावा. 24 व 36 चा मसावि = 12. उत्तर : 12 मीटर</div>
+<p><b>२.</b> दोन घंटा अनुक्रमे दर 24 मिनिटांनी व दर 36 मिनिटांनी वाजतात. त्या एकदा एकत्र वाजल्यानंतर पुन्हा किती मिनिटांनी एकत्र वाजतील?</p>
+<div class="eg">"पुन्हा एकत्र / कमीत कमी" → लसावि काढावा. 24 व 36 चा लसावि = 72. उत्तर : 72 मिनिटांनी</div></div>`:''}
+`,
+init(){ document.getElementById('hGo').onclick=calcHCF; }
+},
+
+angle:{sym:'∠',title:'कोन',sub:()=>std===6?'कोनाचे भाग, कोनांचे प्रकार, कोनमापकाने मोजणे':'कोनांचे प्रकार व कोनांच्या जोड्या',
+body:()=>`
+<div class="card"><h2>कोन म्हणजे काय?</h2>
+<p>एकाच बिंदूपासून निघणाऱ्या दोन किरणांनी कोन तयार होतो. तो सामाईक बिंदू म्हणजे <b>शिरोबिंदू</b> आणि दोन किरण म्हणजे कोनाच्या <b>भुजा</b>.</p>
+<div class="eg">∠ABC मध्ये शिरोबिंदू B आहे आणि किरण BA व किरण BC या भुजा आहेत. कोनाचे नाव लिहिताना शिरोबिंदूचे अक्षर मध्ये लिहितात.</div>
+<p>कोनाचे माप <b>अंश (°)</b> मध्ये मोजतात. कोन मोजण्यासाठी <b>कोनमापक</b> वापरतात.</p></div>
+
+<div class="card"><h2>कोनांचे प्रकार</h2>
+<div class="shapes">
+<div class="shape">${angleSVG(0)}<b>शून्य कोन</b><span>माप 0°</span></div>
+<div class="shape">${angleSVG(50)}<b>लघुकोन</b><span>0° पेक्षा मोठा व 90° पेक्षा लहान</span></div>
+<div class="shape">${angleSVG(90)}<b>काटकोन</b><span>माप बरोबर 90°</span></div>
+<div class="shape">${angleSVG(130)}<b>विशालकोन</b><span>90° पेक्षा मोठा व 180° पेक्षा लहान</span></div>
+<div class="shape">${angleSVG(180)}<b>सरळकोन</b><span>माप बरोबर 180°</span></div>
+<div class="shape">${angleSVG(250)}<b>प्रविशाल कोन</b><span>180° पेक्षा मोठा व 360° पेक्षा लहान</span></div>
+<div class="shape">${angleSVG(360)}<b>पूर्ण कोन</b><span>माप बरोबर 360°</span></div>
+</div></div>
+
+<div class="card"><h2>🎚️ कोन बदलून पाहा</h2>
+<p>स्लायडर हलवा किंवा माप लिहा. कोनाचा प्रकार आपोआप दिसेल.</p>
+<div class="big-angle"><div id="angPic"></div><div style="flex:1;min-width:180px">
+<label>कोनाचे माप (अंश)</label><input type="range" id="angR" min="0" max="360" value="60">
+<input id="angN" inputmode="numeric" value="60" style="margin-top:8px"><div class="out" id="angOut"></div></div></div></div>
+
+${std===6?`<div class="card"><h2>कोनमापकाने कोन मोजणे</h2><ol>
+<li>कोनमापकाचा मध्यबिंदू कोनाच्या शिरोबिंदूवर ठेवा.</li>
+<li>कोनमापकाची 0° ची रेषा कोनाच्या एका भुजेवर नीट जुळवा.</li>
+<li>ज्या भुजेवर 0° जुळवले, त्या बाजूने 0 पासून सुरू होणारी मोजपट्टी वापरा.</li>
+<li>दुसरी भुजा मोजपट्टीवर जिथे येते ते माप वाचा.</li></ol></div>`:''}
+
+${std===7?`<div class="card"><h2>कोनांच्या जोड्या</h2>
+<div class="def"><b>कोटिकोन :</b> ज्या दोन कोनांच्या मापांची बेरीज 90° असते ते एकमेकांचे कोटिकोन असतात.<br>उदा. 30° व 60° (30 + 60 = 90)</div>
+<div class="def"><b>पूरक कोन :</b> ज्या दोन कोनांच्या मापांची बेरीज 180° असते ते एकमेकांचे पूरक कोन असतात.<br>उदा. 110° व 70° (110 + 70 = 180)</div>
+<div class="def"><b>संलग्न कोन :</b> ज्या दोन कोनांचा शिरोबिंदू सामाईक असतो, एक भुजा सामाईक असते आणि त्यांचे अंतर्भाग एकमेकांवर येत नाहीत, ते संलग्न कोन.</div>
+<div class="def"><b>रेषीय जोडी :</b> ज्या संलग्न कोनांच्या सामाईक नसलेल्या भुजा परस्परविरुद्ध किरण असतात (एकच सरळ रेषा बनवतात), ते कोन रेषीय जोडीतील कोन. <b>रेषीय जोडीतील कोनांची बेरीज 180° असते.</b></div>
+<div class="def"><b>विरुद्ध कोन :</b> दोन रेषा एकमेकींना छेदतात तेव्हा समोरासमोर तयार होणारे कोन. <b>विरुद्ध कोन समान मापाचे असतात.</b></div>
+<svg viewBox="0 0 260 150" style="max-width:320px;width:100%" role="img" aria-label="दोन छेदणाऱ्या रेषा">
+<line class="s" x1="20" y1="30" x2="240" y2="120"/><line class="s" x1="20" y1="120" x2="240" y2="30"/>
+<text x="112" y="58">1</text><text x="142" y="80">2</text><text x="112" y="104">3</text><text x="86" y="80">4</text></svg>
+<p>येथे ∠1 व ∠3 विरुद्ध कोन आहेत, तसेच ∠2 व ∠4 विरुद्ध कोन आहेत. ∠1 व ∠2 ही रेषीय जोडी आहे.</p>
+</div>`:''}
+`,
+init(){
+  const r=document.getElementById('angR'), n=document.getElementById('angN');
+  const upd=(v)=>{ drawAngle(v); };
+  r.oninput=()=>{ n.value=r.value; upd(+r.value); };
+  n.oninput=()=>{ const v=num(n.value); if(!isNaN(v)&&v>=0&&v<=360){ r.value=v; upd(v);} else out(document.getElementById('angOut'),'<p class="err">0 ते 360 मधील माप लिहा.</p>'); };
+  upd(60);
+}},
+
+tri:{sym:'△',title:'त्रिकोण',sub:()=>std===6?'त्रिकोणाचे प्रकार व गुणधर्म':'गुणधर्म, बाह्यकोन, पायथागोरसचा सिद्धांत, क्षेत्रफळ',
+body:()=>`
+<div class="card"><h2>त्रिकोण म्हणजे काय?</h2>
+<p>तीन नैकरेषीय बिंदू रेषाखंडांनी जोडल्यावर तयार होणारी बंदिस्त आकृती म्हणजे त्रिकोण. △ABC मध्ये <b>3 शिरोबिंदू</b> (A, B, C), <b>3 बाजू</b> (AB, BC, CA) आणि <b>3 कोन</b> (∠A, ∠B, ∠C) असतात.</p></div>
+
+<div class="card"><h2>बाजूंवरून प्रकार</h2><div class="shapes">
+<div class="shape">${svgBox(TRI.sam)}<b>समभुज त्रिकोण</b><span>तिन्ही बाजू समान लांबीच्या. प्रत्येक कोन 60°</span></div>
+<div class="shape">${svgBox(TRI.dvi)}<b>समद्विभुज त्रिकोण</b><span>कोणत्याही दोन बाजू समान लांबीच्या</span></div>
+<div class="shape">${svgBox(TRI.vis)}<b>विषमभुज त्रिकोण</b><span>तिन्ही बाजू वेगवेगळ्या लांबीच्या</span></div></div></div>
+
+<div class="card"><h2>कोनांवरून प्रकार</h2><div class="shapes">
+<div class="shape">${svgBox(TRI.lag)}<b>लघुकोन त्रिकोण</b><span>तिन्ही कोन लघुकोन</span></div>
+<div class="shape">${svgBox(TRI.kat)}<b>काटकोन त्रिकोण</b><span>एक कोन काटकोन (90°)</span></div>
+<div class="shape">${svgBox(TRI.vish)}<b>विशालकोन त्रिकोण</b><span>एक कोन विशालकोन</span></div></div></div>
+
+<div class="card"><h2>त्रिकोणाचे गुणधर्म</h2>
+<div class="rule">१. त्रिकोणाच्या तिन्ही कोनांच्या मापांची बेरीज 180° असते.</div>
+<div class="eg">∠A = 50°, ∠B = 60° असेल तर ∠C = 180° − (50° + 60°) = 70°</div>
+<div class="rule">२. त्रिकोणाच्या कोणत्याही दोन बाजूंच्या लांबींची बेरीज तिसऱ्या बाजूच्या लांबीपेक्षा जास्त असते.</div>
+<div class="eg">3 सेमी, 4 सेमी, 8 सेमी : 3 + 4 = 7 हे 8 पेक्षा लहान, म्हणून असा त्रिकोण तयार होत नाही.</div>
+${std===7?`<div class="rule">३. त्रिकोणाच्या बाह्यकोनाचे माप हे त्याच्या दोन दूरस्थ आंतरकोनांच्या मापांच्या बेरजेइतके असते.</div>
+<div class="eg">∠A = 50°, ∠B = 70° असेल, तर C जवळील बाह्यकोन = 50° + 70° = 120°</div>`:''}
+</div>
+
+<div class="card"><h2>🧮 त्रिकोण तपासा</h2>
+<h3>तीन कोनांवरून</h3>
+<div class="row"><div><label>∠A</label><input id="ta" inputmode="decimal" value="50"></div><div><label>∠B</label><input id="tb" inputmode="decimal" value="60"></div><div><label>∠C</label><input id="tc" inputmode="decimal" value="70"></div></div>
+<button class="go" id="tAng">कोनांवरून तपासा</button><div class="out" id="tAngOut"></div>
+<h3>तीन बाजूंवरून</h3>
+<div class="row"><div><label>बाजू 1 (सेमी)</label><input id="s1" inputmode="decimal" value="3"></div><div><label>बाजू 2 (सेमी)</label><input id="s2" inputmode="decimal" value="4"></div><div><label>बाजू 3 (सेमी)</label><input id="s3" inputmode="decimal" value="5"></div></div>
+<button class="go" id="tSide">बाजूंवरून तपासा</button><div class="out" id="tSideOut"></div>
+<h3>दोन कोन माहीत असल्यास तिसरा कोन</h3>
+<div class="row"><div><label>पहिला कोन</label><input id="t1" inputmode="decimal" value="45"></div><div><label>दुसरा कोन</label><input id="t2" inputmode="decimal" value="75"></div></div>
+<button class="go" id="tThird">तिसरा कोन काढा</button><div class="out" id="tThirdOut"></div>
+</div>
+
+${std===7?`<div class="card"><h2>पायथागोरसचा सिद्धांत</h2>
+<p>काटकोन त्रिकोणात काटकोनासमोरील बाजूला <b>कर्ण</b> म्हणतात. कर्ण ही त्या त्रिकोणाची सर्वांत मोठी बाजू असते.</p>
+<div class="rule">काटकोन त्रिकोणात : (कर्ण)² = (एक बाजू)² + (दुसरी बाजू)²</div>
+<div class="eg">बाजू 6 सेमी व 8 सेमी असल्यास : (कर्ण)² = 36 + 64 = 100, म्हणून कर्ण = 10 सेमी</div>
+<p><b>पायथागोरसची त्रिकुटे</b> (उदाहरणे) : (3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25)</p>
+<div class="row"><div><label>काटकोन करणारी बाजू 1</label><input id="p1" inputmode="decimal" value="6"></div><div><label>काटकोन करणारी बाजू 2</label><input id="p2" inputmode="decimal" value="8"></div></div>
+<button class="go" id="pGo">कर्ण काढा</button><div class="out" id="pOut"></div>
+<div class="row" style="margin-top:12px"><div><label>कर्ण</label><input id="p3" inputmode="decimal" value="13"></div><div><label>एक बाजू</label><input id="p4" inputmode="decimal" value="5"></div></div>
+<button class="go" id="pGo2">दुसरी बाजू काढा</button><div class="out" id="pOut2"></div>
+</div>
+<div class="card"><h2>त्रिकोणाचे क्षेत्रफळ</h2>
+<div class="rule">त्रिकोणाचे क्षेत्रफळ = ½ × पाया × उंची</div>
+<div class="row"><div><label>पाया (सेमी)</label><input id="ab" inputmode="decimal" value="10"></div><div><label>उंची (सेमी)</label><input id="ah" inputmode="decimal" value="6"></div></div>
+<button class="go" id="aGo">क्षेत्रफळ काढा</button><div class="out" id="aOut"></div></div>`:''}
+`,
+init(){
+  const g=id=>document.getElementById(id);
+  g('tAng').onclick=()=>{
+    const A=num(g('ta').value),B=num(g('tb').value),C=num(g('tc').value),o=g('tAngOut');
+    if([A,B,C].some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">प्रत्येक कोन 0 पेक्षा मोठा लिहा.</p>');
+    const s=A+B+C;
+    if(Math.abs(s-180)>1e-9) return out(o,`<p class="err">बेरीज = ${fmt(s)}°. त्रिकोणाच्या कोनांची बेरीज 180° असायला हवी, म्हणून असा त्रिकोण शक्य नाही.</p>`);
+    const mx=Math.max(A,B,C); let t=mx===90?'काटकोन त्रिकोण':mx>90?'विशालकोन त्रिकोण':'लघुकोन त्रिकोण';
+    let extra='';
+    if(A===60&&B===60&&C===60) extra='<br>तिन्ही कोन 60° असल्याने तिन्ही बाजूही समान, म्हणजे हा <b>समभुज त्रिकोण</b> आहे.';
+    else if(A===B||B===C||A===C) extra='<br>दोन कोन समान असल्याने त्यांच्या समोरच्या बाजूही समान, म्हणजे हा <b>समद्विभुज त्रिकोण</b> आहे.';
+    out(o,`<p>बेरीज = ${fmt(A)}° + ${fmt(B)}° + ${fmt(C)}° = 180° ✓</p><p class="ans">${t}</p><p>${extra}</p>`);
+  };
+  g('tSide').onclick=()=>{
+    const a=[num(g('s1').value),num(g('s2').value),num(g('s3').value)],o=g('tSideOut');
+    if(a.some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">प्रत्येक बाजू 0 पेक्षा मोठी लिहा.</p>');
+    const [x,y,z]=[...a].sort((p,q)=>p-q);
+    if(x+y<=z) return out(o,`<p class="err">${fmt(x)} + ${fmt(y)} = ${fmt(x+y)}, हे ${fmt(z)} पेक्षा मोठे नाही. म्हणून या बाजूंनी त्रिकोण तयार होत नाही.</p>`);
+    const bs=(a[0]===a[1]&&a[1]===a[2])?'समभुज त्रिकोण':(a[0]===a[1]||a[1]===a[2]||a[0]===a[2])?'समद्विभुज त्रिकोण':'विषमभुज त्रिकोण';
+    const L=x*x+y*y,R=z*z; const eps=1e-9*Math.max(1,R);
+    let as, why;
+    if(Math.abs(L-R)<=eps){as='काटकोन त्रिकोण';why=`${fmt(x)}² + ${fmt(y)}² = ${fmt(z)}²`;}
+    else if(R<L){as='लघुकोन त्रिकोण';why=`${fmt(z)}² < ${fmt(x)}² + ${fmt(y)}²`;}
+    else {as='विशालकोन त्रिकोण';why=`${fmt(z)}² > ${fmt(x)}² + ${fmt(y)}²`;}
+    out(o,`<p>कोणत्याही दोन बाजूंची बेरीज तिसरीपेक्षा जास्त आहे ✓ त्रिकोण तयार होतो.</p><p class="ans">${bs}</p><p>कोनांवरून : <b>${as}</b> (${why})</p>`);
+  };
+  g('tThird').onclick=()=>{
+    const A=num(g('t1').value),B=num(g('t2').value),o=g('tThirdOut');
+    if([A,B].some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">दोन्ही कोन 0 पेक्षा मोठे लिहा.</p>');
+    const C=180-A-B; if(C<=0) return out(o,`<p class="err">${fmt(A)}° + ${fmt(B)}° = ${fmt(A+B)}°. ही बेरीज 180° पेक्षा कमी असायला हवी.</p>`);
+    out(o,`<p>तिसरा कोन = 180° − (${fmt(A)}° + ${fmt(B)}°)</p><p class="ans">= ${fmt(C)}°</p>`);
+  };
+  if(std===7){
+    g('pGo').onclick=()=>{const a=num(g('p1').value),b=num(g('p2').value),o=g('pOut');
+      if([a,b].some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">दोन्ही बाजू 0 पेक्षा मोठ्या लिहा.</p>');
+      const c2=a*a+b*b,c=Math.sqrt(c2),exact=Number.isInteger(c)||Math.abs(c-Math.round(c*100)/100)<1e-9;
+      out(o,`<p>(कर्ण)² = ${fmt(a)}² + ${fmt(b)}² = ${fmt(a*a)} + ${fmt(b*b)} = ${fmt(c2)}</p><p class="ans">कर्ण = ${exact?'':'सुमारे '}${fmt(c)} सेमी</p>`);};
+    g('pGo2').onclick=()=>{const h=num(g('p3').value),a=num(g('p4').value),o=g('pOut2');
+      if([h,a].some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">दोन्ही लांबी 0 पेक्षा मोठ्या लिहा.</p>');
+      if(a>=h) return out(o,'<p class="err">कर्ण ही सर्वांत मोठी बाजू असते. कर्ण दुसऱ्या बाजूपेक्षा मोठा लिहा.</p>');
+      const b2=h*h-a*a,b=Math.sqrt(b2),exact=Number.isInteger(b)||Math.abs(b-Math.round(b*100)/100)<1e-9;
+      out(o,`<p>(दुसरी बाजू)² = ${fmt(h)}² − ${fmt(a)}² = ${fmt(h*h)} − ${fmt(a*a)} = ${fmt(b2)}</p><p class="ans">दुसरी बाजू = ${exact?'':'सुमारे '}${fmt(b)} सेमी</p>`);};
+    g('aGo').onclick=()=>{const b=num(g('ab').value),h=num(g('ah').value),o=g('aOut');
+      if([b,h].some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">पाया व उंची 0 पेक्षा मोठी लिहा.</p>');
+      out(o,`<p>क्षेत्रफळ = ½ × ${fmt(b)} × ${fmt(h)}</p><p class="ans">= ${fmt(b*h/2)} चौसेमी</p>`);};
+  }
+}},
+
+quad:{sym:'□',title:'चौकोन',sub:()=>std===6?'चौकोनाचे भाग, प्रकार, कोनांची बेरीज':'प्रकार, गुणधर्म, परिमिती व क्षेत्रफळ',
+body:()=>`
+<div class="card"><h2>चौकोन म्हणजे काय?</h2>
+<p>चार बिंदू (त्यांतील कोणतेही तीन एकरेषीय नसलेले) क्रमाने रेषाखंडांनी जोडल्यावर तयार होणारी बंदिस्त आकृती म्हणजे चौकोन. चौकोन ABCD याला □ABCD असे लिहितात.</p>
+<div class="scroll"><table><tr><th>भाग</th><th>□ABCD मध्ये</th></tr>
+<tr><td>शिरोबिंदू (4)</td><td>A, B, C, D</td></tr>
+<tr><td>बाजू (4)</td><td>AB, BC, CD, DA</td></tr>
+<tr><td>कोन (4)</td><td>∠A, ∠B, ∠C, ∠D</td></tr>
+<tr><td>कर्ण (2)</td><td>AC, BD</td></tr>
+<tr><td>संलग्न बाजू</td><td>AB व BC, BC व CD, CD व DA, DA व AB</td></tr>
+<tr><td>संमुख बाजू</td><td>AB व CD, BC व AD</td></tr>
+<tr><td>संलग्न कोन</td><td>∠A व ∠B, ∠B व ∠C, ∠C व ∠D, ∠D व ∠A</td></tr>
+<tr><td>संमुख कोन</td><td>∠A व ∠C, ∠B व ∠D</td></tr></table></div>
+<div class="rule">चौकोनाच्या चारही कोनांच्या मापांची बेरीज 360° असते.</div>
+<p>कारण : एक कर्ण काढला की चौकोनाचे दोन त्रिकोण होतात. प्रत्येक त्रिकोणाच्या कोनांची बेरीज 180°, म्हणून 180° + 180° = 360°.</p></div>
+
+<div class="card"><h2>चौकोनांचे प्रकार</h2><div class="shapes">
+<div class="shape">${svgBox(QUAD.ayat)}<b>आयत</b><span>संमुख बाजू समान व समांतर; प्रत्येक कोन 90°; कर्ण समान लांबीचे</span></div>
+<div class="shape">${svgBox(QUAD.chaur)}<b>चौरस</b><span>चारही बाजू समान; प्रत्येक कोन 90°; कर्ण समान व परस्परांना लंब</span></div>
+<div class="shape">${svgBox(QUAD.sambhuj)}<b>समभुज चौकोन</b><span>चारही बाजू समान; संमुख कोन समान; कर्ण परस्परांना लंब</span></div>
+<div class="shape">${svgBox(QUAD.samantar)}<b>समांतरभुज चौकोन</b><span>संमुख बाजूंच्या दोन्ही जोड्या समांतर व समान; संमुख कोन समान</span></div>
+<div class="shape">${svgBox(QUAD.samlamb)}<b>समलंब चौकोन</b><span>संमुख बाजूंची फक्त एकच जोडी समांतर</span></div>
+<div class="shape">${svgBox(QUAD.patang)}<b>पतंग</b><span>संलग्न बाजूंच्या दोन जोड्या समान; कर्ण परस्परांना लंब</span></div>
+</div><p style="font-size:14.5px;color:var(--muted)">प्रत्येक चौरस हा आयतही आहे आणि समभुज चौकोनही आहे.</p></div>
+
+<div class="card"><h2>🧮 चौथा कोन काढा</h2>
+<div class="row"><div><label>∠A</label><input id="q1" inputmode="decimal" value="80"></div><div><label>∠B</label><input id="q2" inputmode="decimal" value="100"></div><div><label>∠C</label><input id="q3" inputmode="decimal" value="75"></div></div>
+<button class="go" id="qGo">∠D काढा</button><div class="out" id="qOut"></div></div>
+
+${std===7?`<div class="card"><h2>परिमिती व क्षेत्रफळ</h2>
+<div class="scroll"><table><tr><th>आकृती</th><th>परिमिती</th><th>क्षेत्रफळ</th></tr>
+<tr><td>आयत</td><td>2 × (लांबी + रुंदी)</td><td>लांबी × रुंदी</td></tr>
+<tr><td>चौरस</td><td>4 × बाजू</td><td>बाजू × बाजू</td></tr>
+<tr><td>समांतरभुज चौकोन</td><td>2 × (संलग्न बाजूंची बेरीज)</td><td>पाया × उंची</td></tr></table></div>
+<p>परिमिती एकरेषीय एककांत (सेमी, मी) आणि क्षेत्रफळ चौरस एककांत (चौसेमी, चौमी) लिहितात.</p>
+<div class="row"><div><label>आकृती</label><select id="pa"><option value="r">आयत</option><option value="s">चौरस</option></select></div>
+<div><label id="pl1">लांबी (सेमी)</label><input id="pv1" inputmode="decimal" value="12"></div><div id="pw"><label>रुंदी (सेमी)</label><input id="pv2" inputmode="decimal" value="5"></div></div>
+<button class="go" id="paGo">परिमिती व क्षेत्रफळ काढा</button><div class="out" id="paOut"></div></div>`:''}
+`,
+init(){
+  const g=id=>document.getElementById(id);
+  g('qGo').onclick=()=>{const a=[num(g('q1').value),num(g('q2').value),num(g('q3').value)],o=g('qOut');
+    if(a.some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">प्रत्येक कोन 0 पेक्षा मोठा लिहा.</p>');
+    const s=a[0]+a[1]+a[2],d=360-s; if(d<=0) return out(o,`<p class="err">तीन कोनांची बेरीज ${fmt(s)}° आहे. ती 360° पेक्षा कमी असायला हवी.</p>`);
+    out(o,`<p>∠D = 360° − (${fmt(a[0])}° + ${fmt(a[1])}° + ${fmt(a[2])}°) = 360° − ${fmt(s)}°</p><p class="ans">∠D = ${fmt(d)}°</p>`);};
+  if(std===7){
+    g('pa').onchange=()=>{const sq=g('pa').value==='s'; g('pw').classList.toggle('hidden',sq); g('pl1').textContent=sq?'बाजू (सेमी)':'लांबी (सेमी)';};
+    g('paGo').onclick=()=>{const sq=g('pa').value==='s',l=num(g('pv1').value),b=num(g('pv2').value),o=g('paOut');
+      if(isNaN(l)||l<=0||(!sq&&(isNaN(b)||b<=0))) return out(o,'<p class="err">मापे 0 पेक्षा मोठी लिहा.</p>');
+      if(sq) out(o,`<p>परिमिती = 4 × ${fmt(l)} = <b>${fmt(4*l)} सेमी</b></p><p>क्षेत्रफळ = ${fmt(l)} × ${fmt(l)} = <b>${fmt(l*l)} चौसेमी</b></p>`);
+      else out(o,`<p>परिमिती = 2 × (${fmt(l)} + ${fmt(b)}) = <b>${fmt(2*(l+b))} सेमी</b></p><p>क्षेत्रफळ = ${fmt(l)} × ${fmt(b)} = <b>${fmt(l*b)} चौसेमी</b></p>`);};
+  }
+}},
+
+pct:{sym:'%',title:'शेकडेवारी',sub:()=>std===6?'टक्के म्हणजे काय, टक्के काढणे, नफा–तोटा':'टक्के, शेकडा नफा–तोटा, सरळव्याज',
+body:()=>`
+<div class="card"><h2>शेकडेवारी म्हणजे काय?</h2>
+<p>"टक्के" म्हणजे "दर शंभरामागे". शेकडा हा शब्दही याच अर्थाने वापरतात. टक्क्यांसाठी <b>%</b> हे चिन्ह वापरतात.</p>
+<div class="eg">25% = 25/100 = 1/4 = 0.25<br>50% = 50/100 = 1/2 = 0.5<br>75% = 75/100 = 3/4 = 0.75<br>100% = संपूर्ण भाग</div>
+<div class="rule">अपूर्णांकाचे टक्के करण्यासाठी त्याला 100 ने गुणा. उदा. 3/5 × 100 = 60%</div>
+<div class="rule">एखाद्या संख्येचे x% = संख्या × x ÷ 100. उदा. 200 चे 25% = 200 × 25 ÷ 100 = 50</div>
+<div class="eg">उदाहरण : वर्गात 40 विद्यार्थी आहेत, त्यांपैकी 30 उपस्थित आहेत. उपस्थिती किती टक्के?<br>30/40 × 100 = 75%</div></div>
+
+<div class="card"><h2>🧮 टक्के कॅल्क्युलेटर</h2>
+<label>काय काढायचे आहे?</label>
+<select id="pm"><option value="1">एखाद्या संख्येचे x% किती?</option><option value="2">a ही संख्या b च्या किती टक्के?</option>
+<option value="3">अपूर्णांक → टक्के</option><option value="4">टक्के → अपूर्णांक</option></select>
+<div class="row" style="margin-top:8px"><div><label id="pl1">टक्के (x)</label><input id="pa1" inputmode="decimal" value="25"></div>
+<div id="pb"><label id="pl2">संख्या</label><input id="pa2" inputmode="decimal" value="200"></div></div>
+<button class="go" id="pcGo">उत्तर काढा</button><div class="out" id="pcOut"></div></div>
+
+<div class="card"><h2>नफा व तोटा</h2>
+<p><b>खरेदी किंमत :</b> वस्तू विकत घेण्यासाठी दिलेली किंमत. <b>विक्री किंमत :</b> वस्तू विकून मिळालेली किंमत.</p>
+<div class="rule">विक्री किंमत > खरेदी किंमत असल्यास नफा = विक्री किंमत − खरेदी किंमत<br>खरेदी किंमत > विक्री किंमत असल्यास तोटा = खरेदी किंमत − विक्री किंमत</div>
+${std===7?`<div class="rule">शेकडा नफा = (नफा ÷ खरेदी किंमत) × 100<br>शेकडा तोटा = (तोटा ÷ खरेदी किंमत) × 100</div>
+<p style="font-size:14.5px;color:var(--muted)">शेकडा नफा किंवा तोटा नेहमी खरेदी किमतीवर काढतात.</p>`:''}
+<div class="row"><div><label>खरेदी किंमत (₹)</label><input id="cp" inputmode="decimal" value="400"></div><div><label>विक्री किंमत (₹)</label><input id="sp" inputmode="decimal" value="500"></div></div>
+<button class="go" id="plGo">नफा / तोटा काढा</button><div class="out" id="plOut"></div></div>
+
+${std===7?`<div class="card"><h2>सरळव्याज</h2>
+<p>बँकेत ठेवलेल्या किंवा कर्जाऊ घेतलेल्या रकमेला <b>मुद्दल (P)</b> म्हणतात. दर वर्षी दर 100 रुपयांवर मिळणारे व्याज म्हणजे <b>व्याजाचा दर (R)</b>. <b>मुदत (N)</b> वर्षांत मोजतात.</p>
+<div class="rule">सरळव्याज (I) = (P × R × N) ÷ 100<br>रास (एकूण रक्कम) = मुद्दल + व्याज</div>
+<div class="eg">₹5000 मुद्दल, 8% दर, 3 वर्षे : I = 5000 × 8 × 3 ÷ 100 = ₹1200; रास = ₹6200</div>
+<div class="row"><div><label>मुद्दल P (₹)</label><input id="si1" inputmode="decimal" value="5000"></div><div><label>दर R (%)</label><input id="si2" inputmode="decimal" value="8"></div><div><label>मुदत N (वर्षे)</label><input id="si3" inputmode="decimal" value="3"></div></div>
+<button class="go" id="siGo">व्याज काढा</button><div class="out" id="siOut"></div></div>`:''}
+`,
+init(){
+  const g=id=>document.getElementById(id);
+  const labels={1:['टक्के (x)','संख्या'],2:['a','b'],3:['अंश','छेद'],4:['टक्के','']};
+  g('pm').onchange=()=>{const m=g('pm').value;g('pl1').textContent=labels[m][0];g('pl2').textContent=labels[m][1];g('pb').classList.toggle('hidden',m==='4');out(g('pcOut'),'');};
+  g('pcGo').onclick=()=>{
+    const m=g('pm').value,a=num(g('pa1').value),b=num(g('pa2').value),o=g('pcOut');
+    if(isNaN(a)||(m!=='4'&&isNaN(b))) return out(o,'<p class="err">संख्या नीट लिहा.</p>');
+    if(m==='1') return out(o,`<p>${fmt(b)} चे ${fmt(a)}% = ${fmt(b)} × ${fmt(a)} ÷ 100</p><p class="ans">= ${fmt(b*a/100)}</p>`);
+    if(m==='2'){ if(b===0) return out(o,'<p class="err">b शून्य असू शकत नाही.</p>');
+      return out(o,`<p>(${fmt(a)} ÷ ${fmt(b)}) × 100</p><p class="ans">= ${fmt(a/b*100)}%</p>`);}
+    if(m==='3'){ if(b===0) return out(o,'<p class="err">छेद शून्य असू शकत नाही.</p>');
+      return out(o,`<p>${fmt(a)}/${fmt(b)} × 100</p><p class="ans">= ${fmt(a/b*100)}%</p>`);}
+    // percent to fraction
+    let s=String(a),dec=s.includes('.')?s.split('.')[1].length:0; if(dec>4) dec=4;
+    let n=Math.round(a*Math.pow(10,dec)),d=100*Math.pow(10,dec),gg=gcd(Math.abs(n),d)||1;
+    out(o,`<p>${fmt(a)}% = ${fmt(a)}/100</p><p class="ans">= ${n/gg}/${d/gg}</p>`);
+  };
+  g('plGo').onclick=()=>{const c=num(g('cp').value),s=num(g('sp').value),o=g('plOut');
+    if([c,s].some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">दोन्ही किमती 0 पेक्षा जास्त लिहा.</p>');
+    if(s===c) return out(o,'<p class="ans">ना नफा ना तोटा</p>');
+    const p=s>c,amt=Math.abs(s-c);
+    let h=`<p>${p?'नफा':'तोटा'} = ${p?fmt(s)+' − '+fmt(c):fmt(c)+' − '+fmt(s)}</p><p class="ans">${p?'नफा':'तोटा'} = ₹${fmt(amt)}</p>`;
+    if(std===7) h+=`<p>शेकडा ${p?'नफा':'तोटा'} = (${fmt(amt)} ÷ ${fmt(c)}) × 100 = <b>${fmt(amt/c*100)}%</b></p>`;
+    out(o,h);};
+  if(std===7) g('siGo').onclick=()=>{const P=num(g('si1').value),R=num(g('si2').value),N=num(g('si3').value),o=g('siOut');
+    if([P,R,N].some(x=>isNaN(x)||x<=0)) return out(o,'<p class="err">सर्व किमती 0 पेक्षा जास्त लिहा.</p>');
+    const I=P*R*N/100; out(o,`<p>I = ${fmt(P)} × ${fmt(R)} × ${fmt(N)} ÷ 100</p><p class="ans">सरळव्याज = ₹${fmt(I)}</p><p>रास = ${fmt(P)} + ${fmt(I)} = <b>₹${fmt(P+I)}</b></p>`);};
+}},
+
+quiz:{sym:'✓',title:'सराव चाचणी',sub:()=>'सर्व घटकांवरील प्रश्न, उत्तराचे स्पष्टीकरणासह',
+body:()=>{const Q=QUIZ[std];return `<div class="scorebar"><span id="qs">गुण : 0 / ${Q.length}</span><button id="qr">पुन्हा सोडवा</button></div>`+
+Q.map((q,i)=>`<div class="q" data-i="${i}"><p>${i+1}. ${q.q}</p>${q.o.map((t,j)=>`<button class="opt" data-j="${j}">${t}</button>`).join('')}<div class="why hidden"></div></div>`).join('');},
+init(){
+  let sc=0,done=0; const Q=QUIZ[std];
+  document.querySelectorAll('.q').forEach(el=>{const q=Q[+el.dataset.i];
+    el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      el.querySelectorAll('.opt').forEach(x=>x.disabled=true);
+      const j=+b.dataset.j; if(j===q.a){b.classList.add('right');sc++;} else {b.classList.add('wrong');el.querySelectorAll('.opt')[q.a].classList.add('right');}
+      done++; const w=el.querySelector('.why'); out(w,(j===q.a?'✅ बरोबर! ':'❌ चुकले. ')+q.e); w.classList.remove('hidden');
+      out(document.getElementById('qs'),`गुण : ${sc} / ${Q.length}`+(done===Q.length?' 🎉':''));
+    });});
+  document.getElementById('qr').onclick=()=>openTopic('quiz',false);
+}}
+};
+
+const QUIZ={
+6:[
+{q:'12 व 18 यांचा मसावि किती?',o:['3','6','36','2'],a:1,e:'12 = 2×2×3, 18 = 2×3×3. सामाईक अवयव 2 व 3, म्हणून मसावि = 6.'},
+{q:'4 व 6 यांचा लसावि किती?',o:['24','2','12','10'],a:2,e:'4 चे पट : 4, 8, 12… 6 चे पट : 6, 12… सर्वांत लहान सामाईक पट 12.'},
+{q:'36 चे मूळ अवयव रूप कोणते?',o:['4 × 9','2 × 2 × 9','6 × 6','2 × 2 × 3 × 3'],a:3,e:'मूळ अवयव रूपात सर्व अवयव मूळ संख्या असायला हव्यात : 2 × 2 × 3 × 3.'},
+{q:'खालीलपैकी मूळ संख्या कोणती?',o:['9','15','13','21'],a:2,e:'13 चे विभाजक फक्त 1 व 13 आहेत.'},
+{q:'90° पेक्षा लहान मापाच्या कोनाला काय म्हणतात?',o:['विशालकोन','लघुकोन','सरळकोन','काटकोन'],a:1,e:'0° पेक्षा मोठा व 90° पेक्षा लहान कोन म्हणजे लघुकोन.'},
+{q:'सरळकोनाचे माप किती असते?',o:['90°','360°','180°','100°'],a:2,e:'सरळकोनाचे माप 180° असते.'},
+{q:'त्रिकोणाच्या तिन्ही कोनांच्या मापांची बेरीज किती?',o:['90°','180°','270°','360°'],a:1,e:'कोणत्याही त्रिकोणाच्या कोनांची बेरीज 180° असते.'},
+{q:'त्रिकोणाचे दोन कोन 50° व 60° आहेत. तिसरा कोन किती?',o:['70°','80°','110°','60°'],a:0,e:'180° − (50° + 60°) = 70°.'},
+{q:'तिन्ही बाजू समान लांबीच्या असलेल्या त्रिकोणाला काय म्हणतात?',o:['विषमभुज','समद्विभुज','समभुज','काटकोन'],a:2,e:'तिन्ही बाजू समान असल्यास तो समभुज त्रिकोण.'},
+{q:'3 सेमी, 4 सेमी व 8 सेमी लांबीच्या बाजूंचा त्रिकोण काढता येईल का?',o:['होय','नाही'],a:1,e:'3 + 4 = 7 हे 8 पेक्षा लहान आहे. दोन बाजूंची बेरीज तिसरीपेक्षा जास्त हवी.'},
+{q:'चौकोनाच्या चारही कोनांच्या मापांची बेरीज किती?',o:['180°','270°','360°','400°'],a:2,e:'चौकोनाचे दोन त्रिकोण होतात : 180° + 180° = 360°.'},
+{q:'50% म्हणजे कोणता अपूर्णांक?',o:['1/4','1/2','1/5','2/5'],a:1,e:'50% = 50/100 = 1/2.'},
+{q:'200 चे 25% किती?',o:['25','40','50','75'],a:2,e:'200 × 25 ÷ 100 = 50.'},
+{q:'खरेदी किंमत ₹300, विक्री किंमत ₹250. काय झाले?',o:['₹50 नफा','₹50 तोटा','₹550 नफा','ना नफा ना तोटा'],a:1,e:'खरेदी किंमत जास्त आहे, म्हणून तोटा = 300 − 250 = ₹50.'}
+],
+7:[
+{q:'24 व 36 यांचा लसावि किती?',o:['12','48','72','144'],a:2,e:'24 = 2×2×2×3, 36 = 2×2×3×3. लसावि = 2×2×2×3×3 = 72.'},
+{q:'दोन संख्यांचा मसावि 6 व लसावि 72 आहे. एक संख्या 18 असल्यास दुसरी संख्या किती?',o:['12','24','36','4'],a:1,e:'मसावि × लसावि = संख्यांचा गुणाकार : 6 × 72 = 18 × ?, म्हणून ? = 432 ÷ 18 = 24.'},
+{q:'8 व 15 यांचा मसावि किती?',o:['1','3','5','120'],a:0,e:'8 व 15 यांना 1 शिवाय सामाईक विभाजक नाही; त्या सहमूळ संख्या आहेत.'},
+{q:'35° मापाच्या कोनाचा कोटिकोन किती?',o:['55°','145°','65°','35°'],a:0,e:'कोटिकोनांची बेरीज 90° : 90° − 35° = 55°.'},
+{q:'110° मापाच्या कोनाचा पूरक कोन किती?',o:['20°','70°','90°','250°'],a:1,e:'पूरक कोनांची बेरीज 180° : 180° − 110° = 70°.'},
+{q:'दोन रेषा छेदल्यावर तयार होणाऱ्या विरुद्ध कोनांबद्दल काय खरे आहे?',o:['त्यांची बेरीज 90°','त्यांची मापे समान असतात','त्यांची बेरीज 360°','ते नेहमी काटकोन असतात'],a:1,e:'विरुद्ध कोन समान मापाचे असतात.'},
+{q:'रेषीय जोडीतील कोनांच्या मापांची बेरीज किती?',o:['90°','180°','270°','360°'],a:1,e:'रेषीय जोडीतील कोन पूरक असतात : बेरीज 180°.'},
+{q:'त्रिकोणाचा एक बाह्यकोन 120° आहे आणि एक दूरस्थ आंतरकोन 50° आहे. दुसरा दूरस्थ आंतरकोन किती?',o:['60°','70°','130°','50°'],a:1,e:'बाह्यकोन = दोन दूरस्थ आंतरकोनांची बेरीज : 120° − 50° = 70°.'},
+{q:'काटकोन त्रिकोणाच्या काटकोन करणाऱ्या बाजू 6 सेमी व 8 सेमी आहेत. कर्ण किती?',o:['10 सेमी','14 सेमी','12 सेमी','7 सेमी'],a:0,e:'(कर्ण)² = 36 + 64 = 100, म्हणून कर्ण = 10 सेमी.'},
+{q:'खालीलपैकी पायथागोरसचे त्रिकूट कोणते?',o:['(4, 5, 6)','(2, 3, 4)','(5, 12, 13)','(6, 7, 8)'],a:2,e:'5² + 12² = 25 + 144 = 169 = 13².'},
+{q:'आयताची लांबी 12 सेमी व रुंदी 5 सेमी आहे. क्षेत्रफळ किती?',o:['34 चौसेमी','60 चौसेमी','17 चौसेमी','120 चौसेमी'],a:1,e:'क्षेत्रफळ = लांबी × रुंदी = 12 × 5 = 60 चौसेमी.'},
+{q:'7 सेमी बाजूच्या चौरसाची परिमिती किती?',o:['14 सेमी','49 सेमी','28 सेमी','21 सेमी'],a:2,e:'परिमिती = 4 × बाजू = 4 × 7 = 28 सेमी.'},
+{q:'खरेदी किंमत ₹400, विक्री किंमत ₹500. शेकडा नफा किती?',o:['20%','25%','100%','10%'],a:1,e:'नफा ₹100. शेकडा नफा = (100 ÷ 400) × 100 = 25%.'},
+{q:'₹5000 वर 8% दराने 3 वर्षांचे सरळव्याज किती?',o:['₹400','₹1200','₹1500','₹6200'],a:1,e:'I = 5000 × 8 × 3 ÷ 100 = ₹1200.'}
+]};
+
+/* ---------- HCF/LCM calculator ---------- */
+function calcHCF(){
+  const o=document.getElementById('hOut');
+  const raw=['h1','h2','h3'].map(id=>{const e=document.getElementById(id);return e?e.value.trim():''}).filter(v=>v!=='');
+  const ns=raw.map(num);
+  if(ns.length<2) return out(o,'<p class="err">किमान दोन संख्या लिहा.</p>');
+  if(ns.some(n=>!Number.isInteger(n)||n<1||n>99999)) return out(o,'<p class="err">1 ते 99999 मधील पूर्ण संख्याच लिहा.</p>');
+  const facs=ns.map(pf), cs=facs.map(counts);
+  const primes=[...new Set(facs.flat())].sort((a,b)=>a-b);
+  const H=ns.reduce(gcd), L=ns.reduce(lcm);
+  let h='<div class="card" style="margin:0 0 12px"><h3>पद्धत १ : मूळ अवयव पद्धत</h3>';
+  ns.forEach((n,i)=>{ h+=`<div class="eg">${n} = ${n===1?'1 (1 ला मूळ अवयव नाहीत)':facs[i].join(' × ')}</div>`; });
+  const common=[]; primes.forEach(p=>{const m=Math.min(...cs.map(c=>c[p]||0));for(let k=0;k<m;k++)common.push(p);});
+  h+= common.length?`<p>सामाईक मूळ अवयव : ${common.join(', ')}</p><p>मसावि = ${common.join(' × ')} = <span class="ans">${H}</span></p>`
+                   :`<p>सामाईक मूळ अवयव नाही, म्हणून मसावि = <span class="ans">1</span></p>`;
+  if(ns.length===2){
+    const rem=cs.map(c=>{const r=[];primes.forEach(p=>{const k=(c[p]||0)-common.filter(x=>x===p).length;for(let t=0;t<k;t++)r.push(p);});return r;});
+    const parts=[common.length?`(${common.join(' × ')})`:null,...rem[0],...rem[1]].filter(x=>x!==null);
+    h+=`<p>उरलेले अवयव : ${ns[0]} मधील ${rem[0].length?rem[0].join(', '):'काही नाही'}; ${ns[1]} मधील ${rem[1].length?rem[1].join(', '):'काही नाही'}</p>`;
+    h+=`<p>लसावि = सामाईक अवयव × उरलेले अवयव = ${parts.length?parts.join(' × '):'1'} = <span class="ans">${L}</span></p>`;
+  } else {
+    const mx=[]; primes.forEach(p=>{const m=Math.max(...cs.map(c=>c[p]||0));for(let k=0;k<m;k++)mx.push(p);});
+    h+=`<p>प्रत्येक मूळ अवयव, कोणत्याही एका संख्येत तो जास्तीत जास्त जितक्या वेळा आला आहे तितक्या वेळा घेऊन :</p><p>लसावि = ${mx.length?mx.join(' × '):'1'} = <span class="ans">${L}</span></p>`;
+  }
+  h+='</div>';
+  // division HCF
+  h+='<div class="card" style="margin:0 0 12px"><h3>पद्धत २ : भागाकार पद्धतीने मसावि</h3>';
+  const divTable=(x,y)=>{let a=Math.max(x,y),b=Math.min(x,y),rows='';
+    while(true){const q=Math.floor(a/b),r=a%b;rows+=`<tr><td>${a}</td><td>${r===0?'<b>'+b+'</b>':b}</td><td>${q}</td><td>${r}</td></tr>`;if(r===0)break;a=b;b=r;}
+    return `<div class="scroll"><table><tr><th>भाज्य</th><th>भाजक</th><th>भागाकार</th><th>बाकी</th></tr>${rows}</table></div>`;};
+  const g1=gcd(ns[0],ns[1]);
+  h+=`<p>${ns[0]} व ${ns[1]} :</p>`+divTable(ns[0],ns[1])+`<p>बाकी 0 आली, म्हणून शेवटचा भाजक ${g1} हा ${ns[0]} व ${ns[1]} चा मसावि.</p>`;
+  if(ns.length===3){ h+=`<p>आता ${g1} व ${ns[2]} यांचा मसावि काढू :</p>`+divTable(g1,ns[2])+`<p>म्हणून तिन्ही संख्यांचा मसावि = <span class="ans">${H}</span></p>`; }
+  else h+=`<p>मसावि = <span class="ans">${H}</span></p>`;
+  h+='</div>';
+  // ladder LCM
+  let cur=[...ns],rows='',divs=[];
+  while(cur.some(x=>x>1)){const p=Math.min(...cur.filter(x=>x>1).map(spf));divs.push(p);
+    rows+=`<tr><td class="dv">${p}</td>${cur.map(x=>`<td>${x}</td>`).join('')}</tr>`;cur=cur.map(x=>x%p===0?x/p:x);}
+  rows+=`<tr><td></td>${cur.map(x=>`<td>${x}</td>`).join('')}</tr>`;
+  h+=`<div class="card" style="margin:0 0 12px"><h3>पद्धत २ : भागाकार पद्धतीने लसावि</h3><div class="scroll"><table>${rows}</table></div>
+  <p>लसावि = सर्व भाजकांचा गुणाकार = ${divs.length?divs.join(' × '):'1'} = <span class="ans">${L}</span></p></div>`;
+  if(ns.length===2) h+=`<div class="rule">पडताळा : मसावि × लसावि = ${H} × ${L} = ${H*L} आणि ${ns[0]} × ${ns[1]} = ${ns[0]*ns[1]} ✓</div>`;
+  out(o,h);
+}
+
+/* ---------- angle tool ---------- */
+function drawAngle(v){
+  out(document.getElementById('angPic'),angleSVG(v));
+  let t = v===0?'शून्य कोन':v<90?'लघुकोन':v===90?'काटकोन':v<180?'विशालकोन':v===180?'सरळकोन':v<360?'प्रविशाल कोन':'पूर्ण कोन';
+  let h=`<p><span class="tag">${fmt(v)}°</span> हा <b>${t}</b> आहे.</p>`;
+  if(std===7){
+    h+= (v>0&&v<90)?`<p>कोटिकोन = 90° − ${fmt(v)}° = <b>${fmt(90-v)}°</b></p>`:`<p>कोटिकोन : फक्त 0° ते 90° मधील कोनाला असतो.</p>`;
+    h+= (v>0&&v<180)?`<p>पूरक कोन = 180° − ${fmt(v)}° = <b>${fmt(180-v)}°</b></p>`:`<p>पूरक कोन : फक्त 0° ते 180° मधील कोनाला असतो.</p>`;
+  }
+  out(document.getElementById('angOut'),h);
+}
+
+/* ---------- screens ---------- */
+const bar=document.getElementById('bar'), barTitle=document.getElementById('barTitle');
+function renderHome(){
+  bar.classList.add('hidden');
+  out(app,`<section class="hero"><h1>Nayan Kalpande Math<span>गणित – सराव व समज</span></h1>
+  <p>जिल्हा परिषद शाळांतील विद्यार्थ्यांसाठी मराठी माध्यम गणित अभ्यास.</p></section>
+  ${window.NK&&NK.profile?`<div class="acct"><span>नमस्कार, <b>${escH(String(NK.profile.name).split(' ')[0])}</b> 👋</span><button class="iconbtn" id="hTop">🏆 टॉप १०</button><button class="iconbtn" id="hAcc" aria-label="माझे खाते">👤</button></div>`:''}
+  <h2 style="margin:22px 0 0;font-size:22px">तुमची इयत्ता निवडा</h2>
+  <div class="std-grid">
+    <button class="std-tile ${std===6?'chosen':''}" data-s="6"><span class="std-num">६</span><span class="std-lab">इयत्ता सहावी</span></button>
+    <button class="std-tile ${std===7?'chosen':''}" data-s="7"><span class="std-num">७</span><span class="std-lab">इयत्ता सातवी</span></button>
+  </div>
+  <p class="note">ही माहिती महाराष्ट्र राज्य मंडळाच्या इयत्ता ६ वी व ७ वी गणित अभ्यासक्रमातील घटकांवर आधारित आहे. पाठ्यपुस्तकासोबत सरावासाठी वापरा.</p>`);
+  app.querySelectorAll('.std-tile').forEach(b=>b.onclick=()=>{std=+b.dataset.s;try{localStorage.setItem('nkm-std',std)}catch(e){}go({screen:'menu'});});
+  const ht=document.getElementById('hTop'),ha=document.getElementById('hAcc'); if(ht) ht.onclick=()=>NK.showTop10(); if(ha) ha.onclick=()=>NK.showProfile();
+}
+function renderMenu(){
+  bar.classList.remove('hidden'); barTitle.innerHTML=`${stdWord()}<small>Nayan Kalpande Math</small>`;
+  out(app,`<h2 style="margin:6px 0 4px">घटक निवडा</h2>`+Object.entries(TOPICS).map(([k,t])=>
+    `<button class="topic" data-k="${k}"><span class="sym">${t.sym}</span><span><b>${t.title}</b><span>${t.sub()}</span></span></button>`).join('')+
+    (window.NK?`<button class="topic" id="mTop"><span class="sym">🏆</span><span><b>टॉप १० वापरकर्ते</b><span>सर्वाधिक अभ्यास करणारे विद्यार्थी व शिक्षक</span></span></button>
+    <button class="topic" id="mAcc"><span class="sym">👤</span><span><b>माझे खाते</b><span>माहिती, लॉग आउट, खाते हटवणे</span></span></button>`:''));
+  const mt=document.getElementById('mTop'),ma=document.getElementById('mAcc'); if(mt) mt.onclick=()=>NK.showTop10(); if(ma) ma.onclick=()=>NK.showProfile();
+  app.querySelectorAll('.topic').forEach(b=>b.onclick=()=>go({screen:'topic',topic:b.dataset.k}));
+}
+function openTopic(k){
+  const t=TOPICS[k]; bar.classList.remove('hidden'); barTitle.innerHTML=`${t.title}<small>${stdWord()}</small>`;
+  out(app,t.body()); t.init&&t.init(); window.scrollTo(0,0);
+}
+function render(){
+  if(!std && current.screen!=='home') current={screen:'home'};
+  if(current.screen==='home') renderHome(); else if(current.screen==='menu') renderMenu(); else openTopic(current.topic);
+  document.getElementById('digitBtn').textContent=useMr?'१२३':'123';
+}
+function go(state){ current=state; try{history.pushState(state,'')}catch(e){} render(); window.scrollTo(0,0); }
+window.addEventListener('popstate',e=>{ current=e.state||{screen:'home'}; render(); });
+document.getElementById('backBtn').onclick=()=>{ if(history.state&&history.state.screen!=='home') history.back(); else go({screen:'home'}); };
+document.getElementById('digitBtn').onclick=()=>{ useMr=!useMr; try{localStorage.setItem('nkm-digits',useMr?'mr':'en')}catch(e){} render(); };
+try{history.replaceState({screen:'home'},'')}catch(e){}
+render();
+if(window.NK) NK.onReady(p=>{ if(!std&&p&&(p.cls==='6'||p.cls==='7')){ std=+p.cls; try{localStorage.setItem('nkm-std',std)}catch(e){} } render(); });
+</script>
+</body>
+</html>

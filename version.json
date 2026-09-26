@@ -1,0 +1,8 @@
+{
+  "math":    { "versionCode": 3, "versionName": "2.0", "minVersionCode": 3,
+               "url": "https://github.com/AdityaKalpandeEren/ZPNayanKalpande/releases/latest/download/Nayan-Kalpande-Math.apk",
+               "notes": "लॉगिन, टॉप १० आणि आपोआप अपडेट होणारा अभ्यास." },
+  "english": { "versionCode": 3, "versionName": "2.0", "minVersionCode": 3,
+               "url": "https://github.com/AdityaKalpandeEren/ZPNayanKalpande/releases/latest/download/Nayan-Kalpande-English.apk",
+               "notes": "Login, Top 10 and auto-updating lessons." }
+}
